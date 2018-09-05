@@ -12,12 +12,12 @@ class BreedController {
     
     //MARK: - Properties
     static var breeds: [Breed] = []
-    //MARK: Base URL for API
+
     static let baseURL = URL(string: "https://dog.ceo/api")
     
-    //MARK: - Get Breeds from API
+    //MARK: - GET request for breeds from API
     static func getBreeds(completion: @escaping (() -> Void)) {
-        guard let baseURL = baseURL else { completion() ; return }
+        guard let baseURL = baseURL else { completion(); return }
         
         let fullURL = baseURL.appendingPathComponent("breeds").appendingPathComponent("list").appendingPathComponent("all")
         
@@ -30,37 +30,37 @@ class BreedController {
                 print("There was an error with GET URL request: \(error.localizedDescription)")
             }
             
-            guard let data = data else { completion() ; return }
+            guard let data = data else { completion(); return }
             
             guard let json = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any] else {
                 completion()
                 return
             }
             
-            guard let breedList = json["message"] as? [String: [String]] else { completion() ; return }
+            guard let breedList = json["message"] as? [String: [String]] else { completion(); return }
             for (key, value) in breedList {
                 if value.isEmpty {
-                    guard let newBreed = Breed(name: key, breedImageGetterAsString: key) else { completion() ; return }
+                    let newBreed = Breed(name: key, breedURLComponentAsString: key)
                     breeds.append(newBreed)
                 } else {
                     for i in value {
                         let breedString = "\(i) \(key)"
                         let breedImageString = "\(key)-\(i)"
-                        guard let newBreed = Breed(name: breedString, breedImageGetterAsString: breedImageString) else { completion() ; return }
+                        let newBreed = Breed(name: breedString, breedURLComponentAsString: breedImageString)
                         breeds.append(newBreed)
                     }
                 }
             }
-            breeds.sort{$0.name < $1.name}
+            breeds.sort { $0.name < $1.name }
             completion()
         }
         dataTask.resume()
     }
     
-    //MARK: - Random image GET reuqest from API
+    //MARK: - Random image GET request from API
     static func getRandomImageFor(breed: Breed, completion: @escaping ((UIImage?) -> Void)) {
-        guard let baseURL = baseURL else { completion(nil) ; return }
-        let fullURL = baseURL.appendingPathComponent("breed").appendingPathComponent(breed.breedImageGetterAsString).appendingPathComponent("images").appendingPathComponent("random")
+        guard let baseURL = baseURL else { completion(nil); return }
+        let fullURL = baseURL.appendingPathComponent("breed").appendingPathComponent(breed.breedURLComponentAsString).appendingPathComponent("images").appendingPathComponent("random")
 
         var request = URLRequest(url: fullURL)
         request.httpMethod = "GET"
@@ -75,7 +75,7 @@ class BreedController {
 
             guard let data = data else {
                 print("Data error")
-                completion(nil) ; return }
+                completion(nil); return }
             
             do {
                 guard let json = (try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:String]),

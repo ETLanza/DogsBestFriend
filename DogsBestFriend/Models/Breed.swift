@@ -11,10 +11,5 @@ import UIKit
 struct Breed: Codable {
     
     let name: String
-    let breedImageGetterAsString: String
-    
-    init?(name: String, breedImageGetterAsString: String) {
-        self.name = name
-        self.breedImageGetterAsString = breedImageGetterAsString
-    }
+    let breedURLComponentAsString: String
 }
