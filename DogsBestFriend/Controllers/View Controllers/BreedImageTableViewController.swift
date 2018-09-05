@@ -9,7 +9,7 @@
 import UIKit
 
 class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     //MARK: - Properties
     @IBOutlet weak var dogBreedTextField: UITextField!
     @IBOutlet weak var dogBreedImageView: UIImageView!
@@ -20,7 +20,7 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRandomImageButton.layer.cornerRadius = 20
+        getRandomImageButton.layer.cornerRadius = 12
         getRandomImageButton.clipsToBounds = true
         BreedController.getBreeds {
         }
@@ -28,10 +28,18 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     }
     
     @IBAction func getRandomImageTapped(_ sender: UIButton) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        dogBreedTextField.resignFirstResponder()
         let index = breedPicker.selectedRow(inComponent: 0)
         let breed = BreedController.breeds[index]
         BreedController.getRandomImageFor(breed: breed) { (image) in
+            if image == nil {
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
+            }
             DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.dogBreedImageView.image = image
             }
         }
@@ -58,6 +66,5 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         dogBreedTextField.text = BreedController.breeds[row].name
-        dogBreedTextField.resignFirstResponder()
     }
 }
