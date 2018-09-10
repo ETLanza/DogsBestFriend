@@ -33,7 +33,7 @@
             </objects>
             <point key="canvasLocation" x="-3505" y="500"/>
         </scene>
-        <!--Your Dog View Controller-->
+        <!--Your Dog-->
         <scene sceneID="eDd-gx-Txk">
             <objects>
                 <viewController id="r4L-hD-09M" customClass="YourDogViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +88,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mby-E4-njy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hfJ-Fl-tVt"/>
+                    <tabBarItem key="tabBarItem" title="Your Dog" image="yourDogIcon" id="1vV-Nx-hKb"/>
+                    <navigationItem key="navigationItem" title="Your Dog" id="hfJ-Fl-tVt"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8K-jQ-tDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,6 +98,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="yourDogIcon" width="24" height="22"/>
         <namedColor name="grey">
             <color red="0.83899998664855957" green="0.83899998664855957" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

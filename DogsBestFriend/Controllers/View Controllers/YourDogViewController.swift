@@ -16,6 +16,5 @@ class YourDogViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
     }
 }
