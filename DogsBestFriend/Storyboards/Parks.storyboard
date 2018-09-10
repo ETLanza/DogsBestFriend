@@ -49,7 +49,10 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="postal-code"/>
+                                <connections>
+                                    <outlet property="delegate" destination="YPl-eL-Q4C" id="5E2-UI-HBp"/>
+                                </connections>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mmU-ib-uHv">
                                 <rect key="frame" x="0.0" y="94" width="414" height="368"/>
@@ -108,6 +111,10 @@
                                             <constraint firstItem="bp9-5X-sWg" firstAttribute="centerX" secondItem="eS2-6h-BnQ" secondAttribute="centerX" id="291-l9-saL"/>
                                             <constraint firstItem="bp9-5X-sWg" firstAttribute="centerY" secondItem="eS2-6h-BnQ" secondAttribute="centerY" id="mrF-ri-Q5e"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="gus-W7-mAY" appends="YES" id="rib-of-pFb"/>
+                                            <outletCollection property="gestureRecognizers" destination="ZyD-Ob-qvw" appends="YES" id="oKg-3g-d6a"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" name="midnight"/>
@@ -129,11 +136,12 @@
                             <constraint firstItem="mmU-ib-uHv" firstAttribute="height" secondItem="Aac-uv-AnJ" secondAttribute="height" multiplier="0.5" id="9WZ-K7-Abv"/>
                             <constraint firstItem="y85-B6-iE0" firstAttribute="leading" secondItem="JFG-Bj-Mkr" secondAttribute="leading" id="ESp-XH-hFI"/>
                             <constraint firstItem="JFG-Bj-Mkr" firstAttribute="trailing" secondItem="FrA-RZ-OUB" secondAttribute="trailing" id="Ics-Ij-WbG"/>
+                            <constraint firstItem="y85-B6-iE0" firstAttribute="top" secondItem="mmU-ib-uHv" secondAttribute="bottom" priority="999" id="QGH-Bd-aXB"/>
                             <constraint firstItem="y85-B6-iE0" firstAttribute="height" secondItem="JFG-Bj-Mkr" secondAttribute="height" constant="-30" id="aFQ-Sk-VNY"/>
                             <constraint firstItem="JFG-Bj-Mkr" firstAttribute="trailing" secondItem="mmU-ib-uHv" secondAttribute="trailing" id="bph-te-0E8"/>
                             <constraint firstItem="JFG-Bj-Mkr" firstAttribute="trailing" secondItem="y85-B6-iE0" secondAttribute="trailing" id="dqg-qB-FbX"/>
                             <constraint firstItem="mmU-ib-uHv" firstAttribute="top" secondItem="FrA-RZ-OUB" secondAttribute="bottom" id="goo-eJ-Qzo"/>
-                            <constraint firstItem="y85-B6-iE0" firstAttribute="top" secondItem="mmU-ib-uHv" secondAttribute="bottom" id="hiE-4s-o1a"/>
+                            <constraint firstItem="y85-B6-iE0" firstAttribute="top" secondItem="FrA-RZ-OUB" secondAttribute="bottom" priority="998" id="hiE-4s-o1a"/>
                             <constraint firstItem="FrA-RZ-OUB" firstAttribute="leading" secondItem="JFG-Bj-Mkr" secondAttribute="leading" id="j54-c6-sc3"/>
                             <constraint firstItem="FrA-RZ-OUB" firstAttribute="top" secondItem="JFG-Bj-Mkr" secondAttribute="top" id="uPT-W8-1qQ"/>
                         </constraints>
@@ -142,12 +150,30 @@
                     <tabBarItem key="tabBarItem" title="Parks" image="dogParkIcon" id="2SU-g8-g4m"/>
                     <navigationItem key="navigationItem" title="Dog parks" id="7Oe-8j-l31"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="drawerClosedConstraint" destination="QGH-Bd-aXB" id="Lkq-fZ-Oi3"/>
+                        <outlet property="drawerOpenConstraint" destination="hiE-4s-o1a" id="US4-tN-z6P"/>
+                        <outlet property="drawerView" destination="y85-B6-iE0" id="SuP-zx-SlC"/>
+                        <outlet property="mapView" destination="mmU-ib-uHv" id="tW9-lU-2YO"/>
+                        <outlet property="parksTableView" destination="enK-Uj-5Ff" id="fRH-S9-e3e"/>
+                        <outlet property="zipCodeTextField" destination="FrA-RZ-OUB" id="GDK-Ye-efk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nv1-Rt-fvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="gus-W7-mAY">
+                    <connections>
+                        <action selector="drawerSwipedUp:" destination="YPl-eL-Q4C" id="MyG-U4-r9D"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="ZyD-Ob-qvw">
+                    <connections>
+                        <action selector="drawerSwipedDown:" destination="YPl-eL-Q4C" id="IqF-br-93r"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-159.19999999999999" y="499.70014992503752"/>
         </scene>
-        <!--Title-->
+        <!--(park's name)-->
         <scene sceneID="NVu-GZ-XPD">
             <objects>
                 <viewController id="NZ4-vy-Qc8" sceneMemberID="viewController">
@@ -157,7 +183,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="WGb-GB-xYg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="wut-Kw-4u7"/>
+                    <navigationItem key="navigationItem" title="(park's name)" id="wut-Kw-4u7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0i-WH-5IY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,12 +194,6 @@
         <image name="dogParkIcon" width="21" height="21"/>
         <namedColor name="grey">
             <color red="0.83899998664855957" green="0.83899998664855957" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="grey">
-            <color red="0.83899998664855957" green="0.83899998664855957" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="midnight">
-            <color red="0.2199999988079071" green="0.52499997615814209" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="midnight">
             <color red="0.2199999988079071" green="0.52499997615814209" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
