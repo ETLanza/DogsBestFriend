@@ -16,7 +16,6 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     @IBOutlet weak var breedPicker: UIPickerView!
     @IBOutlet weak var getRandomImageButton: UIButton!
     
-    
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +60,10 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     
     //MARK: - UIPicker Delegate Methods
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return BreedController.breeds[row].name
+        return BreedController.breeds[row].name.capitalized
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        dogBreedTextField.text = BreedController.breeds[row].name
+        dogBreedTextField.text = BreedController.breeds[row].name.capitalized
     }
 }
