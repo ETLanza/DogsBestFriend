@@ -9,34 +9,34 @@
 import UIKit
 
 class BreedController {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     static var breeds: [Breed] = []
 
     static let baseURL = URL(string: "https://dog.ceo/api")
-    
-    //MARK: - GET request for breeds from API
+
+    // MARK: - GET request for breeds from API
     static func getBreeds(completion: @escaping ((Bool) -> Void)) {
         guard let baseURL = baseURL else { completion(false); return }
-        
+
         let fullURL = baseURL.appendingPathComponent("breeds").appendingPathComponent("list").appendingPathComponent("all")
-        
+
         var request = URLRequest(url: fullURL)
         request.httpMethod = "GET"
         request.httpBody = nil
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 print("There was an error with GET URL request: \(error.localizedDescription)")
             }
-            
+
             guard let data = data else { completion(false); return }
-            
-            guard let json = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any] else {
+
+            guard let json = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else {
                 completion(false)
                 return
             }
-            
+
             guard let breedList = json["message"] as? [String: [String]] else { completion(false); return }
             for (key, value) in breedList {
                 if value.isEmpty {
@@ -56,8 +56,8 @@ class BreedController {
         }
         dataTask.resume()
     }
-    
-    //MARK: - Random image GET request from API
+
+    // MARK: - Random image GET request from API
     static func getRandomImageFor(breed: Breed, completion: @escaping ((UIImage?) -> Void)) {
         guard let baseURL = baseURL else { completion(nil); return }
         let fullURL = baseURL.appendingPathComponent("breed").appendingPathComponent(breed.breedURLComponentAsString).appendingPathComponent("images").appendingPathComponent("random")
@@ -65,8 +65,8 @@ class BreedController {
         var request = URLRequest(url: fullURL)
         request.httpMethod = "GET"
         request.httpBody = nil
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 print("Error with image data task: \(error.localizedDescription)")
                 completion(nil)
@@ -76,9 +76,9 @@ class BreedController {
             guard let data = data else {
                 print("Data error")
                 completion(nil); return }
-            
+
             do {
-                guard let json = (try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:String]),
+                guard let json = (try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: String]),
                 let imageURLAsString = json["message"],
                 let url = URL(string: imageURLAsString),
                 let data = try? Data(contentsOf: url),
