@@ -9,14 +9,14 @@
 import UIKit
 
 class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     @IBOutlet weak var dogBreedTextField: UITextField!
     @IBOutlet weak var dogBreedImageView: UIImageView!
     @IBOutlet weak var breedPicker: UIPickerView!
     @IBOutlet weak var getRandomImageButton: UIButton!
-    
-    //MARK: - Life Cycle Methods
+
+    // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         getRandomImageButton.layer.cornerRadius = 12
@@ -24,13 +24,13 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
         BreedController.getBreeds { success in
             if success {
                 DispatchQueue.main.async {
-                    self.dogBreedTextField.inputView = self.breedPicker                    
+                    self.dogBreedTextField.inputView = self.breedPicker
                 }
             }
         }
     }
-    
-    //MARK: - IBActions
+
+    // MARK: - IBActions
     @IBAction func getRandomImageTapped(_ sender: UIButton) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         dogBreedTextField.resignFirstResponder()
@@ -48,26 +48,26 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
             }
         }
     }
-    
-    //MARK: - Gesture Recognizer
+
+    // MARK: - Gesture Recognizer
     @IBAction func userTappedView(_ sender: UITapGestureRecognizer) {
         dogBreedTextField.resignFirstResponder()
     }
-    
-    //MARK: - UIPicker Data Source Methods
+
+    // MARK: - UIPicker Data Source Methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return BreedController.breeds.count
     }
-    
-    //MARK: - UIPicker Delegate Methods
+
+    // MARK: - UIPicker Delegate Methods
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return BreedController.breeds[row].name.capitalized
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         dogBreedTextField.text = BreedController.breeds[row].name.capitalized
     }
