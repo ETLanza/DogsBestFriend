@@ -152,7 +152,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="drawerClosedConstraint" destination="QGH-Bd-aXB" id="Lkq-fZ-Oi3"/>
-                        <outlet property="drawerOpenConstraint" destination="hiE-4s-o1a" id="US4-tN-z6P"/>
                         <outlet property="drawerView" destination="y85-B6-iE0" id="SuP-zx-SlC"/>
                         <outlet property="mapView" destination="mmU-ib-uHv" id="tW9-lU-2YO"/>
                         <outlet property="parksTableView" destination="enK-Uj-5Ff" id="fRH-S9-e3e"/>

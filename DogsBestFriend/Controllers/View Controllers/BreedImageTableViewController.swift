@@ -21,11 +21,16 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
         super.viewDidLoad()
         getRandomImageButton.layer.cornerRadius = 12
         getRandomImageButton.clipsToBounds = true
-        BreedController.getBreeds {
+        BreedController.getBreeds { success in
+            if success {
+                DispatchQueue.main.async {
+                    self.dogBreedTextField.inputView = self.breedPicker                    
+                }
+            }
         }
-        dogBreedTextField.inputView = breedPicker
     }
     
+    //MARK: - IBActions
     @IBAction func getRandomImageTapped(_ sender: UIButton) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         dogBreedTextField.resignFirstResponder()

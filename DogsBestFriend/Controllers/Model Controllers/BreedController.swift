@@ -16,8 +16,8 @@ class BreedController {
     static let baseURL = URL(string: "https://dog.ceo/api")
     
     //MARK: - GET request for breeds from API
-    static func getBreeds(completion: @escaping (() -> Void)) {
-        guard let baseURL = baseURL else { completion(); return }
+    static func getBreeds(completion: @escaping ((Bool) -> Void)) {
+        guard let baseURL = baseURL else { completion(false); return }
         
         let fullURL = baseURL.appendingPathComponent("breeds").appendingPathComponent("list").appendingPathComponent("all")
         
@@ -30,14 +30,14 @@ class BreedController {
                 print("There was an error with GET URL request: \(error.localizedDescription)")
             }
             
-            guard let data = data else { completion(); return }
+            guard let data = data else { completion(false); return }
             
             guard let json = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any] else {
-                completion()
+                completion(false)
                 return
             }
             
-            guard let breedList = json["message"] as? [String: [String]] else { completion(); return }
+            guard let breedList = json["message"] as? [String: [String]] else { completion(false); return }
             for (key, value) in breedList {
                 if value.isEmpty {
                     let newBreed = Breed(name: key, breedURLComponentAsString: key)
@@ -52,7 +52,7 @@ class BreedController {
                 }
             }
             breeds.sort { $0.name < $1.name }
-            completion()
+            completion(true)
         }
         dataTask.resume()
     }
