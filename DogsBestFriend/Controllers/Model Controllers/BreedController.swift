@@ -9,13 +9,14 @@
 import UIKit
 
 class BreedController {
-
     // MARK: - Properties
+
     static var breeds: [Breed] = []
 
     static let baseURL = URL(string: "https://dog.ceo/api")
 
     // MARK: - GET request for breeds from API
+
     static func getBreeds(completion: @escaping ((Bool) -> Void)) {
         guard let baseURL = baseURL else { completion(false); return }
 
@@ -25,7 +26,7 @@ class BreedController {
         request.httpMethod = "GET"
         request.httpBody = nil
 
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 print("There was an error with GET URL request: \(error.localizedDescription)")
             }
@@ -58,6 +59,7 @@ class BreedController {
     }
 
     // MARK: - Random image GET request from API
+
     static func getRandomImageFor(breed: Breed, completion: @escaping ((UIImage?) -> Void)) {
         guard let baseURL = baseURL else { completion(nil); return }
         let fullURL = baseURL.appendingPathComponent("breed").appendingPathComponent(breed.breedImageURLAsString).appendingPathComponent("images").appendingPathComponent("random")
@@ -66,7 +68,7 @@ class BreedController {
         request.httpMethod = "GET"
         request.httpBody = nil
 
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 print("Error with image data task: \(error.localizedDescription)")
                 completion(nil)
@@ -79,10 +81,10 @@ class BreedController {
 
             do {
                 guard let json = (try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: String]),
-                let imageURLAsString = json["message"],
-                let url = URL(string: imageURLAsString),
-                let data = try? Data(contentsOf: url),
-                let image = UIImage(data: data) else {
+                    let imageURLAsString = json["message"],
+                    let url = URL(string: imageURLAsString),
+                    let data = try? Data(contentsOf: url),
+                    let image = UIImage(data: data) else {
                     completion(nil)
                     return
                 }
