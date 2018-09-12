@@ -15,7 +15,7 @@ class BreedController {
 
     static let baseURL = URL(string: "https://dog.ceo/api")
 
-    // MARK: - GET request for breeds from API
+    // MARK: - GET request for breeds from Dog CEO API
 
     static func getBreeds(completion: @escaping ((Bool) -> Void)) {
         guard let baseURL = baseURL else { completion(false); return }
@@ -58,7 +58,7 @@ class BreedController {
         dataTask.resume()
     }
 
-    // MARK: - Random image GET request from API
+    // MARK: - Random image GET request from Dog CEO API
 
     static func getRandomImageFor(breed: Breed, completion: @escaping ((UIImage?) -> Void)) {
         guard let baseURL = baseURL else { completion(nil); return }

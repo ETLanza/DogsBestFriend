@@ -11,7 +11,7 @@ import UIKit
 extension UITextField {
     @IBInspectable var doneAccessory: Bool {
         get {
-            return doneAccessory
+            return self.doneAccessory
         }
         set(hasDone) {
             if hasDone {
