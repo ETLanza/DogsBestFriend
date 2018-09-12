@@ -10,5 +10,5 @@ import UIKit
 
 struct Breed: Codable {
     let name: String
-    let breedURLComponentAsString: String
+    let breedImageURLAsString: String
 }
