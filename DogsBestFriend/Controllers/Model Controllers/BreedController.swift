@@ -40,13 +40,13 @@ class BreedController {
             guard let breedList = json["message"] as? [String: [String]] else { completion(false); return }
             for (key, value) in breedList {
                 if value.isEmpty {
-                    let newBreed = Breed(name: key, breedURLComponentAsString: key)
+                    let newBreed = Breed(name: key, breedImageURLAsString: key)
                     breeds.append(newBreed)
                 } else {
                     for i in value {
                         let breedString = "\(i) \(key)"
                         let breedImageString = "\(key)-\(i)"
-                        let newBreed = Breed(name: breedString, breedURLComponentAsString: breedImageString)
+                        let newBreed = Breed(name: breedString, breedImageURLAsString: breedImageString)
                         breeds.append(newBreed)
                     }
                 }
@@ -60,7 +60,7 @@ class BreedController {
     // MARK: - Random image GET request from API
     static func getRandomImageFor(breed: Breed, completion: @escaping ((UIImage?) -> Void)) {
         guard let baseURL = baseURL else { completion(nil); return }
-        let fullURL = baseURL.appendingPathComponent("breed").appendingPathComponent(breed.breedURLComponentAsString).appendingPathComponent("images").appendingPathComponent("random")
+        let fullURL = baseURL.appendingPathComponent("breed").appendingPathComponent(breed.breedImageURLAsString).appendingPathComponent("images").appendingPathComponent("random")
 
         var request = URLRequest(url: fullURL)
         request.httpMethod = "GET"

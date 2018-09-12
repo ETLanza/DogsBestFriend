@@ -31,7 +31,6 @@ extension UITextField {
         let items = [flexSpace, done]
         doneToolbar.items = items
         doneToolbar.sizeToFit()
-
         inputAccessoryView = doneToolbar
     }
 
