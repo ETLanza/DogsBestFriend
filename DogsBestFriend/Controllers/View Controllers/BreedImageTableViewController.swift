@@ -9,14 +9,15 @@
 import UIKit
 
 class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
     // MARK: - Properties
-    @IBOutlet weak var dogBreedTextField: UITextField!
-    @IBOutlet weak var dogBreedImageView: UIImageView!
-    @IBOutlet weak var breedPicker: UIPickerView!
-    @IBOutlet weak var getRandomImageButton: UIButton!
+
+    @IBOutlet var dogBreedTextField: UITextField!
+    @IBOutlet var dogBreedImageView: UIImageView!
+    @IBOutlet var breedPicker: UIPickerView!
+    @IBOutlet var getRandomImageButton: UIButton!
 
     // MARK: - Life Cycle Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getRandomImageButton.layer.cornerRadius = 12
@@ -31,12 +32,13 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     }
 
     // MARK: - IBActions
+
     @IBAction func getRandomImageTapped(_ sender: UIButton) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         dogBreedTextField.resignFirstResponder()
         let index = breedPicker.selectedRow(inComponent: 0)
         let breed = BreedController.breeds[index]
-        BreedController.getRandomImageFor(breed: breed) { (image) in
+        BreedController.getRandomImageFor(breed: breed) { image in
             if image == nil {
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -50,11 +52,13 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     }
 
     // MARK: - Gesture Recognizer
+
     @IBAction func userTappedView(_ sender: UITapGestureRecognizer) {
         dogBreedTextField.resignFirstResponder()
     }
 
     // MARK: - UIPicker Data Source Methods
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -64,6 +68,7 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     }
 
     // MARK: - UIPicker Delegate Methods
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return BreedController.breeds[row].name.capitalized
     }

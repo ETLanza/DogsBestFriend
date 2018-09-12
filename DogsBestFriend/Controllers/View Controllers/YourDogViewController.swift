@@ -9,12 +9,11 @@
 import UIKit
 
 class YourDogViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
 }
