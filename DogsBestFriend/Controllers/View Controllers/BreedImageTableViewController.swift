@@ -22,6 +22,8 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
         super.viewDidLoad()
         getRandomImageButton.layer.cornerRadius = 12
         getRandomImageButton.clipsToBounds = true
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 240
         BreedController.getBreeds { success in
             if success {
                 DispatchQueue.main.async {
@@ -49,6 +51,21 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
                 self.dogBreedImageView.image = image
             }
         }
+    }
+
+    // MARK: - Table View Delegate Methods
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return tableView.frame.width
+        }
+        return 50
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return tableView.frame.width
+        }
+        return 50
     }
 
     // MARK: - Gesture Recognizer

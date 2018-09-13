@@ -13,10 +13,15 @@
 		3C2566CA20FF8D2F0053E44E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2566C820FF8D2F0053E44E /* LaunchScreen.storyboard */; };
 		3C2566D620FF940D0053E44E /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2566D520FF940D0053E44E /* Breed.swift */; };
 		3C25670220FFA8070053E44E /* BreedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25670120FFA8070053E44E /* BreedController.swift */; };
+		3C2FF3B4214B04EE00B86550 /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FF3B3214B04EE00B86550 /* UISearchBar+Extensions.swift */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
 		3C7191CC2149CC60007E91E3 /* ParkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CB2149CC60007E91E3 /* ParkDetailViewController.swift */; };
 		3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */; };
+		3C7FA2A1214AC92C0037B1F4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */; };
+		3C7FA2A3214AD3530037B1F4 /* ParkDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A2214AD3530037B1F4 /* ParkDetail.storyboard */; };
+		3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */; };
+		3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */; };
 		3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */; };
 		3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B02146E30D00253B85 /* ParksViewController.swift */; };
 		3C9B90B32146E32100253B85 /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B22146E32100253B85 /* WalkViewController.swift */; };
@@ -36,10 +41,15 @@
 		3C2566CB20FF8D2F0053E44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C2566D520FF940D0053E44E /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		3C25670120FFA8070053E44E /* BreedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedController.swift; sourceTree = "<group>"; };
+		3C2FF3B3214B04EE00B86550 /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CB2149CC60007E91E3 /* ParkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
+		3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3C7FA2A2214AD3530037B1F4 /* ParkDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ParkDetail.storyboard; sourceTree = "<group>"; };
+		3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DogDetail.storyboard; sourceTree = "<group>"; };
+		3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WalkDetail.storyboard; sourceTree = "<group>"; };
 		3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourDogViewController.swift; sourceTree = "<group>"; };
 		3C9B90B02146E30D00253B85 /* ParksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksViewController.swift; sourceTree = "<group>"; };
 		3C9B90B22146E32100253B85 /* WalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C7FA2A1214AC92C0037B1F4 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +77,7 @@
 			children = (
 				3C2566BE20FF8D2E0053E44E /* DogsBestFriend */,
 				3C2566BD20FF8D2E0053E44E /* Products */,
+				3C7FA29F214AC92C0037B1F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,8 +117,11 @@
 			children = (
 				3C2566C320FF8D2E0053E44E /* Main.storyboard */,
 				3CAF298921407F2B00AF8114 /* YourDog.storyboard */,
+				3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */,
 				3CAF298721407F1200AF8114 /* Parks.storyboard */,
+				3C7FA2A2214AD3530037B1F4 /* ParkDetail.storyboard */,
 				3CAF298521407EE600AF8114 /* Walk.storyboard */,
+				3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */,
 				3CAF298321407D1700AF8114 /* BreedImage.storyboard */,
 			);
 			path = Storyboards;
@@ -151,10 +166,19 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		3C7FA29F214AC92C0037B1F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3C9B90B62146F9A700253B85 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */,
+				3C2FF3B3214B04EE00B86550 /* UISearchBar+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +215,11 @@
 				TargetAttributes = {
 					3C2566BB20FF8D2E0053E44E = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -217,12 +246,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */,
 				3C2566CA20FF8D2F0053E44E /* LaunchScreen.storyboard in Resources */,
+				3C7FA2A3214AD3530037B1F4 /* ParkDetail.storyboard in Resources */,
 				3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */,
 				3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */,
 				3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */,
 				3CAF298821407F1200AF8114 /* Parks.storyboard in Resources */,
 				3C2566C520FF8D2E0053E44E /* Main.storyboard in Resources */,
+				3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */,
 				3CAF298621407EE600AF8114 /* Walk.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +269,7 @@
 				3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */,
 				3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */,
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
+				3C2FF3B4214B04EE00B86550 /* UISearchBar+Extensions.swift in Sources */,
 				3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */,
 				3C2566D620FF940D0053E44E /* Breed.swift in Sources */,
 				3C25670220FFA8070053E44E /* BreedController.swift in Sources */,

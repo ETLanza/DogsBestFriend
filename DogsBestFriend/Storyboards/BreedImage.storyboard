@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QaI-yI-7eA">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,21 +16,21 @@
             <objects>
                 <tableViewController id="jhJ-Na-n2M" customClass="BreedImageTableViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1BK-3I-EWF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection id="RXc-Pq-Ova">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="363" id="ern-RC-9H9">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="363"/>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="380" id="ern-RC-9H9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="380"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ern-RC-9H9" id="gzE-SM-USr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="363"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e4Q-lM-46B">
-                                                    <rect key="frame" x="17" y="11" width="341" height="341"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBreedImage" translatesAutoresizingMaskIntoConstraints="NO" id="e4Q-lM-46B">
+                                                    <rect key="frame" x="21" y="3.6666666666666572" width="372.66666666666669" height="373"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -39,37 +39,38 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="e4Q-lM-46B" firstAttribute="top" secondItem="gzE-SM-USr" secondAttribute="topMargin" id="RXO-Rz-rGe"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="e4Q-lM-46B" secondAttribute="trailing" constant="1" id="lKO-iX-QY8"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="e4Q-lM-46B" secondAttribute="bottom" id="lXd-hg-vsn"/>
-                                                <constraint firstItem="e4Q-lM-46B" firstAttribute="leading" secondItem="gzE-SM-USr" secondAttribute="leadingMargin" constant="1" id="niw-T2-gWq"/>
+                                                <constraint firstItem="e4Q-lM-46B" firstAttribute="centerX" secondItem="gzE-SM-USr" secondAttribute="centerX" id="Wtj-7f-3U5"/>
+                                                <constraint firstItem="e4Q-lM-46B" firstAttribute="centerY" secondItem="gzE-SM-USr" secondAttribute="centerY" id="vhB-xV-iv1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="e4Q-lM-46B" firstAttribute="width" secondItem="ern-RC-9H9" secondAttribute="width" multiplier="0.9" id="Ul4-xR-Ocw"/>
+                                        </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="Vzi-8g-yhu">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="40" id="QME-Kd-xKx">
-                                        <rect key="frame" x="0.0" y="363" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="380" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QME-Kd-xKx" id="oWf-Hc-G2A">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select dog breed..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nrr-AZ-8KH">
-                                                    <rect key="frame" x="30" y="5" width="315" height="30"/>
+                                                    <rect key="frame" x="62.333333333333343" y="5" width="290" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="nrr-AZ-8KH" firstAttribute="centerX" secondItem="oWf-Hc-G2A" secondAttribute="centerX" id="1VI-5W-xAC"/>
+                                                <constraint firstItem="nrr-AZ-8KH" firstAttribute="width" secondItem="oWf-Hc-G2A" secondAttribute="width" multiplier="0.7" id="D7H-01-lbI"/>
                                                 <constraint firstItem="nrr-AZ-8KH" firstAttribute="centerY" secondItem="oWf-Hc-G2A" secondAttribute="centerY" id="Sqy-jz-1fr"/>
-                                                <constraint firstItem="nrr-AZ-8KH" firstAttribute="leading" secondItem="oWf-Hc-G2A" secondAttribute="leadingMargin" constant="14" id="faY-Qu-TXG"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nrr-AZ-8KH" secondAttribute="trailing" constant="14" id="yYt-2w-aln"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,15 +79,15 @@
                             </tableViewSection>
                             <tableViewSection id="Nlk-xr-etD">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="5ff-iA-I9L">
-                                        <rect key="frame" x="0.0" y="403" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="40" id="5ff-iA-I9L">
+                                        <rect key="frame" x="0.0" y="420" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ff-iA-I9L" id="Brp-Ic-NVi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mH-dG-X5y">
-                                                    <rect key="frame" x="130.5" y="11.5" width="113" height="37"/>
+                                                    <rect key="frame" x="150.66666666666666" y="1.6666666666666679" width="112.99999999999997" height="37"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -100,9 +101,7 @@
                                             </subviews>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="8mH-dG-X5y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Brp-Ic-NVi" secondAttribute="leading" id="1br-y2-vto"/>
                                                 <constraint firstItem="8mH-dG-X5y" firstAttribute="centerX" secondItem="Brp-Ic-NVi" secondAttribute="centerX" id="IEb-hB-tGU"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8mH-dG-X5y" secondAttribute="trailing" id="Zht-dD-Kdv"/>
                                                 <constraint firstItem="8mH-dG-X5y" firstAttribute="centerY" secondItem="Brp-Ic-NVi" secondAttribute="centerY" id="uff-fA-hx1"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -118,7 +117,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Breeds" image="dogBreedIcon" id="nhK-EK-QRM"/>
-                    <navigationItem key="navigationItem" title="Breed Pictures" id="Y55-vm-2M4"/>
+                    <navigationItem key="navigationItem" title="Breed Pictures" largeTitleDisplayMode="always" id="Y55-vm-2M4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="breedPicker" destination="bej-b9-xKS" id="a80-qc-seR"/>
@@ -152,12 +151,12 @@
                     <tabBarItem key="tabBarItem" title="Breeds" image="dogBreedIcon" id="8Me-sA-5vE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ub9-35-6tj">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,6 +173,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="defaultBreedImage" width="2448" height="3264"/>
         <image name="dogBreedIcon" width="23" height="23"/>
     </resources>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
