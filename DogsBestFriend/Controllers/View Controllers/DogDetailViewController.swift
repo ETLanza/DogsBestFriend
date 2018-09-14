@@ -27,15 +27,25 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(tableViewSwiped)))
-        scrollView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(scrollViewSwiped)))
+        setUpViews()
     }
 
+    @IBAction func dogChangePictureTapped(_ sender: UITapGestureRecognizer) {
+    }
+    
+    
     @IBAction func medicalAddButtonTapped(_ sender: UIButton) {
     }
 
     // MARK: - Helper Methods
 
+    func setUpViews() {
+        tableView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(tableViewSwiped)))
+        scrollView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(scrollViewSwiped)))
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
     @objc func tableViewSwiped() {
         scrollView.isScrollEnabled = false
         tableView.isScrollEnabled = true
@@ -54,10 +64,5 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
 }

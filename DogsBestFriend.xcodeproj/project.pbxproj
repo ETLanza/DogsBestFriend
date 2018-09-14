@@ -16,10 +16,8 @@
 		3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34AC34214B973B00A97CA9 /* LocationManager.swift */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
-		3C7191CC2149CC60007E91E3 /* ParkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CB2149CC60007E91E3 /* ParkDetailViewController.swift */; };
 		3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */; };
 		3C7FA2A1214AC92C0037B1F4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */; };
-		3C7FA2A3214AD3530037B1F4 /* ParkDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A2214AD3530037B1F4 /* ParkDetail.storyboard */; };
 		3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */; };
 		3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */; };
 		3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */; };
@@ -34,6 +32,7 @@
 		3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */; };
 		3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D4E214C20B100F36E6A /* Park.swift */; };
 		3CBC3D51214C267600F36E6A /* ParkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D50214C267600F36E6A /* ParkController.swift */; };
+		3CBC3D53214C542600F36E6A /* SegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,10 +47,8 @@
 		3C34AC34214B973B00A97CA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
-		3C7191CB2149CC60007E91E3 /* ParkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
 		3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		3C7FA2A2214AD3530037B1F4 /* ParkDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ParkDetail.storyboard; sourceTree = "<group>"; };
 		3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DogDetail.storyboard; sourceTree = "<group>"; };
 		3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WalkDetail.storyboard; sourceTree = "<group>"; };
 		3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourDogViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +63,7 @@
 		3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormatter.swift; sourceTree = "<group>"; };
 		3CBC3D4E214C20B100F36E6A /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		3CBC3D50214C267600F36E6A /* ParkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkController.swift; sourceTree = "<group>"; };
+		3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +126,6 @@
 				3CAF298921407F2B00AF8114 /* YourDog.storyboard */,
 				3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */,
 				3CAF298721407F1200AF8114 /* Parks.storyboard */,
-				3C7FA2A2214AD3530037B1F4 /* ParkDetail.storyboard */,
 				3CAF298521407EE600AF8114 /* Walk.storyboard */,
 				3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */,
 				3CAF298321407D1700AF8114 /* BreedImage.storyboard */,
@@ -169,7 +166,6 @@
 				3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */,
 				3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */,
 				3C9B90B02146E30D00253B85 /* ParksViewController.swift */,
-				3C7191CB2149CC60007E91E3 /* ParkDetailViewController.swift */,
 				3C9B90B22146E32100253B85 /* WalkViewController.swift */,
 				3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */,
 				3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */,
@@ -207,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */,
+				3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,7 +281,6 @@
 			files = (
 				3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */,
 				3C2566CA20FF8D2F0053E44E /* LaunchScreen.storyboard in Resources */,
-				3C7FA2A3214AD3530037B1F4 /* ParkDetail.storyboard in Resources */,
 				3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */,
 				3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */,
 				3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */,
@@ -302,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBC3D53214C542600F36E6A /* SegmentedControl+Extension.swift in Sources */,
 				3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */,
 				3CBC3D51214C267600F36E6A /* ParkController.swift in Sources */,
 				3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */,
@@ -312,7 +309,6 @@
 				3C2566D620FF940D0053E44E /* Breed.swift in Sources */,
 				3C25670220FFA8070053E44E /* BreedController.swift in Sources */,
 				3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */,
-				3C7191CC2149CC60007E91E3 /* ParkDetailViewController.swift in Sources */,
 				3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */,
 				3C9B90B32146E32100253B85 /* WalkViewController.swift in Sources */,
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,

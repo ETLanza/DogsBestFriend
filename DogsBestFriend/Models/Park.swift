@@ -12,7 +12,7 @@ import MapKit
 class Park: Equatable {
     
     var placemark: MKPlacemark
-    var isFavorite: Bool = true
+    var isFavorite: Bool = false
     
     init(placemark: MKPlacemark) {
         self.placemark = placemark
