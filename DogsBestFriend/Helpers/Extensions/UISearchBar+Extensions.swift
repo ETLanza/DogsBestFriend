@@ -34,6 +34,7 @@ extension UISearchBar {
     }
 
     @objc func doneButtonAction() {
+        isSearchResultsButtonSelected = true
         resignFirstResponder()
     }
 }

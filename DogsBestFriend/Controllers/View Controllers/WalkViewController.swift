@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import CoreLocation
 import UIKit
 
 class WalkViewController: UIViewController {
@@ -20,6 +21,7 @@ class WalkViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        enableBasicLocationServices()
         startYourWalkButton.layer.cornerRadius = 12
         startYourWalkButton.layer.masksToBounds = true
     }
@@ -31,4 +33,26 @@ class WalkViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+}
+
+// MARK: - Core Locatation Manager Delegate
+
+extension WalkViewController: CLLocationManagerDelegate {
+    func enableBasicLocationServices() {
+        LocationManager.shared.delegate = self
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            LocationManager.shared.requestWhenInUseAuthorization()
+            break
+        
+        case .restricted, .denied:
+//            disableMyLocationBasedFeatures()
+            break
+            
+        case .authorizedWhenInUse, .authorizedAlways:
+//            enableMyWhenInUseFeatures()
+            break
+        }
+    }
 }
