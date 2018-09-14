@@ -6,12 +6,12 @@
 //  Copyright © 2018 ETLanza. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 
 class LocationManager {
     // MARK: - Shared Instance
-    
+
     static let shared = CLLocationManager()
     private init() {
         LocationManager.shared.desiredAccuracy = kCLLocationAccuracyBest

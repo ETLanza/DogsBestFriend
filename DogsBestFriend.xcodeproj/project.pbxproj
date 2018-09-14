@@ -31,6 +31,9 @@
 		3CAF298621407EE600AF8114 /* Walk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298521407EE600AF8114 /* Walk.storyboard */; };
 		3CAF298821407F1200AF8114 /* Parks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298721407F1200AF8114 /* Parks.storyboard */; };
 		3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298921407F2B00AF8114 /* YourDog.storyboard */; };
+		3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D49214C060300F36E6A /* ParkTableViewCell.swift */; };
+		3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */; };
+		3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D4E214C20B100F36E6A /* Park.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		3CAF298521407EE600AF8114 /* Walk.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Walk.storyboard; sourceTree = "<group>"; };
 		3CAF298721407F1200AF8114 /* Parks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Parks.storyboard; sourceTree = "<group>"; };
 		3CAF298921407F2B00AF8114 /* YourDog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YourDog.storyboard; sourceTree = "<group>"; };
+		3CBC3D49214C060300F36E6A /* ParkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkTableViewCell.swift; sourceTree = "<group>"; };
+		3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormatter.swift; sourceTree = "<group>"; };
+		3CBC3D4E214C20B100F36E6A /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				3C25670520FFAE9F0053E44E /* Models */,
-				3C25670620FFAEA80053E44E /* Controllers */,
+				3CBC3D4B214C060F00F36E6A /* Views */,
 				3C2566D220FF8D760053E44E /* Storyboards */,
+				3C25670620FFAEA80053E44E /* Controllers */,
 				3C2566D120FF8D650053E44E /* Resources */,
 				3C34AC36214B99AC00A97CA9 /* Helpers */,
 			);
@@ -133,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				3C2566D520FF940D0053E44E /* Breed.swift */,
+				3CBC3D4E214C20B100F36E6A /* Park.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				3C34AC34214B973B00A97CA9 /* LocationManager.swift */,
+				3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -200,6 +209,14 @@
 				3C2FF3B3214B04EE00B86550 /* UISearchBar+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3CBC3D4B214C060F00F36E6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3CBC3D49214C060300F36E6A /* ParkTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +305,8 @@
 				3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */,
 				3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */,
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
+				3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */,
+				3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */,
 				3C2FF3B4214B04EE00B86550 /* UISearchBar+Extensions.swift in Sources */,
 				3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */,
 				3C2566D620FF940D0053E44E /* Breed.swift in Sources */,
@@ -298,6 +317,7 @@
 				3C9B90B32146E32100253B85 /* WalkViewController.swift in Sources */,
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
 				3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */,
+				3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
