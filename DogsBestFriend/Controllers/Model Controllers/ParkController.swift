@@ -31,8 +31,8 @@ class ParkController {
     }
     
     func deleteFavorite(park: Park) {
-        let index = favoriteParks.index(of: park)
-        favoriteParks.remove(at: index!)
+        guard let index = favoriteParks.index(of: park) else { return }
+        favoriteParks.remove(at: index)
     }
     
     func removeAllNonFavoriteParks() {
