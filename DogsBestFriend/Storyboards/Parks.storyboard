@@ -70,12 +70,8 @@
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
                                     </searchBar>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mmU-ib-uHv">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mmU-ib-uHv">
                                         <rect key="frame" x="0.0" y="50" width="414" height="324.66666666666669"/>
-                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="YPl-eL-Q4C" id="Jro-tO-XEJ"/>
-                                        </connections>
                                     </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y85-B6-iE0" userLabel="Drawer">
                                         <rect key="frame" x="0.0" y="374.66666666666663" width="414" height="167"/>
@@ -116,10 +112,6 @@
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="YPl-eL-Q4C" id="cd5-dN-eU7"/>
-                                                    <outlet property="delegate" destination="YPl-eL-Q4C" id="fVz-Vz-IKj"/>
-                                                </connections>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eS2-6h-BnQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
@@ -246,10 +238,10 @@
             </objects>
             <point key="canvasLocation" x="-159.42028985507247" y="498.91304347826093"/>
         </scene>
-        <!--ParkDetail-->
+        <!--ParksDetail-->
         <scene sceneID="4pf-I7-zvn">
             <objects>
-                <viewControllerPlaceholder storyboardName="ParkDetail" id="4JJ-gX-eKW" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ParksDetail" id="4JJ-gX-eKW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhV-NO-MVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="557" y="499"/>
