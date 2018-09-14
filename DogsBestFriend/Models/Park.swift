@@ -9,8 +9,17 @@
 import Foundation
 import MapKit
 
-class Park {
-    var name: String
+class Park: Equatable {
+    
     var placemark: MKPlacemark
-
+    var isFavorite: Bool = true
+    
+    init(placemark: MKPlacemark) {
+        self.placemark = placemark
+    }
+    
+    // MARK: Equatable
+    static func == (lhs: Park, rhs: Park) -> Bool {
+        return lhs.placemark == rhs.placemark
+    }
 }
