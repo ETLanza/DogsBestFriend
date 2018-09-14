@@ -1,32 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NZ4-vy-Qc8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--(park's name)-->
+        <!--Park Detail View Controller-->
         <scene sceneID="NVu-GZ-XPD">
             <objects>
-                <viewController id="NZ4-vy-Qc8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="parkDetailVC" id="NZ4-vy-Qc8" customClass="ParkDetailViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KKh-Rz-YeO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hj6-Kr-GE1">
+                                <rect key="frame" x="28" y="74.5" width="319" height="518"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdX-z0-N36">
+                                        <rect key="frame" x="262" y="8" width="49" height="30"/>
+                                        <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="NZ4-vy-Qc8" eventType="touchUpInside" id="Fhf-6i-Dox"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(parkName)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZ0-Nt-1ya">
+                                        <rect key="frame" x="8" y="8" width="223.5" height="52"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(parkAddress)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4N-5w-jma">
+                                        <rect key="frame" x="8" y="60" width="223.5" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="a4N-5w-jma" firstAttribute="width" secondItem="iZ0-Nt-1ya" secondAttribute="width" id="7bt-Ui-UGm"/>
+                                    <constraint firstItem="iZ0-Nt-1ya" firstAttribute="top" secondItem="hj6-Kr-GE1" secondAttribute="topMargin" id="9Z6-KN-17G"/>
+                                    <constraint firstItem="MdX-z0-N36" firstAttribute="top" secondItem="hj6-Kr-GE1" secondAttribute="topMargin" id="9ow-sC-1Fw"/>
+                                    <constraint firstItem="iZ0-Nt-1ya" firstAttribute="leading" secondItem="hj6-Kr-GE1" secondAttribute="leadingMargin" id="M1E-uu-kxB"/>
+                                    <constraint firstItem="iZ0-Nt-1ya" firstAttribute="width" secondItem="hj6-Kr-GE1" secondAttribute="width" multiplier="0.7" id="SSN-Di-YBi"/>
+                                    <constraint firstItem="a4N-5w-jma" firstAttribute="top" secondItem="iZ0-Nt-1ya" secondAttribute="bottom" id="TYq-Q3-EYz"/>
+                                    <constraint firstItem="iZ0-Nt-1ya" firstAttribute="height" secondItem="hj6-Kr-GE1" secondAttribute="height" multiplier="0.1" id="eI3-26-fSn"/>
+                                    <constraint firstItem="MdX-z0-N36" firstAttribute="trailing" secondItem="hj6-Kr-GE1" secondAttribute="trailingMargin" id="m8S-do-YuK"/>
+                                    <constraint firstItem="a4N-5w-jma" firstAttribute="height" secondItem="iZ0-Nt-1ya" secondAttribute="height" multiplier="0.5" id="r3F-rn-tLY"/>
+                                    <constraint firstItem="a4N-5w-jma" firstAttribute="leading" secondItem="hj6-Kr-GE1" secondAttribute="leading" constant="8" id="yf5-Yd-M6A"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.30092592592592593" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hj6-Kr-GE1" firstAttribute="height" secondItem="WGb-GB-xYg" secondAttribute="height" multiplier="0.8" id="FIb-pA-Eo8"/>
+                            <constraint firstItem="hj6-Kr-GE1" firstAttribute="centerX" secondItem="KKh-Rz-YeO" secondAttribute="centerX" id="LGt-UO-REI"/>
+                            <constraint firstItem="hj6-Kr-GE1" firstAttribute="width" secondItem="WGb-GB-xYg" secondAttribute="width" multiplier="0.85" id="nQF-ju-JVh"/>
+                            <constraint firstItem="hj6-Kr-GE1" firstAttribute="centerY" secondItem="KKh-Rz-YeO" secondAttribute="centerY" id="vIF-I6-1Nw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WGb-GB-xYg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="(park's name)" id="wut-Kw-4u7"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="parkAddressLabel" destination="a4N-5w-jma" id="eJS-tq-X8z"/>
+                        <outlet property="parkNameLabel" destination="iZ0-Nt-1ya" id="hdp-pc-5e4"/>
+                        <outlet property="popUpView" destination="hj6-Kr-GE1" id="X8w-Jn-HSl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0i-WH-5IY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557" y="499"/>
+            <point key="canvasLocation" x="1296.8" y="498.80059970014997"/>
         </scene>
     </scenes>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

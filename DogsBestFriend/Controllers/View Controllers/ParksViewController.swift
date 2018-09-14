@@ -11,12 +11,12 @@ import UIKit
 
 class ParksViewController: UIViewController {
     // MARK: - Properties
-    
+
     var matchingItems: [MKMapItem] = []
-    var selectedPin:MKPlacemark? = nil
-    
+    var selectedPin: MKPlacemark?
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var favoritesSegmentedControl: UISegmentedControl!
     @IBOutlet weak var zipCodeSearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
@@ -25,32 +25,32 @@ class ParksViewController: UIViewController {
     @IBOutlet weak var drawerClosedConstraint: NSLayoutConstraint!
     @IBOutlet weak var nearbyViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var favoritesViewTrailingConstraint: NSLayoutConstraint!
-    
+
     // MARK: - Life Cycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addSearchButtonTo(searchBar: zipCodeSearchBar)
         setUpMapKit()
         searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
     }
-    
+
     // MARK: - IBActions
-    
+
     @IBAction func drawerSwipedUp(_ sender: UISwipeGestureRecognizer) {
         drawerClosedConstraint.priority = UILayoutPriority(rawValue: 997)
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     @IBAction func drawerSwipedDown(_ sender: UISwipeGestureRecognizer) {
         drawerClosedConstraint.priority = UILayoutPriority(rawValue: 999)
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     @IBAction func favoritesSegementedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             favoritesViewTrailingConstraint.priority = UILayoutPriority(rawValue: 999)
@@ -63,44 +63,44 @@ class ParksViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     // MARK: - Map Kit Helper Methods
-    
+
     func setUpMapKit() {
         LocationManager.shared.delegate = self
         enableBasicLocationServices()
     }
-    
+
     func enableBasicLocationServices() {
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
             LocationManager.shared.requestWhenInUseAuthorization()
             break
-            
+
         case .restricted, .denied:
 //            disableMyLocationBasedFeatures()
             break
-            
+
         case .authorizedWhenInUse, .authorizedAlways:
             LocationManager.shared.requestLocation()
             break
         }
     }
-    
+
     func searchForDogParks(searchLocation: CLLocationCoordinate2D) {
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = "dog park"
         let span = MKCoordinateSpanMake(0.1, 0.1)
         let region = MKCoordinateRegionMake(searchLocation, span)
         searchRequest.region = region
-        
+
         let activeSearch = MKLocalSearch(request: searchRequest)
-        activeSearch.start { (response, error) in
+        activeSearch.start { response, error in
             if let error = error {
                 NSLog("Error searching for dog parks: %@", error.localizedDescription)
                 return
             }
-            
+
             guard let response = response else {
                 NSLog("No dog park search response")
                 return
@@ -112,25 +112,9 @@ class ParksViewController: UIViewController {
             self.mapView.setRegion(region, animated: true)
         }
     }
-    
+
     // MARK: - Helper Methods
-    func parseAddress(selectedItem:MKPlacemark) -> String {
-        let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
-        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
-        let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
-        let addressLine = String(
-            format:"%@%@%@%@%@%@%@",
-            selectedItem.subThoroughfare ?? "",
-            firstSpace,
-            selectedItem.thoroughfare ?? "",
-            comma,
-            selectedItem.locality ?? "",
-            secondSpace,
-            selectedItem.administrativeArea ?? ""
-        )
-        return addressLine
-    }
-    
+
     func addPinFor(placemark: MKPlacemark) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
@@ -141,7 +125,7 @@ class ParksViewController: UIViewController {
         }
         mapView.addAnnotation(annotation)
     }
-    
+
     func dropPinZoomIn(placemark: MKPlacemark) {
         selectedPin = placemark
         let annotation = MKPointAnnotation()
@@ -156,9 +140,9 @@ class ParksViewController: UIViewController {
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
     }
-    
+
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
 }
 
@@ -167,16 +151,18 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingItems.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = parksTableView.dequeueReusableCell(withIdentifier: "parkCell", for: indexPath)
-        
+        guard let cell = parksTableView.dequeueReusableCell(withIdentifier: "parkCell", for: indexPath) as? ParkTableViewCell else { return UITableViewCell() }
+
         let item = matchingItems[indexPath.row].placemark
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = parseAddress(selectedItem: item)
+        cell.delegate = self
+        cell.parkNameLabel.text = item.name
+        cell.placemark = item
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
         dropPinZoomIn(placemark: selectedItem)
@@ -184,6 +170,14 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
 }
 
@@ -195,12 +189,11 @@ extension ParksViewController: CLLocationManagerDelegate {
             LocationManager.shared.requestLocation()
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+
     }
-    
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error)")
     }
@@ -208,8 +201,8 @@ extension ParksViewController: CLLocationManagerDelegate {
 
 // MARK: - MapKit Delegate
 
-extension ParksViewController : MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
+extension ParksViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
         }
@@ -225,11 +218,11 @@ extension ParksViewController : MKMapViewDelegate {
         pinView?.leftCalloutAccessoryView = button
         return pinView
     }
-    
-    @objc func getDirections(){
+
+    @objc func getDirections() {
         if let selectedPin = selectedPin {
             let mapItem = MKMapItem(placemark: selectedPin)
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             mapItem.openInMaps(launchOptions: launchOptions)
         }
     }
@@ -240,22 +233,22 @@ extension ParksViewController {
     func addSearchButtonTo(searchBar: UISearchBar) {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         toolbar.barStyle = .default
-        
+
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let search = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(searchButtonAction))
-        
+
         let items = [flexSpace, search]
         toolbar.items = items
         toolbar.sizeToFit()
         searchBar.inputAccessoryView = toolbar
     }
-    
+
     @objc func searchButtonAction() {
         guard let searchText = zipCodeSearchBar.text, !searchText.isEmpty else {
             return
         }
         let clGeocoder = CLGeocoder()
-        clGeocoder.geocodeAddressString(searchText) { (placemarks, error) in
+        clGeocoder.geocodeAddressString(searchText) { placemarks, error in
             if let error = error {
                 print(error.localizedDescription)
                 //                    displayZipCodeSearchErrorAlert()
@@ -269,5 +262,24 @@ extension ParksViewController {
             self.searchForDogParks(searchLocation: placemarks.first!.location!.coordinate)
             self.zipCodeSearchBar.resignFirstResponder()
         }
+    }
+}
+
+extension ParksViewController: ParkTableViewCellDelegate {
+    func parkDetailsButtonTapped(_ sender: ParkTableViewCell) {
+        let storyboard = UIStoryboard(name: "ParkDetail", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "parkDetailVC") as? ParkDetailViewController
+        destinationVC?.placemark = sender.placemark
+        destinationVC?.modalPresentationStyle = .overCurrentContext
+        destinationVC?.modalTransitionStyle = .crossDissolve
+        present(destinationVC!, animated: true, completion: nil)
+    }
+
+    func directionsButtonTapped(_ sender: ParkTableViewCell) {
+
+    }
+
+    func favoriteButtonTapped(_ sender: ParkTableViewCell) {
+        sender.favoritesButton.setImage(#imageLiteral(resourceName: "favoritedHeart"), for: .normal)
     }
 }
