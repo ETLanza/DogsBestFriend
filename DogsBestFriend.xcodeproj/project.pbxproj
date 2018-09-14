@@ -33,6 +33,8 @@
 		3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D4E214C20B100F36E6A /* Park.swift */; };
 		3CBC3D51214C267600F36E6A /* ParkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D50214C267600F36E6A /* ParkController.swift */; };
 		3CBC3D53214C542600F36E6A /* SegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */; };
+		3CBC3D55214C652200F36E6A /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D54214C652200F36E6A /* Dog.swift */; };
+		3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D56214C66D600F36E6A /* DogController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		3CBC3D4E214C20B100F36E6A /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		3CBC3D50214C267600F36E6A /* ParkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkController.swift; sourceTree = "<group>"; };
 		3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl+Extension.swift"; sourceTree = "<group>"; };
+		3CBC3D54214C652200F36E6A /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		3CBC3D56214C66D600F36E6A /* DogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +140,9 @@
 		3C25670520FFAE9F0053E44E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3C2566D520FF940D0053E44E /* Breed.swift */,
+				3CBC3D54214C652200F36E6A /* Dog.swift */,
 				3CBC3D4E214C20B100F36E6A /* Park.swift */,
+				3C2566D520FF940D0053E44E /* Breed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,8 +159,9 @@
 		3C25670720FFAEB20053E44E /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3C25670120FFA8070053E44E /* BreedController.swift */,
+				3CBC3D56214C66D600F36E6A /* DogController.swift */,
 				3CBC3D50214C267600F36E6A /* ParkController.swift */,
+				3C25670120FFA8070053E44E /* BreedController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -307,12 +313,14 @@
 				3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */,
 				3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */,
 				3C2566D620FF940D0053E44E /* Breed.swift in Sources */,
+				3CBC3D55214C652200F36E6A /* Dog.swift in Sources */,
 				3C25670220FFA8070053E44E /* BreedController.swift in Sources */,
 				3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */,
 				3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */,
 				3C9B90B32146E32100253B85 /* WalkViewController.swift in Sources */,
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
 				3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */,
+				3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */,
 				3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
