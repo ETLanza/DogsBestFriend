@@ -58,5 +58,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Dog&apos;s Best Friend uses your location to track walks and locate nearby dog parks!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Dog&apos;s Best Friend uses your photo library to set your dog&apos;s profile picture!</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Dog&apos;s Best Friend uses your camera to set your dog&apos;s profile picture!</string>
 </dict>
 </plist>

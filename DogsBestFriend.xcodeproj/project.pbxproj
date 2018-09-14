@@ -14,6 +14,7 @@
 		3C2566D620FF940D0053E44E /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2566D520FF940D0053E44E /* Breed.swift */; };
 		3C25670220FFA8070053E44E /* BreedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25670120FFA8070053E44E /* BreedController.swift */; };
 		3C2FF3B4214B04EE00B86550 /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FF3B3214B04EE00B86550 /* UISearchBar+Extensions.swift */; };
+		3C2FF3B6214B30F700B86550 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FF3B5214B30F700B86550 /* LocationManager.swift */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
 		3C7191CC2149CC60007E91E3 /* ParkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CB2149CC60007E91E3 /* ParkDetailViewController.swift */; };
@@ -42,6 +43,7 @@
 		3C2566D520FF940D0053E44E /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		3C25670120FFA8070053E44E /* BreedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedController.swift; sourceTree = "<group>"; };
 		3C2FF3B3214B04EE00B86550 /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
+		3C2FF3B5214B30F700B86550 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CB2149CC60007E91E3 /* ParkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewController.swift; sourceTree = "<group>"; };
@@ -93,10 +95,10 @@
 			isa = PBXGroup;
 			children = (
 				3C25670520FFAE9F0053E44E /* Models */,
-				3C25670620FFAEA80053E44E /* Controllers */,
 				3C2566D220FF8D760053E44E /* Storyboards */,
+				3C25670620FFAEA80053E44E /* Controllers */,
+				3C2FF3B7214B30FB00B86550 /* Helpers */,
 				3C2566D120FF8D650053E44E /* Resources */,
-				3C9B90B62146F9A700253B85 /* Extensions */,
 			);
 			path = DogsBestFriend;
 			sourceTree = "<group>";
@@ -166,6 +168,22 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		3C2FF3B7214B30FB00B86550 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3C9B90B62146F9A700253B85 /* Extensions */,
+				3C2FF3B8214B310500B86550 /* Managers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3C2FF3B8214B310500B86550 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3C2FF3B5214B30F700B86550 /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
 		3C7FA29F214AC92C0037B1F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +296,7 @@
 				3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */,
 				3C9B90B32146E32100253B85 /* WalkViewController.swift in Sources */,
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
+				3C2FF3B6214B30F700B86550 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LWP4U374KN;
 				INFOPLIST_FILE = "$(SRCROOT)/DogsBestFriend/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -439,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LWP4U374KN;
 				INFOPLIST_FILE = "$(SRCROOT)/DogsBestFriend/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
