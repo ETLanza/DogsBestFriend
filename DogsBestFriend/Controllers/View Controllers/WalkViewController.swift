@@ -20,13 +20,21 @@ class WalkViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startYourWalkButton.layer.cornerRadius = 12
-        startYourWalkButton.layer.masksToBounds = true
+        setUpViews()
     }
 
     // MARK: - IBActions
 
     @IBAction func startYourWalkButtonTapped(_ sender: UIButton) {}
+    
+    // MARK: - Helper Methods
+    
+    func setUpViews() {
+        startYourWalkButton.layer.cornerRadius = 12
+        startYourWalkButton.layer.masksToBounds = true
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
 
     // MARK: - Navigation
 

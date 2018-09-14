@@ -16,18 +16,27 @@ class ParkController {
     
     // MARK: - Properties
     
+    var parks: [Park] = []
     var favoriteParks: [Park] = []
     
     // MARK: - CRUD Functions
     
     func addParkwith(placemark: MKPlacemark) {
         let newPark = Park(placemark: placemark)
-        favoriteParks.append(newPark)
+        parks.append(newPark)
     }
     
-    func delete(park: Park) {
+    func addFavorite(park: Park) {
+        favoriteParks.append(park)
+    }
+    
+    func deleteFavorite(park: Park) {
         let index = favoriteParks.index(of: park)
         favoriteParks.remove(at: index!)
+    }
+    
+    func removeAllNonFavoriteParks() {
+        parks = []
     }
     
 }
