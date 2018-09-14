@@ -184,7 +184,6 @@
 			);
 			path = Managers;
 			sourceTree = "<group>";
-		};
 		3C7FA29F214AC92C0037B1F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (

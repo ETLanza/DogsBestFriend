@@ -17,7 +17,7 @@ class ParksViewController: UIViewController {
     
     
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var favoritesSegmentedControl: UISegmentedControl!
     @IBOutlet weak var zipCodeSearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
@@ -26,7 +26,7 @@ class ParksViewController: UIViewController {
     @IBOutlet weak var drawerClosedConstraint: NSLayoutConstraint!
     @IBOutlet weak var nearbyViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var favoritesViewTrailingConstraint: NSLayoutConstraint!
-    
+
     // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
@@ -51,7 +51,7 @@ class ParksViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     @IBAction func favoritesSegementedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             favoritesViewTrailingConstraint.priority = UILayoutPriority(rawValue: 999)
@@ -168,7 +168,7 @@ class ParksViewController: UIViewController {
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
     }
-    
+
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
