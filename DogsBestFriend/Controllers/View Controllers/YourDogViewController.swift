@@ -9,12 +9,19 @@
 import UIKit
 
 class YourDogViewController: UIViewController {
+    // MARK: - IBOutlets
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
     
     // MARK: - Helper Methods
@@ -29,5 +36,31 @@ class YourDogViewController: UIViewController {
     
     // MARK: - Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editDogSegue" {
+            guard let destinationVC = segue.destination as? DogDetailViewController,
+                let index = collectionView.indexPathsForSelectedItems?.first else { return }
+            let dog = DogController.shared.dogs[index.row]
+            destinationVC.dog = dog
+        }
+    }
+}
+
+// MARK: - UICollectiongView Delegate and DataSource
+
+extension YourDogViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return DogController.shared.dogs.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dogCell", for: indexPath) as? DogCollectionViewCell else { return UICollectionViewCell() }
+        
+        let dog = DogController.shared.dogs[indexPath.row]
+        let image = UIImage(data: dog.profileImageAsData)
+        cell.dog = dog
+        cell.dogProfilePicture.image = image
+        cell.dogNameLabel.text = dog.name
+        
+        return cell
+    }
 }

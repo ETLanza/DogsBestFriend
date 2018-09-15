@@ -35,6 +35,7 @@
 		3CBC3D53214C542600F36E6A /* SegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */; };
 		3CBC3D55214C652200F36E6A /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D54214C652200F36E6A /* Dog.swift */; };
 		3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D56214C66D600F36E6A /* DogController.swift */; };
+		3CBC3D59214C710A00F36E6A /* DogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 		3CBC3D54214C652200F36E6A /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		3CBC3D56214C66D600F36E6A /* DogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogController.swift; sourceTree = "<group>"; };
+		3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				3CBC3D49214C060300F36E6A /* ParkTableViewCell.swift */,
+				3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
 				3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */,
 				3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */,
+				3CBC3D59214C710A00F36E6A /* DogCollectionViewCell.swift in Sources */,
 				3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */,
 				3C2566D620FF940D0053E44E /* Breed.swift in Sources */,
 				3CBC3D55214C652200F36E6A /* Dog.swift in Sources */,

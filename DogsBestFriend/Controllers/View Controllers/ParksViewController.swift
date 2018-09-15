@@ -159,7 +159,7 @@ class ParksViewController: UIViewController {
     
     
     func setUpViews() {
-        addSearchButtonTo(searchBar: zipCodeSearchBar)
+        addSearchAndCancelButtonTo(searchBar: zipCodeSearchBar)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         favoritesSegmentedControl.removeBorders()
@@ -281,14 +281,15 @@ extension ParksViewController: MKMapViewDelegate {
 
 // MARK: - Search Bar Helper Methods
 extension ParksViewController {
-    func addSearchButtonTo(searchBar: UISearchBar) {
+    func addSearchAndCancelButtonTo(searchBar: UISearchBar) {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         toolbar.barStyle = .default
         
+        let cancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelButtonAction))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let search = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(searchButtonAction))
         
-        let items = [flexSpace, search]
+        let items = [cancel, flexSpace, search]
         toolbar.items = items
         toolbar.sizeToFit()
         searchBar.inputAccessoryView = toolbar
@@ -314,6 +315,10 @@ extension ParksViewController {
             self.searchForDogParks(searchLocation: placemarks.first!.location!.coordinate)
             self.zipCodeSearchBar.resignFirstResponder()
         }
+    }
+    
+    @objc func cancelButtonAction() {
+        zipCodeSearchBar.resignFirstResponder()
     }
 }
 

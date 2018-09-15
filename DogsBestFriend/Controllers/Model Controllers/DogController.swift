@@ -8,10 +8,10 @@
 
 import Foundation
 
-class DogControler {
+class DogController {
     // MARK: - Shared Instance
     
-    static let shared = DogControler()
+    static let shared = DogController()
     
     // MARK: - Properties
     
@@ -19,14 +19,14 @@ class DogControler {
     
     // MARK: - CRUD Functions
     
-    func addDogWith(name: String, birthdate: Date, adoptionDate: Date, microchipID: String, breed: String, color: String, registration: String) {
-        let newDog = Dog(name: name, birthdate: birthdate, adoptionDate: adoptionDate, microchipID: microchipID, breed: breed, color: color, registration: registration)
+    func addDogWith(name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data) {
+        let newDog = Dog(name: name, birthdate: birthdate, adoptionDate: adoptionDate, microchipID: microchipID, breed: breed, color: color, registration: registration, profileImageAsData: profileImageAsData)
         dogs.append(newDog)
         
         //TODO: API Persistence
     }
     
-    func updateDog(_ dog: Dog, withName name: String, birthdate: Date, adoptionDate: Date, microchipID: String, breed: String, color: String, registration: String) {
+    func updateDog(_ dog: Dog, withName name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data) {
         dog.name = name
         dog.birthdate = birthdate
         dog.adoptionDate = adoptionDate
