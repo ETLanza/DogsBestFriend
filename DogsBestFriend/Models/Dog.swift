@@ -10,6 +10,7 @@ import Foundation
 
 class Dog: Equatable, Codable {
     
+    var profileImageAsData: Data
     var name: String
     var birthdate: Date
     var adoptionDate: Date
@@ -19,7 +20,7 @@ class Dog: Equatable, Codable {
     var registration: String?
     // var medicalHistory: [Medical] = []
     
-    init(name: String, birthdate: Date, adoptionDate: Date, microchipID: String, breed: String, color: String, registration: String) {
+    init(name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data) {
         self.name = name
         self.birthdate = birthdate
         self.adoptionDate = adoptionDate
@@ -27,6 +28,7 @@ class Dog: Equatable, Codable {
         self.breed = breed
         self.color = color
         self.registration = registration
+        self.profileImageAsData = profileImageAsData
     }
     
     static func == (lhs: Dog, rhs: Dog) -> Bool {

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -50,25 +51,28 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" sectionInsetReference="layoutMargins" id="GLZ-sq-QSK">
-                                    <size key="itemSize" width="250" height="250"/>
+                                    <size key="itemSize" width="250" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dogCell" id="y7s-eS-SXT">
-                                        <rect key="frame" x="62.5" y="24" width="250" height="250"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dogCell" id="y7s-eS-SXT" customClass="DogCollectionViewCell" customModule="DogsBestFriend" customModuleProvider="target">
+                                        <rect key="frame" x="62.5" y="24" width="250" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Upy-HV-w62">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Upy-HV-w62">
                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Upy-HV-w62" secondAttribute="height" multiplier="1:1" id="vr8-ra-bow"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(dog name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u67-8l-IOR">
-                                                    <rect key="frame" x="8" y="200" width="234" height="50"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(dog name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u67-8l-IOR">
+                                                    <rect key="frame" x="8" y="250" width="234" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -78,17 +82,22 @@
                                             <constraint firstItem="u67-8l-IOR" firstAttribute="height" secondItem="Upy-HV-w62" secondAttribute="height" multiplier="0.2" id="64b-GO-PeP"/>
                                             <constraint firstItem="Upy-HV-w62" firstAttribute="width" secondItem="y7s-eS-SXT" secondAttribute="width" id="UZx-tr-b2D"/>
                                             <constraint firstItem="u67-8l-IOR" firstAttribute="leading" secondItem="y7s-eS-SXT" secondAttribute="leadingMargin" id="Ug8-id-cHH"/>
-                                            <constraint firstItem="Upy-HV-w62" firstAttribute="centerY" secondItem="y7s-eS-SXT" secondAttribute="centerY" id="aDc-vY-RYl"/>
+                                            <constraint firstItem="Upy-HV-w62" firstAttribute="top" secondItem="y7s-eS-SXT" secondAttribute="top" id="Yvv-Rw-gN6"/>
                                             <constraint firstItem="u67-8l-IOR" firstAttribute="centerX" secondItem="y7s-eS-SXT" secondAttribute="centerX" id="bt4-Kc-cIF"/>
                                             <constraint firstAttribute="bottom" secondItem="u67-8l-IOR" secondAttribute="bottom" id="k5u-Oc-uEO"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="u67-8l-IOR" secondAttribute="trailing" id="sHd-p9-ydX"/>
-                                            <constraint firstItem="Upy-HV-w62" firstAttribute="height" secondItem="y7s-eS-SXT" secondAttribute="height" id="yLh-uu-RWG"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="dogNameLabel" destination="u67-8l-IOR" id="G6G-Vc-2xH"/>
+                                            <outlet property="dogProfilePicture" destination="Upy-HV-w62" id="RNR-0J-LQE"/>
                                             <segue destination="Yg6-sb-Cfv" kind="show" identifier="editDogSegue" id="SOu-m3-kLu"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="r4L-hD-09M" id="tjE-2z-wxt"/>
+                                    <outlet property="delegate" destination="r4L-hD-09M" id="PIi-EJ-Lym"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,6 +113,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="YBT-i2-1lY" id="css-RV-y5E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8K-jQ-tDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +134,7 @@
         <image name="yourDogIcon" width="24" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uwH-bj-muc"/>
+        <segue reference="SOu-m3-kLu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
