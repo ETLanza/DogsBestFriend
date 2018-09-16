@@ -1,54 +1,59 @@
 import flask
+from flask_restful import reqparse
 import flask_restful
 
 app = flask.Flask(__name__)
 api = flask_restful.Api(app)
 
-users = [{"name": "Nathan", "age": 30, "occupation": "Software Engineer"}]
+dogs = [
+    {"name": "Muffin", "age": 14, "breed": "Cocker/Poodle"},
+    {"name": "Riley", "age": 9, "breed": "Cocker/Poodle"},
+]
 
 
-class User(flask_restful.Resource):
+class Dog(flask_restful.Resource):
     def get(self, name):
-        for user in users:
-            if name == user["name"]:
-                return user, 200
-        return "User not found", 404
+        for dog in dogs:
+            if name == dog["name"]:
+                return dog, 200
+        return "Dog not found", 404
 
     def post(self, name):
-        parser = flask_restful.reqparse.RequestParser()
+        parser = reqparse.RequestParser()
         parser.add_argument("age")
-        parser.add_argument("occupation")
+        parser.add_argument("breed")
         args = parser.parse_args()
 
-        for user in users:
-            if name == user["name"]:
-                return f"User with name {name} already exists.", 400
+        for dog in dogs:
+            if name == dog["name"]:
+                return f"dog with name {name} already exists.", 400
 
-        user = {"name": name, "age": args["age"], "occupation": args["occupation"]}
-        users.append(user)
-        return user, 201
+        dog = {"name": name, "age": args["age"], "breed": args["breed"]}
+        dogs.append(dog)
+        return dog, 201
 
     def put(self, name):
         parser = reqparse.RequestParser()
         parser.add_argument("age")
-        parser.add_argument("occupation")
+        parser.add_argument("breed")
         args = parser.parse_args()
 
-        for user in users:
-            if name == user["name"]:
-                user["age"] = args["age"]
-                user["occupation"] = args["occupation"]
-                return user, 200
+        for dog in dogs:
+            if name == dog["name"]:
+                dog["age"] = args["age"]
+                dog["breed"] = args["breed"]
+                return dog, 200
 
-        user = {"name": name, "age": args["age"], "occupation": args["occupation"]}
-        users.append(user)
-        return user, 201
+        dog = {"name": name, "age": args["age"], "breed": args["breed"]}
+        dogs.append(dog)
+        return dog, 201
 
     def delete(self, name):
-        global users
-        users = [user for user in users if user["name"] != name]
-        return "{} is deleted.".format(name), 200
+        global dogs
+        dogs = [dog for dog in dogs if dog["name"] != name]
+        return f"{name} is deleted.", 200
 
 
-api.add_resource(User, "/user/<string:name>")
-app.run(debug=True)
+api.add_resource(Dog, "/dog/dog/<string:name>")
+#app.run(debug=True)
+app.run()
