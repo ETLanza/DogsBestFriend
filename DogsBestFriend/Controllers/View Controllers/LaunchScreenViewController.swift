@@ -6,11 +6,11 @@
 //  Copyright © 2018 ETLanza. All rights reserved.
 //
 
-import UIKit
 import CoreLocation
+import UIKit
 
 class LaunchScreenViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         LocationManager.shared.delegate = self
@@ -21,9 +21,9 @@ class LaunchScreenViewController: UIViewController {
             presentMainView()
         }
     }
-    
+
     func presentMainView() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyboard.instantiateInitialViewController()
         present(newViewController!, animated: true, completion: nil)
     }

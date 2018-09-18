@@ -11,12 +11,12 @@ import UIKit
 
 class ParksViewController: UIViewController {
     // MARK: - Properties
-    
+
     var selectedPin: MKPlacemark?
     var mapKitEnabled: Bool = false
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var favoritesSegmentedControl: UISegmentedControl!
     @IBOutlet weak var zipCodeSearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
@@ -27,9 +27,9 @@ class ParksViewController: UIViewController {
     @IBOutlet weak var favoritesViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var noFavoritesView: UIView!
     @IBOutlet weak var favoritesTableView: UITableView!
-    
+
     // MARK: - Life Cycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -41,23 +41,23 @@ class ParksViewController: UIViewController {
             noFavoritesView.isHidden = true
         }
     }
-    
+
     // MARK: - IBActions
-    
+
     @IBAction func drawerSwipedUp(_ sender: UISwipeGestureRecognizer) {
         drawerClosedConstraint.priority = UILayoutPriority(rawValue: 997)
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     @IBAction func drawerSwipedDown(_ sender: UISwipeGestureRecognizer) {
         drawerClosedConstraint.priority = UILayoutPriority(rawValue: 999)
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     @IBAction func favoritesSegementedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             favoritesViewTrailingConstraint.priority = UILayoutPriority(rawValue: 999)
@@ -72,9 +72,9 @@ class ParksViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     // MARK: - Helper Methods
-    
+
     func reloadFavoriteView() {
         if !ParkController.shared.favoriteParks.isEmpty {
             noFavoritesView.isHidden = true
@@ -83,44 +83,44 @@ class ParksViewController: UIViewController {
         }
         favoritesTableView.reloadData()
     }
-    
+
     // MARK: - Map Kit Helper Methods
-    
+
     func setUpMapKit() {
         LocationManager.shared.delegate = self
         enableBasicLocationServices()
     }
-    
+
     func enableBasicLocationServices() {
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
             break
-            
+
         case .restricted, .denied:
             mapKitEnabled = false
             break
-            
+
         case .authorizedWhenInUse, .authorizedAlways:
             mapKitEnabled = true
             searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
             break
         }
     }
-    
+
     func searchForDogParks(searchLocation: CLLocationCoordinate2D) {
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = "dog park"
-        let span = MKCoordinateSpan.init(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion.init(center: searchLocation, span: span)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion(center: searchLocation, span: span)
         searchRequest.region = region
-        
+
         let activeSearch = MKLocalSearch(request: searchRequest)
         activeSearch.start { response, error in
             if let error = error {
                 NSLog("Error searching for dog parks: %@", error.localizedDescription)
                 return
             }
-            
+
             guard let response = response else {
                 NSLog("No dog park search response")
                 return
@@ -132,7 +132,7 @@ class ParksViewController: UIViewController {
             self.mapView.setRegion(region, animated: true)
         }
     }
-    
+
     func addPinFor(placemark: MKPlacemark) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
@@ -143,7 +143,7 @@ class ParksViewController: UIViewController {
         }
         mapView.addAnnotation(annotation)
     }
-    
+
     func dropPinZoomIn(placemark: MKPlacemark) {
         selectedPin = placemark
         let annotation = MKPointAnnotation()
@@ -154,11 +154,11 @@ class ParksViewController: UIViewController {
             annotation.subtitle = "\(city) \(state)"
         }
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion.init(center: placemark.coordinate, span: span)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
-    
+
     func setUpViews() {
         addSearchAndCancelButtonTo(searchBar: zipCodeSearchBar)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -177,31 +177,31 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
             return ParkController.shared.favoriteParks.count
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "parkCell", for: indexPath) as? ParkTableViewCell else { return UITableViewCell() }
         var park: Park?
-        
+
         if tableView == favoritesTableView {
             park = ParkController.shared.favoriteParks[indexPath.row]
         } else {
             park = ParkController.shared.parks[indexPath.row]
         }
-        
+
         if ParkController.shared.favoriteParks.contains(park!) {
             cell.favoritesButton.setImage(#imageLiteral(resourceName: "favoritedHeart"), for: .normal)
         } else {
             cell.favoritesButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         }
-        
+
         cell.delegate = self
         cell.park = park
         cell.parkAddressLabel.text = AddressFormatter.shared.parseAddress(selectedItem: park!.placemark)
         cell.parkNameLabel.text = park!.placemark.name
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var selectedItem: MKPlacemark?
         if tableView == favoritesTableView {
@@ -218,11 +218,11 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
@@ -236,10 +236,10 @@ extension ParksViewController: CLLocationManagerDelegate {
             LocationManager.shared.requestLocation()
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error)")
     }
@@ -263,20 +263,20 @@ extension ParksViewController: MKMapViewDelegate {
         pinView?.leftCalloutAccessoryView = button
         return pinView
     }
-    
+
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let selectedLoc = view.annotation
-        
+
         let currentLocMapItem = MKMapItem.forCurrentLocation()
-        
+
         let selectedPlacemark = MKPlacemark(coordinate: selectedLoc!.coordinate, addressDictionary: nil)
         let selectedMapItem = MKMapItem(placemark: selectedPlacemark)
-        
+
         let mapItems = [selectedMapItem, currentLocMapItem]
-        
+
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        
-        MKMapItem.openMaps(with: mapItems, launchOptions:launchOptions)
+
+        MKMapItem.openMaps(with: mapItems, launchOptions: launchOptions)
     }
 }
 
@@ -286,17 +286,17 @@ extension ParksViewController {
     func addSearchAndCancelButtonTo(searchBar: UISearchBar) {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         toolbar.barStyle = .default
-        
+
         let cancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelButtonAction))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let search = UIBarButtonItem(title: "Search", style: .done, target: self, action: #selector(searchButtonAction))
-        
+
         let items = [cancel, flexSpace, search]
         toolbar.items = items
         toolbar.sizeToFit()
         searchBar.inputAccessoryView = toolbar
     }
-    
+
     @objc func searchButtonAction() {
         ParkController.shared.removeAllNonFavoriteParks()
         guard let searchText = zipCodeSearchBar.text, !searchText.isEmpty else {
@@ -318,7 +318,7 @@ extension ParksViewController {
             self.zipCodeSearchBar.resignFirstResponder()
         }
     }
-    
+
     @objc func cancelButtonAction() {
         zipCodeSearchBar.resignFirstResponder()
     }
@@ -329,20 +329,20 @@ extension ParksViewController {
 extension ParksViewController: ParkTableViewCellDelegate {
     func directionsButtonTapped(_ sender: ParkTableViewCell) {
         let alertController = UIAlertController(title: "Open in Apple Maps?", message: "This will close Dog's Best Friend to show directions to the park", preferredStyle: .alert)
-        let continueAction = UIAlertAction(title: "Continie", style: .default) { (_) in
+        let continueAction = UIAlertAction(title: "Continie", style: .default) { _ in
             let currentLocMapItem = MKMapItem.forCurrentLocation()
             let selectedMapItem = MKMapItem(placemark: sender.park!.placemark)
             let mapItems = [selectedMapItem, currentLocMapItem]
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-            MKMapItem.openMaps(with: mapItems, launchOptions:launchOptions)
+            MKMapItem.openMaps(with: mapItems, launchOptions: launchOptions)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         alertController.addAction(continueAction)
-        
+
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func favoriteButtonTapped(_ sender: ParkTableViewCell) {
         let park = sender.park
         if park!.isFavorite {

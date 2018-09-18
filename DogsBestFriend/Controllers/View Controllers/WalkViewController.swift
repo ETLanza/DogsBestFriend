@@ -26,9 +26,9 @@ class WalkViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func startYourWalkButtonTapped(_ sender: UIButton) {}
-    
+
     // MARK: - Helper Methods
-    
+
     func setUpViews() {
         startYourWalkButton.layer.cornerRadius = 12
         startYourWalkButton.layer.masksToBounds = true

@@ -12,6 +12,7 @@
 		3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2566C620FF8D2F0053E44E /* Assets.xcassets */; };
 		3C2566D620FF940D0053E44E /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2566D520FF940D0053E44E /* Breed.swift */; };
 		3C25670220FFA8070053E44E /* BreedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25670120FFA8070053E44E /* BreedController.swift */; };
+		3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27F9992150BD6E006236A6 /* Keys.swift */; };
 		3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34AC34214B973B00A97CA9 /* LocationManager.swift */; };
 		3C4F473E215086CC00309457 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* LaunchScreen.storyboard */; };
 		3C4F47402150898500309457 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F473F2150898500309457 /* LaunchScreenViewController.swift */; };
@@ -47,6 +48,7 @@
 		3C2566CB20FF8D2F0053E44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C2566D520FF940D0053E44E /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		3C25670120FFA8070053E44E /* BreedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedController.swift; sourceTree = "<group>"; };
+		3C27F9992150BD6E006236A6 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		3C34AC34214B973B00A97CA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C4F473D215086CC00309457 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C4F473F2150898500309457 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				3C34AC34214B973B00A97CA9 /* LocationManager.swift */,
 				3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */,
+				3C27F9992150BD6E006236A6 /* Keys.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */,
 				3CBC3D51214C267600F36E6A /* ParkController.swift in Sources */,
 				3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */,
+				3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */,
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
 				3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */,
 				3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */,

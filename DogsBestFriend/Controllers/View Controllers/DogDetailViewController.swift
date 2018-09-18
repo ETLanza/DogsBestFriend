@@ -10,13 +10,13 @@ import UIKit
 
 class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // MARK: - Properties
-    
+
     var dog: Dog?
     var profileImageAsData: Data?
     let imagePickerController = UIImagePickerController()
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var changePictureLabel: UILabel!
     @IBOutlet weak var dogImageView: UIImageView!
@@ -28,16 +28,16 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var registrationTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    
+
     // MARK: - Life Cycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
     }
-    
+
     // MARK: - IBActions
-    
+
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let name = nameTextField.text, !name.isEmpty else {
             //TODO: ALERT
@@ -52,10 +52,10 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         }
         navigationController?.popViewController(animated: true)
     }
-    
+
     @IBAction func dogChangePictureTapped(_ sender: UITapGestureRecognizer) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_: UIAlertAction) in
                 self.imagePickerController.sourceType = .camera
@@ -65,38 +65,37 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (_: UIAlertAction) in
             self.imagePickerController.sourceType = .photoLibrary
             self.present(self.imagePickerController, animated: true, completion: nil)
-            
+
         }))
-        
+
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
+
         self.present(actionSheet, animated: true)
     }
-    
+
     // MARK: - UIImagePickerController Delegate Methods
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         // Local variable inserted by Swift 4.2 migrator.
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-        
-        
+
         if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
             let profileImageAsData = image.pngData()
             self.profileImageAsData = profileImageAsData
             dog?.profileImageAsData = profileImageAsData!
             dogImageView.image = image
-            
+
             changePictureLabel.text = ""
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     // MARK: - Helper Methods
-    
+
     func setUpViews() {
         imagePickerController.delegate = self
         tableView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(tableViewSwiped)))
@@ -114,34 +113,34 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
             registrationTextField.text = dog.registration
         }
     }
-    
+
     @objc func tableViewSwiped() {
         scrollView.isScrollEnabled = false
         tableView.isScrollEnabled = true
     }
-    
+
     @objc func scrollViewSwiped() {
         scrollView.isScrollEnabled = true
         tableView.isScrollEnabled = false
     }
-    
+
     // MARK: - TableView Data Scource
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
 }
 
 // Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+private func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map { key, value in (key.rawValue, value) })
 }
 
 // Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
     return input.rawValue
 }
