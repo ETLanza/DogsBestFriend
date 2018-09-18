@@ -13,6 +13,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     var dog: Dog?
     var profileImageAsData: Data?
+    let imagePickerController = UIImagePickerController()
     
     // MARK: - IBOutlets
     
@@ -43,7 +44,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
             //displayMissingInfoAlert()
             return
         }
-        let imageData = profileImageAsData ?? UIImagePNGRepresentation(#imageLiteral(resourceName: "defaultProfileImage"))
+        let imageData = profileImageAsData ?? #imageLiteral(resourceName: "defaultProfileImage").pngData()
         if let dog = dog {
             DogController.shared.updateDog(dog, withName: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!)
         } else {
@@ -53,20 +54,17 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
     }
     
     @IBAction func dogChangePictureTapped(_ sender: UITapGestureRecognizer) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_: UIAlertAction) in
-                imagePickerController.sourceType = .camera
-                self.present(imagePickerController, animated: true, completion: nil)
+                self.imagePickerController.sourceType = .camera
+                self.present(self.imagePickerController, animated: true, completion: nil)
             }))
         }
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (_: UIAlertAction) in
-            imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: nil)
+            self.imagePickerController.sourceType = .photoLibrary
+            self.present(self.imagePickerController, animated: true, completion: nil)
             
         }))
         
@@ -77,15 +75,19 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     // MARK: - UIImagePickerController Delegate Methods
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let profileImageAsData = UIImagePNGRepresentation(image)
-        self.profileImageAsData = profileImageAsData
         
-        dogImageView.image = image
-        
-        changePictureLabel.text = ""
+        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
+            let profileImageAsData = image.pngData()
+            self.profileImageAsData = profileImageAsData
+            dog?.profileImageAsData = profileImageAsData!
+            dogImageView.image = image
+            
+            changePictureLabel.text = ""
+        }
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -96,6 +98,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
     // MARK: - Helper Methods
     
     func setUpViews() {
+        imagePickerController.delegate = self
         tableView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(tableViewSwiped)))
         scrollView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(scrollViewSwiped)))
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -131,4 +134,14 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+    return input.rawValue
 }
