@@ -11,21 +11,21 @@ import UIKit
 class YourDogViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
     // MARK: - Life Cycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
     }
-    
+
     // MARK: - Helper Methods
-    
+
     func setUpViews() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -33,9 +33,9 @@ class YourDogViewController: UIViewController {
         self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
     }
-    
+
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editDogSegue" {
             guard let destinationVC = segue.destination as? DogDetailViewController,
@@ -54,13 +54,13 @@ extension YourDogViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dogCell", for: indexPath) as? DogCollectionViewCell else { return UICollectionViewCell() }
-        
+
         let dog = DogController.shared.dogs[indexPath.row]
         let image = UIImage(data: dog.profileImageAsData)
         cell.dog = dog
         cell.dogProfilePicture.image = image
         cell.dogNameLabel.text = dog.name
-        
+
         return cell
     }
 }

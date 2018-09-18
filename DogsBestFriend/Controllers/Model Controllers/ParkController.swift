@@ -11,32 +11,32 @@ import MapKit
 
 class ParkController {
     // MARK: - Shared Instance
-    
+
     static let shared = ParkController()
-    
+
     // MARK: - Properties
-    
+
     var parks: [Park] = []
     var favoriteParks: [Park] = []
-    
+
     // MARK: - CRUD Functions
-    
+
     func addParkwith(placemark: MKPlacemark) {
         let newPark = Park(placemark: placemark)
         parks.append(newPark)
     }
-    
+
     func addFavorite(park: Park) {
         favoriteParks.append(park)
     }
-    
+
     func deleteFavorite(park: Park) {
         guard let index = favoriteParks.index(of: park) else { return }
         favoriteParks.remove(at: index)
     }
-    
+
     func removeAllNonFavoriteParks() {
         parks = []
     }
-    
+
 }

@@ -10,14 +10,14 @@ import UIKit
 
 class DogCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
-    
+
     var dog: Dog?
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var dogProfilePicture: UIImageView!
     @IBOutlet weak var dogNameLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         dogProfilePicture.layer.cornerRadius = dogProfilePicture.frame.height / 2
