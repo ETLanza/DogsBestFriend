@@ -13,6 +13,7 @@ class ParksViewController: UIViewController {
     // MARK: - Properties
     
     var selectedPin: MKPlacemark?
+    var mapKitEnabled: Bool = false
     
     // MARK: - IBOutlets
     
@@ -33,7 +34,9 @@ class ParksViewController: UIViewController {
         super.viewDidLoad()
         setUpViews()
         setUpMapKit()
-        searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+
+        }
         if !ParkController.shared.favoriteParks.isEmpty {
             noFavoritesView.isHidden = true
         }
@@ -91,24 +94,24 @@ class ParksViewController: UIViewController {
     func enableBasicLocationServices() {
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
-            LocationManager.shared.requestWhenInUseAuthorization()
             break
             
         case .restricted, .denied:
-            //            disableMyLocationBasedFeatures()
+            mapKitEnabled = false
             break
             
         case .authorizedWhenInUse, .authorizedAlways:
-            LocationManager.shared.requestLocation()
+            mapKitEnabled = true
+            searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
             break
         }
     }
     
     func searchForDogParks(searchLocation: CLLocationCoordinate2D) {
-        let searchRequest = MKLocalSearchRequest()
+        let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = "dog park"
-        let span = MKCoordinateSpanMake(0.1, 0.1)
-        let region = MKCoordinateRegionMake(searchLocation, span)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion.init(center: searchLocation, span: span)
         searchRequest.region = region
         
         let activeSearch = MKLocalSearch(request: searchRequest)
@@ -129,7 +132,6 @@ class ParksViewController: UIViewController {
             self.mapView.setRegion(region, animated: true)
         }
     }
-    
     
     func addPinFor(placemark: MKPlacemark) {
         let annotation = MKPointAnnotation()
@@ -152,11 +154,10 @@ class ParksViewController: UIViewController {
             annotation.subtitle = "\(city) \(state)"
         }
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegionMake(placemark.coordinate, span)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion.init(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
-    
     
     func setUpViews() {
         addSearchAndCancelButtonTo(searchBar: zipCodeSearchBar)
@@ -167,6 +168,7 @@ class ParksViewController: UIViewController {
 }
 
 // MARK: - UITableView Data Source and Delegates
+
 extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == parksTableView {
@@ -236,7 +238,6 @@ extension ParksViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -280,6 +281,7 @@ extension ParksViewController: MKMapViewDelegate {
 }
 
 // MARK: - Search Bar Helper Methods
+
 extension ParksViewController {
     func addSearchAndCancelButtonTo(searchBar: UISearchBar) {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
@@ -304,12 +306,12 @@ extension ParksViewController {
         clGeocoder.geocodeAddressString(searchText) { placemarks, error in
             if let error = error {
                 print(error.localizedDescription)
-                //                    displayZipCodeSearchErrorAlert()
+                // TODO: displayZipCodeSearchErrorAlert()
                 return
             }
             guard let placemarks = placemarks else {
                 print("Error with zipcode placemarks")
-                //                    displayZipCodeSearchErrorAlert()
+                // TODO: displayZipCodeSearchErrorAlert()
                 return
             }
             self.searchForDogParks(searchLocation: placemarks.first!.location!.coordinate)
@@ -323,6 +325,7 @@ extension ParksViewController {
 }
 
 // MARK: - ParkTableViewCellDelegate
+
 extension ParksViewController: ParkTableViewCellDelegate {
     func directionsButtonTapped(_ sender: ParkTableViewCell) {
         let alertController = UIAlertController(title: "Open in Apple Maps?", message: "This will close Dog's Best Friend to show directions to the park", preferredStyle: .alert)

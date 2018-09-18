@@ -7,24 +7,35 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LaunchScreenViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        LocationManager.shared.delegate = self
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            LocationManager.shared.requestWhenInUseAuthorization()
+        default:
+            presentMainView()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func presentMainView() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let newViewController = storyboard.instantiateInitialViewController()
+        present(newViewController!, animated: true, completion: nil)
     }
-    */
+}
 
+extension LaunchScreenViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted, .notDetermined:
+            break
+        default:
+            presentMainView()
+        }
+    }
 }
