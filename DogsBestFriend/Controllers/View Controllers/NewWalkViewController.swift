@@ -60,8 +60,6 @@ class NewWalkViewController: UIViewController {
         stopYourWalkButton.layer.masksToBounds = true
         mapView.layer.cornerRadius = 12
         mapView.layer.masksToBounds = true
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.setRegion(MKCoordinateRegion(center: CLLocationManager().location!.coordinate, latitudinalMeters: 500, longitudinalMeters: 500), animated: true)
         }
