@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Launch Screen View Controller-->
+        <!--Onboard View Controller-->
         <scene sceneID="y2f-QN-y60">
             <objects>
-                <viewController id="IGB-hD-uf3" customClass="LaunchScreenViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IGB-hD-uf3" customClass="OnboardViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jxC-K4-ZPW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

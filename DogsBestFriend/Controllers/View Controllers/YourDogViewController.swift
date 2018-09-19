@@ -33,7 +33,7 @@ class YourDogViewController: UIViewController {
         self.tabBarController!.tabBar.layer.borderWidth = 0.50
         self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
-      
+
     }
 
     func reloadViews() {
