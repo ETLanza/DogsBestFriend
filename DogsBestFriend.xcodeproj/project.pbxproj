@@ -14,7 +14,7 @@
 		3C25670220FFA8070053E44E /* BreedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25670120FFA8070053E44E /* BreedController.swift */; };
 		3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27F9992150BD6E006236A6 /* Keys.swift */; };
 		3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34AC34214B973B00A97CA9 /* LocationManager.swift */; };
-		3C4F473E215086CC00309457 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* LaunchScreen.storyboard */; };
+		3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* Onboard.storyboard */; };
 		3C4F47402150898500309457 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F473F2150898500309457 /* LaunchScreenViewController.swift */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
@@ -26,10 +26,13 @@
 		3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB5215178D300325067 /* Medical.storyboard */; };
 		3C8BBBB82151899A00325067 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB72151899A00325067 /* MedicalRecord.swift */; };
 		3C8BBBBE2151BB3700325067 /* MedicalRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */; };
+		3C8BBBC02151D29700325067 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBBF2151D29700325067 /* APIController.swift */; };
 		3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */; };
 		3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B02146E30D00253B85 /* ParksViewController.swift */; };
 		3C9B90B32146E32100253B85 /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B22146E32100253B85 /* WalkViewController.swift */; };
 		3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */; };
+		3CA9905C215210B900C3824D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CA9905B215210B900C3824D /* Login.storyboard */; };
+		3CA9905E2152A7CD00C3824D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA9905D2152A7CD00C3824D /* LoginViewController.swift */; };
 		3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298321407D1700AF8114 /* BreedImage.storyboard */; };
 		3CAF298621407EE600AF8114 /* Walk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298521407EE600AF8114 /* Walk.storyboard */; };
 		3CAF298821407F1200AF8114 /* Parks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298721407F1200AF8114 /* Parks.storyboard */; };
@@ -54,7 +57,7 @@
 		3C25670120FFA8070053E44E /* BreedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedController.swift; sourceTree = "<group>"; };
 		3C27F9992150BD6E006236A6 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		3C34AC34214B973B00A97CA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		3C4F473D215086CC00309457 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3C4F473D215086CC00309457 /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 		3C4F473F2150898500309457 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
@@ -66,10 +69,13 @@
 		3C8BBBB5215178D300325067 /* Medical.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Medical.storyboard; sourceTree = "<group>"; };
 		3C8BBBB72151899A00325067 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
 		3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordController.swift; sourceTree = "<group>"; };
+		3C8BBBBF2151D29700325067 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourDogViewController.swift; sourceTree = "<group>"; };
 		3C9B90B02146E30D00253B85 /* ParksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksViewController.swift; sourceTree = "<group>"; };
 		3C9B90B22146E32100253B85 /* WalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
 		3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		3CA9905B215210B900C3824D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3CA9905D2152A7CD00C3824D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CAF298321407D1700AF8114 /* BreedImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreedImage.storyboard; sourceTree = "<group>"; };
 		3CAF298521407EE600AF8114 /* Walk.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Walk.storyboard; sourceTree = "<group>"; };
 		3CAF298721407F1200AF8114 /* Parks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Parks.storyboard; sourceTree = "<group>"; };
@@ -139,7 +145,8 @@
 		3C2566D220FF8D760053E44E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				3C4F473D215086CC00309457 /* LaunchScreen.storyboard */,
+				3CA9905B215210B900C3824D /* Login.storyboard */,
+				3C4F473D215086CC00309457 /* Onboard.storyboard */,
 				3C2566C320FF8D2E0053E44E /* Main.storyboard */,
 				3CAF298921407F2B00AF8114 /* YourDog.storyboard */,
 				3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */,
@@ -168,6 +175,7 @@
 			children = (
 				3C25670720FFAEB20053E44E /* Model Controllers */,
 				3C25670820FFAEB90053E44E /* View Controllers */,
+				3C8BBBBF2151D29700325067 /* APIController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 		3C25670820FFAEB90053E44E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3CA9905D2152A7CD00C3824D /* LoginViewController.swift */,
 				3C4F473F2150898500309457 /* LaunchScreenViewController.swift */,
 				3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */,
 				3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */,
@@ -309,7 +318,7 @@
 			files = (
 				3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */,
 				3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */,
-				3C4F473E215086CC00309457 /* LaunchScreen.storyboard in Resources */,
+				3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */,
 				3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */,
 				3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */,
 				3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */,
@@ -317,6 +326,7 @@
 				3C2566C520FF8D2E0053E44E /* Main.storyboard in Resources */,
 				3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */,
 				3CAF298621407EE600AF8114 /* Walk.storyboard in Resources */,
+				3CA9905C215210B900C3824D /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +351,7 @@
 				3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */,
 				3C2566D620FF940D0053E44E /* Breed.swift in Sources */,
 				3CBC3D55214C652200F36E6A /* Dog.swift in Sources */,
+				3C8BBBC02151D29700325067 /* APIController.swift in Sources */,
 				3C25670220FFA8070053E44E /* BreedController.swift in Sources */,
 				3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */,
 				3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */,
@@ -350,6 +361,7 @@
 				3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */,
 				3C8BBBBE2151BB3700325067 /* MedicalRecordController.swift in Sources */,
 				3C4F47402150898500309457 /* LaunchScreenViewController.swift in Sources */,
+				3CA9905E2152A7CD00C3824D /* LoginViewController.swift in Sources */,
 				3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
