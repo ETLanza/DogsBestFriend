@@ -10,9 +10,11 @@ import CoreLocation
 import UIKit
 
 class LaunchScreenViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    var presentTriggered: Bool = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         LocationManager.shared.delegate = self
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
@@ -23,9 +25,14 @@ class LaunchScreenViewController: UIViewController {
     }
 
     func presentMainView() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyboard.instantiateInitialViewController()
-        present(newViewController!, animated: true, completion: nil)
+        if presentTriggered == false {
+            presentTriggered = true
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyboard.instantiateInitialViewController()
+            newViewController?.modalPresentationStyle = .fullScreen
+            newViewController?.modalTransitionStyle = .crossDissolve
+            present(newViewController!, animated: true, completion: nil)
+        }
     }
 }
 

@@ -11,6 +11,7 @@ import Foundation
 struct Keys {
 
     struct Dog {
+        static let type = "dog"
         static let name = "name"
         static let birthdate = "birthdate"
         static let adoptionDate = "adoptionDate"
@@ -21,17 +22,22 @@ struct Keys {
         static let profileImageAsData = "profileImageAsData"
         static let medicalHistory = "medicalHistory"
     }
+    
+    struct MedicalRecord {
+        static let type = "medicalRecord"
+        static let name = "name"
+        static let date = "date"
+        static let note = "note"
+    }
 
     struct Park {
-        static let placemark = "Placemark"
+        static let type = "park"
+        static let placemark = "placemark"
         static let isFavorite = "isFavorite"
     }
 
     struct Walk {
-
-    }
-
-    struct MedicalHistory {
-        static let name = "name"
+        static let type = "walk"
+        static let date = "date"
     }
 }

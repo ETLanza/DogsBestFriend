@@ -11,6 +11,7 @@ import UIKit
 class YourDogViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noDogView: UIView!
 
     // MARK: - Life Cycle Methods
 
@@ -21,7 +22,7 @@ class YourDogViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
+        reloadViews()
     }
 
     // MARK: - Helper Methods
@@ -32,6 +33,16 @@ class YourDogViewController: UIViewController {
         self.tabBarController!.tabBar.layer.borderWidth = 0.50
         self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
+      
+    }
+
+    func reloadViews() {
+        collectionView.reloadData()
+        if DogController.shared.dogs.isEmpty {
+            noDogView.isHidden = false
+        } else {
+            noDogView.isHidden = true
+        }
     }
 
     // MARK: - Navigation

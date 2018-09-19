@@ -190,6 +190,7 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
 
         if ParkController.shared.favoriteParks.contains(park!) {
             cell.favoritesButton.setImage(#imageLiteral(resourceName: "favoritedHeart"), for: .normal)
+            park?.isFavorite = true
         } else {
             cell.favoritesButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
         }
