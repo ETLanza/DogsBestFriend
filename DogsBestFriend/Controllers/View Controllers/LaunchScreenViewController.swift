@@ -23,7 +23,7 @@ class LaunchScreenViewController: UIViewController {
             presentMainView()
         }
     }
-    
+
     func presentMainView() {
         if presentTriggered == false {
             presentTriggered = true

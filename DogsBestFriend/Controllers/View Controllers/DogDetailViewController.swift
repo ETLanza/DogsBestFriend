@@ -109,7 +109,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scrollView.isScrollEnabled = true
         tableView.isScrollEnabled = false
     }
-    
+
     // MARK: - UIImagePickerController Delegate Methods
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {

@@ -12,7 +12,7 @@ class YourDogViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noDogView: UIView!
-    
+
     // MARK: - Life Cycle Methods
 
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class YourDogViewController: UIViewController {
         self.tabBarController?.tabBar.clipsToBounds = true
       
     }
-    
+
     func reloadViews() {
         collectionView.reloadData()
         if DogController.shared.dogs.isEmpty {

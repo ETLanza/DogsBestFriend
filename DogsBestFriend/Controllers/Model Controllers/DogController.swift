@@ -36,7 +36,6 @@ class DogController {
         dog.color = color
         dog.registration = registration
         completion(true)
-
         // TODO: API Persistence
     }
 

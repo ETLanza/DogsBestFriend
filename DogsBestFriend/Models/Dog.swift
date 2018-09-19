@@ -9,7 +9,7 @@
 import Foundation
 
 class Dog: Equatable, Codable {
-    
+
     enum CodingKeys: String, CodingKey {
         case name
         case birthdate
@@ -21,7 +21,7 @@ class Dog: Equatable, Codable {
         case profileImageAsData
         case medicalHistory
     }
-    
+  
     var name: String
     var birthdate: Date
     var adoptionDate: Date
@@ -43,7 +43,7 @@ class Dog: Equatable, Codable {
         self.profileImageAsData = profileImageAsData
         self.medicalHistory = medicalHistory
     }
-    
+
     static func == (lhs: Dog, rhs: Dog) -> Bool {
         return lhs.name == rhs.name && lhs.birthdate == rhs.birthdate && lhs.adoptionDate == rhs.adoptionDate && lhs.microchipID == rhs.microchipID && lhs.breed == rhs.breed && lhs.color == rhs.color && lhs.registration == rhs.registration
     }
@@ -71,7 +71,7 @@ extension Dog {
                   profileImageAsData: profileImageAsData,
                   medicalHistory: medicalHistory)
     }
-    
+
     var asJSONDictionary: [String: Any] {
         return [Keys.Dog.name: self.name,
                 Keys.Dog.birthdate: self.birthdate,
