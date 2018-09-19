@@ -16,6 +16,7 @@
 		3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34AC34214B973B00A97CA9 /* LocationManager.swift */; };
 		3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* Onboard.storyboard */; };
 		3C4F47402150898500309457 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F473F2150898500309457 /* OnboardViewController.swift */; };
+		3C641A382153014900FCA18E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C641A372153014900FCA18E /* UIImage+Extension.swift */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
 		3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */; };
@@ -65,6 +66,7 @@
 		3C34AC34214B973B00A97CA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C4F473D215086CC00309457 /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 		3C4F473F2150898500309457 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		3C641A372153014900FCA18E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */,
 				3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */,
+				3C641A372153014900FCA18E /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */,
 				3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */,
 				3C8BBBBE2151BB3700325067 /* MedicalRecordController.swift in Sources */,
+				3C641A382153014900FCA18E /* UIImage+Extension.swift in Sources */,
 				3C4F47402150898500309457 /* OnboardViewController.swift in Sources */,
 				3CA990622152AE0000C3824D /* DisplayFormatter.swift in Sources */,
 				3CA9905E2152A7CD00C3824D /* LoginViewController.swift in Sources */,

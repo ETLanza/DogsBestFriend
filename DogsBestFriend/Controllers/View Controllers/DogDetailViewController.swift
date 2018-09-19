@@ -88,7 +88,10 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scrollView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(scrollViewSwiped)))
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         if let dog = dog {
+            title = dog.name
             dogImageView.image = UIImage(data: dog.profileImageAsData)
             nameTextField.text = dog.name
             birthdateDatePicker.date = dog.birthdate
@@ -109,6 +112,22 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scrollView.isScrollEnabled = true
         tableView.isScrollEnabled = false
     }
+    
+    @objc func keyboardWillShow(notification:NSNotification){
+
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 50
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification){
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
 
     // MARK: - UIImagePickerController Delegate Methods
 
@@ -116,8 +135,8 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         // Local variable inserted by Swift 4.2 migrator.
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 
-        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
-            let profileImageAsData = image.pngData()
+        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage, let fixedImage = image.fixOrientation() {
+            let profileImageAsData = fixedImage.pngData()
             self.profileImageAsData = profileImageAsData
             dog?.profileImageAsData = profileImageAsData!
             dogImageView.image = image
