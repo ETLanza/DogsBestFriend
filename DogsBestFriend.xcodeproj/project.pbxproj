@@ -22,6 +22,10 @@
 		3C7FA2A1214AC92C0037B1F4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */; };
 		3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */; };
 		3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */; };
+		3C8BBBB42151787900325067 /* MedicalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB32151787900325067 /* MedicalViewController.swift */; };
+		3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB5215178D300325067 /* Medical.storyboard */; };
+		3C8BBBB82151899A00325067 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB72151899A00325067 /* MedicalRecord.swift */; };
+		3C8BBBBE2151BB3700325067 /* MedicalRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */; };
 		3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */; };
 		3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B02146E30D00253B85 /* ParksViewController.swift */; };
 		3C9B90B32146E32100253B85 /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B22146E32100253B85 /* WalkViewController.swift */; };
@@ -58,6 +62,10 @@
 		3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DogDetail.storyboard; sourceTree = "<group>"; };
 		3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WalkDetail.storyboard; sourceTree = "<group>"; };
+		3C8BBBB32151787900325067 /* MedicalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalViewController.swift; sourceTree = "<group>"; };
+		3C8BBBB5215178D300325067 /* Medical.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Medical.storyboard; sourceTree = "<group>"; };
+		3C8BBBB72151899A00325067 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
+		3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordController.swift; sourceTree = "<group>"; };
 		3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourDogViewController.swift; sourceTree = "<group>"; };
 		3C9B90B02146E30D00253B85 /* ParksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksViewController.swift; sourceTree = "<group>"; };
 		3C9B90B22146E32100253B85 /* WalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 				3C2566C320FF8D2E0053E44E /* Main.storyboard */,
 				3CAF298921407F2B00AF8114 /* YourDog.storyboard */,
 				3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */,
+				3C8BBBB5215178D300325067 /* Medical.storyboard */,
 				3CAF298721407F1200AF8114 /* Parks.storyboard */,
 				3CAF298521407EE600AF8114 /* Walk.storyboard */,
 				3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */,
@@ -147,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3CBC3D54214C652200F36E6A /* Dog.swift */,
+				3C8BBBB72151899A00325067 /* MedicalRecord.swift */,
 				3CBC3D4E214C20B100F36E6A /* Park.swift */,
 				3C2566D520FF940D0053E44E /* Breed.swift */,
 			);
@@ -166,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				3CBC3D56214C66D600F36E6A /* DogController.swift */,
+				3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */,
 				3CBC3D50214C267600F36E6A /* ParkController.swift */,
 				3C25670120FFA8070053E44E /* BreedController.swift */,
 			);
@@ -178,6 +189,7 @@
 				3C4F473F2150898500309457 /* LaunchScreenViewController.swift */,
 				3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */,
 				3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */,
+				3C8BBBB32151787900325067 /* MedicalViewController.swift */,
 				3C9B90B02146E30D00253B85 /* ParksViewController.swift */,
 				3C9B90B22146E32100253B85 /* WalkViewController.swift */,
 				3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */,
@@ -299,6 +311,7 @@
 				3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */,
 				3C4F473E215086CC00309457 /* LaunchScreen.storyboard in Resources */,
 				3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */,
+				3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */,
 				3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */,
 				3CAF298821407F1200AF8114 /* Parks.storyboard in Resources */,
 				3C2566C520FF8D2E0053E44E /* Main.storyboard in Resources */,
@@ -320,8 +333,10 @@
 				3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */,
 				3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */,
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
+				3C8BBBB42151787900325067 /* MedicalViewController.swift in Sources */,
 				3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */,
 				3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */,
+				3C8BBBB82151899A00325067 /* MedicalRecord.swift in Sources */,
 				3CBC3D59214C710A00F36E6A /* DogCollectionViewCell.swift in Sources */,
 				3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */,
 				3C2566D620FF940D0053E44E /* Breed.swift in Sources */,
@@ -333,6 +348,7 @@
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
 				3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */,
 				3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */,
+				3C8BBBBE2151BB3700325067 /* MedicalRecordController.swift in Sources */,
 				3C4F47402150898500309457 /* LaunchScreenViewController.swift in Sources */,
 				3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */,
 			);
@@ -403,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -457,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

@@ -46,11 +46,18 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         }
         let imageData = profileImageAsData ?? #imageLiteral(resourceName: "defaultProfileImage").pngData()
         if let dog = dog {
-            DogController.shared.updateDog(dog, withName: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!)
+            DogController.shared.updateDog(dog, withName: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!) { (success) in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
         } else {
-            DogController.shared.addDogWith(name: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!)
+            DogController.shared.addDogWith(name: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!) { (success) in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
         }
-        navigationController?.popViewController(animated: true)
     }
 
     @IBAction func dogChangePictureTapped(_ sender: UITapGestureRecognizer) {
@@ -71,27 +78,6 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         self.present(actionSheet, animated: true)
-    }
-
-    // MARK: - UIImagePickerController Delegate Methods
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        // Local variable inserted by Swift 4.2 migrator.
-        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
-        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
-            let profileImageAsData = image.pngData()
-            self.profileImageAsData = profileImageAsData
-            dog?.profileImageAsData = profileImageAsData!
-            dogImageView.image = image
-
-            changePictureLabel.text = ""
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Helper Methods
@@ -123,11 +109,32 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scrollView.isScrollEnabled = true
         tableView.isScrollEnabled = false
     }
+    
+    // MARK: - UIImagePickerController Delegate Methods
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
+        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
+            let profileImageAsData = image.pngData()
+            self.profileImageAsData = profileImageAsData
+            dog?.profileImageAsData = profileImageAsData!
+            dogImageView.image = image
+            
+            changePictureLabel.text = ""
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 
     // MARK: - TableView Data Scource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

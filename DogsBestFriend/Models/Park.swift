@@ -19,15 +19,17 @@ class Park: Equatable {
     }
 
     // MARK: Equatable
+    
     static func == (lhs: Park, rhs: Park) -> Bool {
-        return lhs.placemark == rhs.placemark
+        return lhs.placemark.name == rhs.placemark.name
     }
 }
 
 extension Park {
     convenience init?(jsonDictionary: [String: Any]) {
         guard let placemark = jsonDictionary[Keys.Park.placemark] as? MKPlacemark,
-            let isFavorite = jsonDictionary[Keys.Park.isFavorite] as? Bool else { return nil }
+            let isFavorite = jsonDictionary[Keys.Park.isFavorite] as? Bool
+            else { return nil }
         self.init(placemark: placemark)
         self.isFavorite = isFavorite
     }

@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1yn-Jz-nWz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1yn-Jz-nWz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,9 +41,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YBT-i2-1lY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YBT-i2-1lY">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" sectionInsetReference="layoutMargins" id="GLZ-sq-QSK">
@@ -99,8 +94,43 @@
                                     <outlet property="delegate" destination="r4L-hD-09M" id="PIi-EJ-Lym"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1A-Je-3bL">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the &quot;+&quot; button to add a dog!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emC-Am-SDu">
+                                        <rect key="frame" x="57" y="240.5" width="261" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happyDog" translatesAutoresizingMaskIntoConstraints="NO" id="HRZ-ky-Gos">
+                                        <rect key="frame" x="87" y="31.5" width="201" height="201"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="HRZ-ky-Gos" secondAttribute="height" multiplier="1:1" id="PR4-1e-SE4"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HRZ-ky-Gos" firstAttribute="height" secondItem="B1A-Je-3bL" secondAttribute="height" multiplier="0.4" id="SCe-1f-bxL"/>
+                                    <constraint firstItem="emC-Am-SDu" firstAttribute="centerY" secondItem="B1A-Je-3bL" secondAttribute="centerY" id="lfZ-RL-d3m"/>
+                                    <constraint firstItem="HRZ-ky-Gos" firstAttribute="centerX" secondItem="B1A-Je-3bL" secondAttribute="centerX" id="lx5-VR-mJ2"/>
+                                    <constraint firstItem="emC-Am-SDu" firstAttribute="top" secondItem="HRZ-ky-Gos" secondAttribute="bottom" constant="8" symbolic="YES" id="pQ7-Ft-bWa"/>
+                                    <constraint firstItem="emC-Am-SDu" firstAttribute="centerX" secondItem="B1A-Je-3bL" secondAttribute="centerX" id="xqc-9H-d5a"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YBT-i2-1lY" firstAttribute="top" secondItem="mby-E4-njy" secondAttribute="top" id="5mI-K5-fit"/>
+                            <constraint firstItem="YBT-i2-1lY" firstAttribute="leading" secondItem="mby-E4-njy" secondAttribute="leading" id="8no-8Z-Nf9"/>
+                            <constraint firstItem="B1A-Je-3bL" firstAttribute="leading" secondItem="mby-E4-njy" secondAttribute="leading" id="FGZ-je-SPG"/>
+                            <constraint firstItem="YBT-i2-1lY" firstAttribute="trailing" secondItem="mby-E4-njy" secondAttribute="trailing" id="Jmi-Dw-R5u"/>
+                            <constraint firstItem="mby-E4-njy" firstAttribute="bottom" secondItem="B1A-Je-3bL" secondAttribute="bottom" id="anc-5z-RYY"/>
+                            <constraint firstItem="mby-E4-njy" firstAttribute="bottom" secondItem="YBT-i2-1lY" secondAttribute="bottom" id="d5m-O8-DS7"/>
+                            <constraint firstItem="B1A-Je-3bL" firstAttribute="top" secondItem="mby-E4-njy" secondAttribute="top" id="fp0-4O-hkY"/>
+                            <constraint firstItem="B1A-Je-3bL" firstAttribute="trailing" secondItem="mby-E4-njy" secondAttribute="trailing" id="nI9-0Q-nfV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mby-E4-njy"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Your Dog" image="yourDogIcon" id="1vV-Nx-hKb"/>
@@ -115,6 +145,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="YBT-i2-1lY" id="css-RV-y5E"/>
+                        <outlet property="noDogView" destination="B1A-Je-3bL" id="Feb-rQ-0nx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8K-jQ-tDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,6 +162,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="happyDog" width="512" height="512"/>
         <image name="yourDogIcon" width="24" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
