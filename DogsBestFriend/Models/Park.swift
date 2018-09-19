@@ -19,7 +19,7 @@ class Park: Equatable {
     }
 
     // MARK: Equatable
-    
+
     static func == (lhs: Park, rhs: Park) -> Bool {
         return lhs.placemark.name == rhs.placemark.name
     }

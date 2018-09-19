@@ -21,7 +21,7 @@ class Dog: Equatable, Codable {
         case profileImageAsData
         case medicalHistory
     }
-  
+
     var name: String
     var birthdate: Date
     var adoptionDate: Date
@@ -31,7 +31,7 @@ class Dog: Equatable, Codable {
     var registration: String?
     var profileImageAsData: Data
     var medicalHistory: [MedicalRecord] = []
-    
+
     init(name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data, medicalHistory: [MedicalRecord] = []) {
         self.name = name
         self.birthdate = birthdate
@@ -61,7 +61,7 @@ extension Dog {
             let profileImageAsData = jsonDictionary[Keys.Dog.profileImageAsData] as? Data,
             let medicalHistory = jsonDictionary[Keys.Dog.medicalHistory] as? [MedicalRecord]
             else { return nil }
-        
+
         self.init(name: name,
                   birthdate: birthDate,
                   adoptionDate: adoptionDate,
@@ -83,7 +83,7 @@ extension Dog {
                 Keys.Dog.profileImageAsData: self.profileImageAsData,
                 Keys.Dog.medicalHistory: self.medicalHistory]
     }
-    
+
     var asData: Data? {
         let encoder = JSONEncoder()
         return try? encoder.encode(self)

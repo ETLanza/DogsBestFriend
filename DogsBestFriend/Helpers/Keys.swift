@@ -22,7 +22,7 @@ struct Keys {
         static let profileImageAsData = "profileImageAsData"
         static let medicalHistory = "medicalHistory"
     }
-    
+
     struct MedicalRecord {
         static let type = "medicalRecord"
         static let name = "name"

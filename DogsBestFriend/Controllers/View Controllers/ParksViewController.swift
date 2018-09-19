@@ -84,6 +84,17 @@ class ParksViewController: UIViewController {
         favoritesTableView.reloadData()
     }
 
+    func setUpViews() {
+        addSearchAndCancelButtonTo(searchBar: zipCodeSearchBar)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        favoritesSegmentedControl.removeBorders()
+        mapView.layer.cornerRadius = 12
+        mapView.layer.masksToBounds = true
+        drawerView.layer.cornerRadius = 12
+        drawerView.layer.masksToBounds = true
+    }
+
     // MARK: - Map Kit Helper Methods
 
     func setUpMapKit() {
@@ -159,12 +170,6 @@ class ParksViewController: UIViewController {
         mapView.setRegion(region, animated: true)
     }
 
-    func setUpViews() {
-        addSearchAndCancelButtonTo(searchBar: zipCodeSearchBar)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        favoritesSegmentedControl.removeBorders()
-    }
 }
 
 // MARK: - UITableView Data Source and Delegates
