@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P53-Zq-tXN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hL4-N4-qMk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
         <!--Medical History-->
         <scene sceneID="iMR-cj-DWP">
             <objects>
-                <viewController id="hL4-N4-qMk" customClass="MedicalViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="medicalVC" id="hL4-N4-qMk" customClass="MedicalViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W8w-tm-J2f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,22 +79,24 @@
                     <navigationItem key="navigationItem" title="Medical History" id="Bz1-bb-xd9">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DT8-Cc-48n">
                             <connections>
-                                <action selector="cancelButtonTapped:" destination="hL4-N4-qMk" id="8X3-35-Q0c"/>
+                                <segue destination="pA2-aS-7xF" kind="unwind" identifier="" unwindAction="unwindFromMedicalVC:" id="Al2-U4-20f"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="sAb-SY-HPr">
                             <connections>
-                                <action selector="saveButtonTapped:" destination="hL4-N4-qMk" id="Zzg-N9-Qvt"/>
+                                <action selector="saveButtonTapped:" destination="hL4-N4-qMk" id="Cg0-2T-SJt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="medicalDatePicker" destination="bxs-Xd-1i1" id="MtX-Fa-9dx"/>
-                        <outlet property="medicalNameTextField" destination="PP9-tk-MyE" id="GJe-tk-abN"/>
+                        <outlet property="datePicker" destination="bxs-Xd-1i1" id="MtX-Fa-9dx"/>
+                        <outlet property="nameTextField" destination="PP9-tk-MyE" id="GJe-tk-abN"/>
                         <outlet property="noteTextView" destination="n58-HA-cZF" id="3gU-zr-n9j"/>
+                        <segue destination="pA2-aS-7xF" kind="unwind" identifier="unwindFromMedicalVCWithData" unwindAction="unwindFromMedicalVCWithData:" id="FdW-Wi-ZX6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fA6-Tc-waV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pA2-aS-7xF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1039.2" y="152.47376311844079"/>
         </scene>

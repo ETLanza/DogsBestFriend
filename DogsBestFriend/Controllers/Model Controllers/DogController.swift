@@ -19,15 +19,21 @@ class DogController {
 
     // MARK: - CRUD Functions
 
-    func addDogWith(name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data, completion: @escaping (Bool) -> Void) {
-        let newDog = Dog(name: name, birthdate: birthdate, adoptionDate: adoptionDate, microchipID: microchipID, breed: breed, color: color, registration: registration, profileImageAsData: profileImageAsData)
+    func addDogWith(name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data, medicalHistory: [MedicalRecord], completion: @escaping (Bool) -> Void) {
+        let newDog = Dog(name: name, birthdate: birthdate, adoptionDate: adoptionDate, microchipID: microchipID, breed: breed, color: color, registration: registration, profileImageAsData: profileImageAsData, medicalHistory: medicalHistory)
         dogs.append(newDog)
         completion(true)
 
         //TODO: API Persistence
     }
 
-    func updateDog(_ dog: Dog, withName name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data, completion: @escaping (Bool) -> Void) {
+    func addMedicalTo(dog: Dog, medical: MedicalRecord, completion: @escaping (Bool) -> Void) {
+        dog.medicalHistory.append(medical)
+        completion(true)
+        // TODO: API Persistence∫
+    }
+
+    func updateDog(_ dog: Dog, withName name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data, medicalHistory: [MedicalRecord], completion: @escaping (Bool) -> Void) {
         dog.name = name
         dog.birthdate = birthdate
         dog.adoptionDate = adoptionDate
@@ -35,6 +41,7 @@ class DogController {
         dog.breed = breed
         dog.color = color
         dog.registration = registration
+        dog.medicalHistory = medicalHistory
         completion(true)
         // TODO: API Persistence
     }

@@ -9,9 +9,20 @@
 import UIKit
 
 class MedicalViewController: UIViewController {
+    // MARK: - Properties
+
+    var medicalRecord: MedicalRecord? {
+        didSet {
+            loadViewIfNeeded()
+            setUpLabels()
+        }
+    }
+    var editingRecord: Bool = false
+    var index: Int?
+
     // MARK: - IBOutlets
-    @IBOutlet weak var medicalNameTextField: UITextField!
-    @IBOutlet weak var medicalDatePicker: UIDatePicker!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var noteTextView: UITextView!
 
     // MARK: - Life Cycle Methods
@@ -22,11 +33,15 @@ class MedicalViewController: UIViewController {
 
     // MARK: - IBActions
 
-    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-       dismiss(animated: true, completion: nil)
-    }
-
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let name = nameTextField.text, !name.isEmpty else {
+            //TODO: MISSING NAME ALERT
+            return
+        }
+        let note = noteTextView.text ?? ""
+        let newMedical = MedicalRecord(name: name, date: datePicker.date, note: note)
+        medicalRecord = newMedical
+        performSegue(withIdentifier: "unwindFromMedicalVCWithData", sender: self)
     }
 
     // MARK: - Helper Methods
@@ -34,5 +49,11 @@ class MedicalViewController: UIViewController {
     func setUpViews() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+    }
+
+    func setUpLabels() {
+        nameTextField.text = medicalRecord?.name ?? "Was Nil"
+        datePicker.date = medicalRecord?.date ?? Date()
+        noteTextView.text = medicalRecord?.note ?? "Why Tho"
     }
 }

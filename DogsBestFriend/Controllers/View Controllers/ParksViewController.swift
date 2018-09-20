@@ -119,28 +119,30 @@ class ParksViewController: UIViewController {
     }
 
     func searchForDogParks(searchLocation: CLLocationCoordinate2D) {
-        let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = "dog park"
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion(center: searchLocation, span: span)
-        searchRequest.region = region
+        if mapKitEnabled {
+            let searchRequest = MKLocalSearch.Request()
+            searchRequest.naturalLanguageQuery = "dog park"
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let region = MKCoordinateRegion(center: searchLocation, span: span)
+            searchRequest.region = region
 
-        let activeSearch = MKLocalSearch(request: searchRequest)
-        activeSearch.start { response, error in
-            if let error = error {
-                NSLog("Error searching for dog parks: %@", error.localizedDescription)
-                return
-            }
+            let activeSearch = MKLocalSearch(request: searchRequest)
+            activeSearch.start { response, error in
+                if let error = error {
+                    NSLog("Error searching for dog parks: %@", error.localizedDescription)
+                    return
+                }
 
-            guard let response = response else {
-                NSLog("No dog park search response")
-                return
+                guard let response = response else {
+                    NSLog("No dog park search response")
+                    return
+                }
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                response.mapItems.forEach { ParkController.shared.addParkwith(placemark: $0.placemark) }
+                response.mapItems.forEach { self.addPinFor(placemark: $0.placemark) }
+                self.parksTableView.reloadData()
+                self.mapView.setRegion(region, animated: true)
             }
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            response.mapItems.forEach { ParkController.shared.addParkwith(placemark: $0.placemark) }
-            response.mapItems.forEach { self.addPinFor(placemark: $0.placemark) }
-            self.parksTableView.reloadData()
-            self.mapView.setRegion(region, animated: true)
         }
     }
 

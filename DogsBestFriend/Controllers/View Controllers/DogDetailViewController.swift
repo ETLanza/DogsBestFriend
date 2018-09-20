@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DogDetailViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Properties
 
     var dog: Dog?
+    var tempDog = Dog(name: "temp", birthdate: Date(), adoptionDate: Date(), microchipID: "", breed: "", color: "", registration: "", profileImageAsData: Data(), medicalHistory: [])
     var profileImageAsData: Data?
     let imagePickerController = UIImagePickerController()
 
@@ -27,6 +28,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var breedTextField: UITextField!
     @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var registrationTextField: UITextField!
+    @IBOutlet weak var medicalView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: - Life Cycle Methods
@@ -34,6 +36,11 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     // MARK: - IBActions
@@ -44,15 +51,15 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
             //displayMissingInfoAlert()
             return
         }
-        let imageData = profileImageAsData ?? #imageLiteral(resourceName: "defaultProfileImage").pngData()
+        let imageData = profileImageAsData ?? #imageLiteral(resourceName: "coolDog").pngData()
         if let dog = dog {
-            DogController.shared.updateDog(dog, withName: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!) { success in
+            DogController.shared.updateDog(dog, withName: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!, medicalHistory: dog.medicalHistory) { success in
                 if success {
                     self.navigationController?.popViewController(animated: true)
                 }
             }
         } else {
-            DogController.shared.addDogWith(name: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!) { success in
+            DogController.shared.addDogWith(name: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!, medicalHistory: tempDog.medicalHistory) { success in
                 if success {
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -88,8 +95,8 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scrollView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(scrollViewSwiped)))
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         if let dog = dog {
             title = dog.name
             dogImageView.image = UIImage(data: dog.profileImageAsData)
@@ -112,22 +119,95 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scrollView.isScrollEnabled = true
         tableView.isScrollEnabled = false
     }
-    
-    @objc func keyboardWillShow(notification:NSNotification){
 
+    @objc func keyboardWillShow(notification: NSNotification) {
         var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
-        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height + 50
         scrollView.contentInset = contentInset
     }
-    
-    @objc func keyboardWillHide(notification:NSNotification){
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInset = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
     }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editMedicalSegue" {
+            guard let destinationVC = segue.destination as? MedicalViewController,
+                let index = tableView.indexPathForSelectedRow else { return }
+            if dog == nil {
+                destinationVC.medicalRecord = tempDog.medicalHistory[index.row]
+                destinationVC.editingRecord = true
+                destinationVC.index = index.row
+            } else {
+                destinationVC.medicalRecord = dog?.medicalHistory[index.row]
+                destinationVC.editingRecord = true
+                destinationVC.index = index.row
+            }
+        }
+    }
+
+    @IBAction func unwindFromMedicalVCWithData(_ sender: UIStoryboardSegue) {
+        if sender.source is MedicalViewController {
+            if let senderVC = sender.source as? MedicalViewController {
+                if dog == nil {
+                    if senderVC.editingRecord {
+                        tempDog.medicalHistory.remove(at: senderVC.index!)
+                        tempDog.medicalHistory.insert(senderVC.medicalRecord!, at: senderVC.index!)
+                    } else {
+                        tempDog.medicalHistory.append(senderVC.medicalRecord!)
+                    }
+                } else {
+                    if senderVC.editingRecord {
+                        dog!.medicalHistory.remove(at: senderVC.index!)
+                        dog!.medicalHistory.insert(senderVC.medicalRecord!, at: senderVC.index!)
+                    } else {
+                        dog!.medicalHistory.insert(senderVC.medicalRecord!, at: 0)
+                    }
+                }
+            }
+            tableView.reloadData()
+        }
+    }
+
+    @IBAction func unwindFromMedicalVC(_ sender: UIStoryboardSegue) {
+        tableView.reloadData()
+    }
+}
+
+// MARK: - TableView Data Scource
+
+extension DogDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dog == nil {
+            return tempDog.medicalHistory.count
+        } else {
+            return dog?.medicalHistory.count ?? 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "medicalCell", for: indexPath)
+        if dog == nil {
+            cell.textLabel?.text = tempDog.medicalHistory[indexPath.row].name
+            cell.detailTextLabel?.text = DisplayFormatter.date(tempDog.medicalHistory[indexPath.row].date)
+        } else {
+            cell.textLabel?.text = dog?.medicalHistory[indexPath.row].name
+            cell.detailTextLabel?.text = DisplayFormatter.date(dog?.medicalHistory[indexPath.row].date)
+        }
+        return cell
+    }
+}
+
+// MARK: - ImagePicker Delegate
+
+extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: - UIImagePickerController Delegate Methods
 
@@ -148,16 +228,6 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate, UITableVi
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-    }
-
-    // MARK: - TableView Data Scource
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
     }
 }
 
