@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="shx-aH-9Fx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="XSN-wf-Lgr">
+            <objects>
+                <viewController id="shx-aH-9Fx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WiK-c2-tb5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePaw" translatesAutoresizingMaskIntoConstraints="NO" id="516-1o-WZa">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="516-1o-WZa" secondAttribute="height" multiplier="1:1" id="yVn-ub-tWY"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.31731320880765213" green="0.60024412289899476" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="516-1o-WZa" firstAttribute="centerY" secondItem="WiK-c2-tb5" secondAttribute="centerY" id="Ite-s9-gRJ"/>
+                            <constraint firstItem="516-1o-WZa" firstAttribute="width" secondItem="WiK-c2-tb5" secondAttribute="width" multiplier="0.8" id="MVf-dO-fHb"/>
+                            <constraint firstItem="516-1o-WZa" firstAttribute="centerX" secondItem="WiK-c2-tb5" secondAttribute="centerX" id="t4d-cg-gVQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EDD-Pb-aEo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ud6-1T-GwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="121"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bluePaw" width="512" height="512"/>
+    </resources>
+</document>

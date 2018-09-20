@@ -91,6 +91,7 @@ class NewWalkViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.eachSecond()
         }
+        locationList.append(locationManager.location!)
         startLocationUpdates()
     }
 
@@ -109,7 +110,7 @@ class NewWalkViewController: UIViewController {
     }
 
     func displayStopWalkAlert() {
-        let stopWalkAlertController = UIAlertController(title: "End run?", message: "Do you wish to end your run?", preferredStyle: .actionSheet)
+        let stopWalkAlertController = UIAlertController(title: "Finished?", message: "Do you wish to end your walk?", preferredStyle: .actionSheet)
         let saveAction = UIAlertAction(title: "Save Walk", style: .default) { _ in
             self.stopWalk()
             self.saveWalk()
@@ -137,12 +138,6 @@ class NewWalkViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
     }
 }
 
@@ -177,7 +172,7 @@ extension NewWalkViewController: MKMapViewDelegate {
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.strokeColor = .blue
-        renderer.lineWidth = 3
+        renderer.lineWidth = 5
         return renderer
     }
 }

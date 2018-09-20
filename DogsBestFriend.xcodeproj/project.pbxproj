@@ -17,6 +17,7 @@
 		3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* Onboard.storyboard */; };
 		3C4F47402150898500309457 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F473F2150898500309457 /* OnboardViewController.swift */; };
 		3C641A382153014900FCA18E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C641A372153014900FCA18E /* UIImage+Extension.swift */; };
+		3C641A3A21530ED700FCA18E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
 		3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */; };
@@ -67,6 +68,7 @@
 		3C4F473D215086CC00309457 /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 		3C4F473F2150898500309457 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		3C641A372153014900FCA18E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				3C2566BF20FF8D2E0053E44E /* AppDelegate.swift */,
+				3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */,
 				3C2566C620FF8D2F0053E44E /* Assets.xcassets */,
 				3C2566CB20FF8D2F0053E44E /* Info.plist */,
 			);
@@ -218,8 +221,8 @@
 				3C8BBBB32151787900325067 /* MedicalViewController.swift */,
 				3C9B90B02146E30D00253B85 /* ParksViewController.swift */,
 				3C9B90B22146E32100253B85 /* WalksViewController.swift */,
-				3C9F31D32152E01600955416 /* NewWalkViewController.swift */,
 				3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */,
+				3C9F31D32152E01600955416 /* NewWalkViewController.swift */,
 				3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */,
 			);
 			path = "View Controllers";
@@ -355,6 +358,7 @@
 				3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */,
 				3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */,
 				3CAF298821407F1200AF8114 /* Parks.storyboard in Resources */,
+				3C641A3A21530ED700FCA18E /* LaunchScreen.storyboard in Resources */,
 				3C2566C520FF8D2E0053E44E /* TabBar.storyboard in Resources */,
 				3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */,
 				3CAF298621407EE600AF8114 /* Walks.storyboard in Resources */,
@@ -470,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -524,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
