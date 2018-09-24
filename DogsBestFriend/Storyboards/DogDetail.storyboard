@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="acb-es-eCO">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,17 +15,17 @@
             <objects>
                 <viewController id="acb-es-eCO" customClass="DogDetailViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MLm-4a-hEd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1412"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHX-nb-7Pj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1378"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-Z1-l4x">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1971"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2756"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to change picture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCG-oF-20b">
-                                                <rect key="frame" x="48" y="221.5" width="224" height="22.5"/>
+                                                <rect key="frame" x="48" y="221.66666666666669" width="224" height="22.333333333333343"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -39,160 +39,8 @@
                                                     <outletCollection property="gestureRecognizers" destination="mtc-uS-dab" appends="YES" id="0Fj-W2-2DP"/>
                                                 </connections>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Y2n-5t-pcn">
-                                                <rect key="frame" x="20" y="252" width="280" height="491.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hUJ-EV-jpH" userLabel="Name Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="56.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iR-lf-aHj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sts-00-PQY">
-                                                                <rect key="frame" x="0.0" y="26.5" width="280" height="30"/>
-                                                                <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-0B-er6" userLabel="Birthdate Stack View">
-                                                        <rect key="frame" x="0.0" y="64.5" width="280" height="80.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Birthdate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nE-4r-86g">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FND-pA-9hW">
-                                                                <rect key="frame" x="0.0" y="20.5" width="280" height="60"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="60" id="BvR-6Q-CKO"/>
-                                                                </constraints>
-                                                                <date key="date" timeIntervalSinceReferenceDate="558560286.37539196">
-                                                                    <!--2018-09-13 19:38:06 +0000-->
-                                                                </date>
-                                                            </datePicker>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y0m-hC-o7j" userLabel="Adoption Date Stack View">
-                                                        <rect key="frame" x="0.0" y="153" width="280" height="80.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Adoption Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DN-XY-aAE">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uU1-Ss-CbS">
-                                                                <rect key="frame" x="0.0" y="20.5" width="280" height="60"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="60" id="aCx-6W-kzS"/>
-                                                                </constraints>
-                                                                <date key="date" timeIntervalSinceReferenceDate="558560297.11607206">
-                                                                    <!--2018-09-13 19:38:17 +0000-->
-                                                                </date>
-                                                            </datePicker>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZqQ-0f-SQZ" userLabel="Microchip Stack View">
-                                                        <rect key="frame" x="0.0" y="241.5" width="280" height="56.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Microchip ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpK-58-ezi">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter microchip id..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oal-lh-FcM">
-                                                                <rect key="frame" x="0.0" y="26.5" width="280" height="30"/>
-                                                                <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                        </subviews>
-                                                        <viewLayoutGuide key="safeArea" id="Ebb-J8-j6I"/>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7dA-sa-VW4" userLabel="Breed Stack View">
-                                                        <rect key="frame" x="0.0" y="306" width="280" height="56.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnW-fB-uXe">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter breed...." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NqG-WJ-epO">
-                                                                <rect key="frame" x="0.0" y="26.5" width="280" height="30"/>
-                                                                <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                        </subviews>
-                                                        <viewLayoutGuide key="safeArea" id="lIO-Bc-zyn"/>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kGJ-hA-SuX" userLabel="Color Stack View">
-                                                        <rect key="frame" x="0.0" y="370.5" width="280" height="56.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMP-s2-idi">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter color..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPI-YJ-ZLF">
-                                                                <rect key="frame" x="0.0" y="26.5" width="280" height="30"/>
-                                                                <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                        </subviews>
-                                                        <viewLayoutGuide key="safeArea" id="glh-P2-viL"/>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="zEw-WY-uA4" userLabel="Registration Stack View">
-                                                        <rect key="frame" x="0.0" y="435" width="280" height="56.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Registration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pos-Y7-wi8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter registration..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FGv-NI-hgT">
-                                                                <rect key="frame" x="0.0" y="26.5" width="280" height="30"/>
-                                                                <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                        </subviews>
-                                                        <viewLayoutGuide key="safeArea" id="WiR-Np-1US"/>
-                                                    </stackView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="hUJ-EV-jpH" firstAttribute="width" secondItem="Y2n-5t-pcn" secondAttribute="width" id="bgb-ev-jf0"/>
-                                                </constraints>
-                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NsE-6Y-A8s">
-                                                <rect key="frame" x="0.0" y="751.5" width="320" height="1219.5"/>
+                                                <rect key="frame" x="0.0" y="830.33333333333337" width="320" height="1867.6666666666665"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQy-zy-rpK">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -230,7 +78,7 @@
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zr1-l7-t1Z">
-                                                        <rect key="frame" x="0.0" y="49" width="320" height="1170.5"/>
+                                                        <rect key="frame" x="0.0" y="49" width="320" height="1818.6666666666667"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="medicalCell" id="wmM-6q-MGR">
@@ -262,22 +110,188 @@
                                                     <constraint firstAttribute="bottom" secondItem="Zr1-l7-t1Z" secondAttribute="bottom" id="zo6-U5-rPc"/>
                                                 </constraints>
                                             </view>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37m-SV-gMl">
+                                                <rect key="frame" x="20" y="2706" width="280" height="30"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                <state key="normal" title="Remove Dog">
+                                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="removeDogButtonTapped:" destination="acb-es-eCO" eventType="touchUpInside" id="wfO-3A-ATe"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Y2n-5t-pcn">
+                                                <rect key="frame" x="20" y="252.00000000000006" width="280" height="570.33333333333348"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hUJ-EV-jpH" userLabel="Name Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="56.333333333333336"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iR-lf-aHj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sts-00-PQY">
+                                                                <rect key="frame" x="0.0" y="26.333333333333314" width="280" height="30"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-0B-er6" userLabel="Birthdate Stack View">
+                                                        <rect key="frame" x="0.0" y="64.333333333333314" width="280" height="120.33333333333331"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Birthdate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nE-4r-86g">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FND-pA-9hW">
+                                                                <rect key="frame" x="0.0" y="20.333333333333371" width="280" height="100"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="100" id="BvR-6Q-CKO"/>
+                                                                </constraints>
+                                                                <date key="date" timeIntervalSinceReferenceDate="558560286.37539196">
+                                                                    <!--2018-09-13 19:38:06 +0000-->
+                                                                </date>
+                                                            </datePicker>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y0m-hC-o7j" userLabel="Adoption Date Stack View">
+                                                        <rect key="frame" x="0.0" y="192.66666666666663" width="280" height="120.33333333333331"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Adoption Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DN-XY-aAE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uU1-Ss-CbS">
+                                                                <rect key="frame" x="0.0" y="20.333333333333371" width="280" height="100"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="100" id="aCx-6W-kzS"/>
+                                                                </constraints>
+                                                                <date key="date" timeIntervalSinceReferenceDate="558560297.11607206">
+                                                                    <!--2018-09-13 19:38:17 +0000-->
+                                                                </date>
+                                                            </datePicker>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZqQ-0f-SQZ" userLabel="Microchip Stack View">
+                                                        <rect key="frame" x="0.0" y="321" width="280" height="56.333333333333314"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Microchip ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpK-58-ezi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter microchip id..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oal-lh-FcM">
+                                                                <rect key="frame" x="0.0" y="26.333333333333371" width="280" height="30"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                        <viewLayoutGuide key="safeArea" id="Ebb-J8-j6I"/>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7dA-sa-VW4" userLabel="Breed Stack View">
+                                                        <rect key="frame" x="0.0" y="385.33333333333337" width="280" height="56.333333333333314"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnW-fB-uXe">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter breed...." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NqG-WJ-epO">
+                                                                <rect key="frame" x="0.0" y="26.333333333333258" width="280" height="30"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                        <viewLayoutGuide key="safeArea" id="lIO-Bc-zyn"/>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kGJ-hA-SuX" userLabel="Color Stack View">
+                                                        <rect key="frame" x="0.0" y="449.66666666666663" width="280" height="56.333333333333314"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMP-s2-idi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter color..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPI-YJ-ZLF">
+                                                                <rect key="frame" x="0.0" y="26.333333333333371" width="280" height="30"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                        <viewLayoutGuide key="safeArea" id="glh-P2-viL"/>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="zEw-WY-uA4" userLabel="Registration Stack View">
+                                                        <rect key="frame" x="0.0" y="514" width="280" height="56.333333333333371"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Registration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pos-Y7-wi8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter registration..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FGv-NI-hgT">
+                                                                <rect key="frame" x="0.0" y="26.333333333333371" width="280" height="30"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                        </subviews>
+                                                        <viewLayoutGuide key="safeArea" id="WiR-Np-1US"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="hUJ-EV-jpH" firstAttribute="width" secondItem="Y2n-5t-pcn" secondAttribute="width" id="bgb-ev-jf0"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="37m-SV-gMl" firstAttribute="top" secondItem="NsE-6Y-A8s" secondAttribute="bottom" constant="8" symbolic="YES" id="5qg-Dp-gZb"/>
                                             <constraint firstItem="xCG-oF-20b" firstAttribute="leading" secondItem="3cs-SL-lYv" secondAttribute="leading" id="6cR-Hf-pRX"/>
                                             <constraint firstAttribute="trailing" secondItem="NsE-6Y-A8s" secondAttribute="trailing" id="JvB-LK-Qs1"/>
                                             <constraint firstItem="3cs-SL-lYv" firstAttribute="trailing" secondItem="xCG-oF-20b" secondAttribute="trailing" id="LQz-LT-Whs"/>
                                             <constraint firstItem="Y2n-5t-pcn" firstAttribute="top" secondItem="3cs-SL-lYv" secondAttribute="bottom" constant="8" symbolic="YES" id="RQY-Yp-wTZ"/>
                                             <constraint firstItem="3cs-SL-lYv" firstAttribute="centerX" secondItem="fXD-Z1-l4x" secondAttribute="centerX" id="TmD-bH-ZV9"/>
                                             <constraint firstItem="Y2n-5t-pcn" firstAttribute="top" secondItem="xCG-oF-20b" secondAttribute="bottom" constant="8" id="V3m-UG-bKb"/>
+                                            <constraint firstItem="37m-SV-gMl" firstAttribute="leading" secondItem="fXD-Z1-l4x" secondAttribute="leading" constant="20" symbolic="YES" id="VtB-7i-HK7"/>
                                             <constraint firstItem="3cs-SL-lYv" firstAttribute="width" secondItem="fXD-Z1-l4x" secondAttribute="width" multiplier="0.7" id="VzI-Uz-gfG"/>
                                             <constraint firstItem="Y2n-5t-pcn" firstAttribute="leading" secondItem="fXD-Z1-l4x" secondAttribute="leading" constant="20" symbolic="YES" id="Y6K-OI-YJC"/>
                                             <constraint firstItem="NsE-6Y-A8s" firstAttribute="leading" secondItem="fXD-Z1-l4x" secondAttribute="leading" id="cfr-o8-maW"/>
                                             <constraint firstItem="xCG-oF-20b" firstAttribute="height" secondItem="3cs-SL-lYv" secondAttribute="height" multiplier="0.1" id="d58-O7-jXb"/>
                                             <constraint firstItem="3cs-SL-lYv" firstAttribute="top" secondItem="fXD-Z1-l4x" secondAttribute="top" constant="20" symbolic="YES" id="gC7-47-If0"/>
+                                            <constraint firstAttribute="trailing" secondItem="37m-SV-gMl" secondAttribute="trailing" constant="20" symbolic="YES" id="i32-j6-TsO"/>
                                             <constraint firstAttribute="trailing" secondItem="Y2n-5t-pcn" secondAttribute="trailing" constant="20" symbolic="YES" id="jt3-cw-fYZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="NsE-6Y-A8s" secondAttribute="bottom" id="uEH-aE-dzh"/>
+                                            <constraint firstAttribute="bottom" secondItem="37m-SV-gMl" secondAttribute="bottom" constant="20" symbolic="YES" id="q9k-N5-c1i"/>
                                             <constraint firstItem="NsE-6Y-A8s" firstAttribute="top" secondItem="Y2n-5t-pcn" secondAttribute="bottom" constant="8" symbolic="YES" id="ytH-D8-I2x"/>
                                         </constraints>
                                     </view>
@@ -287,7 +301,7 @@
                                     <constraint firstAttribute="trailing" secondItem="fXD-Z1-l4x" secondAttribute="trailing" id="Lt1-aG-gnw"/>
                                     <constraint firstItem="fXD-Z1-l4x" firstAttribute="leading" secondItem="JHX-nb-7Pj" secondAttribute="leading" id="agd-RQ-afG"/>
                                     <constraint firstItem="fXD-Z1-l4x" firstAttribute="top" secondItem="JHX-nb-7Pj" secondAttribute="top" id="hob-1h-D61"/>
-                                    <constraint firstItem="fXD-Z1-l4x" firstAttribute="height" secondItem="JHX-nb-7Pj" secondAttribute="height" multiplier="2.2" id="p3l-xq-7Kt"/>
+                                    <constraint firstItem="fXD-Z1-l4x" firstAttribute="height" secondItem="JHX-nb-7Pj" secondAttribute="height" multiplier="2" id="p3l-xq-7Kt"/>
                                     <constraint firstItem="fXD-Z1-l4x" firstAttribute="width" secondItem="JHX-nb-7Pj" secondAttribute="width" id="ud8-ks-yBo"/>
                                 </constraints>
                                 <connections>
@@ -313,7 +327,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
-                    <size key="freeformSize" width="320" height="960"/>
+                    <size key="freeformSize" width="320" height="1500"/>
                     <connections>
                         <outlet property="adoptionDateDatePicker" destination="uU1-Ss-CbS" id="CXX-aM-Ohr"/>
                         <outlet property="birthdateDatePicker" destination="FND-pA-9hW" id="c65-yP-MXx"/>
@@ -325,6 +339,7 @@
                         <outlet property="microchipTextField" destination="oal-lh-FcM" id="8Ib-KZ-hG8"/>
                         <outlet property="nameTextField" destination="sts-00-PQY" id="Gb6-we-IMb"/>
                         <outlet property="registrationTextField" destination="FGv-NI-hgT" id="ybO-fW-fng"/>
+                        <outlet property="removeDogButton" destination="37m-SV-gMl" id="9zD-K4-mPD"/>
                         <outlet property="scrollView" destination="JHX-nb-7Pj" id="ORn-I0-Tub"/>
                         <outlet property="tableView" destination="Zr1-l7-t1Z" id="7vx-1j-YPA"/>
                     </connections>
@@ -351,7 +366,7 @@
         <image name="coolDog" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AeG-BB-syS"/>
+        <segue reference="164-vc-0bx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

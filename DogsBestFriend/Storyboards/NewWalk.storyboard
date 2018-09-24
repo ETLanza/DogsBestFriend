@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thJ-vd-4cC">
-                                <rect key="frame" x="9.5" y="28" width="356" height="356.5"/>
+                                <rect key="frame" x="9.5" y="124" width="356" height="356.5"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="thJ-vd-4cC" secondAttribute="height" multiplier="1:1" id="6T4-n5-h7o"/>
@@ -41,7 +42,7 @@
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLQ-Se-IB9">
-                                <rect key="frame" x="24" y="392.5" width="327" height="66"/>
+                                <rect key="frame" x="24" y="488.5" width="327" height="66"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9LM-PO-s6S">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="66"/>
@@ -104,6 +105,19 @@
                                     <action selector="startYourWalkButtonTapped:" destination="oPK-2S-XiR" eventType="touchUpInside" id="y0d-5b-hlr"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HIy-lc-jNN">
+                                <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Current Walk" id="AXp-l9-4bl">
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="abN-Z7-7tG">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="oPK-2S-XiR" id="Auv-Am-Ecs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -112,20 +126,25 @@
                             <constraint firstItem="cGd-uO-cpQ" firstAttribute="bottom" secondItem="Kxc-1k-ryA" secondAttribute="bottom" constant="42" id="GNx-QL-XHh"/>
                             <constraint firstItem="OLQ-Se-IB9" firstAttribute="leading" secondItem="cGd-uO-cpQ" secondAttribute="leading" constant="24" id="M9W-i9-qE8"/>
                             <constraint firstItem="OLQ-Se-IB9" firstAttribute="top" secondItem="thJ-vd-4cC" secondAttribute="bottom" constant="8" id="RBK-a8-8Uy"/>
-                            <constraint firstItem="thJ-vd-4cC" firstAttribute="top" secondItem="cGd-uO-cpQ" secondAttribute="top" constant="8" id="WTy-0a-Dz0"/>
+                            <constraint firstItem="thJ-vd-4cC" firstAttribute="top" secondItem="HIy-lc-jNN" secondAttribute="bottom" constant="8" id="WTy-0a-Dz0"/>
+                            <constraint firstItem="HIy-lc-jNN" firstAttribute="top" secondItem="cGd-uO-cpQ" secondAttribute="top" id="Xb1-WE-zEM"/>
                             <constraint firstItem="Kxc-1k-ryA" firstAttribute="bottom" secondItem="Xty-fD-2db" secondAttribute="bottom" id="aHD-NX-FJL"/>
                             <constraint firstItem="Kxc-1k-ryA" firstAttribute="trailing" secondItem="Xty-fD-2db" secondAttribute="trailing" id="bva-Ys-cLU"/>
                             <constraint firstItem="thJ-vd-4cC" firstAttribute="centerX" secondItem="BJG-At-R00" secondAttribute="centerX" id="gut-dh-27s"/>
+                            <constraint firstItem="HIy-lc-jNN" firstAttribute="trailing" secondItem="cGd-uO-cpQ" secondAttribute="trailing" id="hbm-G6-8B7"/>
                             <constraint firstItem="Kxc-1k-ryA" firstAttribute="centerX" secondItem="BJG-At-R00" secondAttribute="centerX" id="hiy-OU-s26"/>
                             <constraint firstItem="Kxc-1k-ryA" firstAttribute="leading" secondItem="Xty-fD-2db" secondAttribute="leading" id="n5g-6c-rSV"/>
+                            <constraint firstItem="HIy-lc-jNN" firstAttribute="leading" secondItem="cGd-uO-cpQ" secondAttribute="leading" id="oS7-ek-ScB"/>
                             <constraint firstItem="thJ-vd-4cC" firstAttribute="width" secondItem="BJG-At-R00" secondAttribute="width" multiplier="0.95" id="oWa-Et-Lk3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cGd-uO-cpQ"/>
                     </view>
                     <connections>
+                        <outlet property="cancelWalkButton" destination="abN-Z7-7tG" id="vP7-fR-BpI"/>
                         <outlet property="dataView" destination="OLQ-Se-IB9" id="58X-9U-WTQ"/>
                         <outlet property="distanceLabel" destination="6Gz-dU-cmE" id="XOR-Bq-q2c"/>
                         <outlet property="mapView" destination="thJ-vd-4cC" id="E4B-5B-MpR"/>
+                        <outlet property="navigationBar" destination="HIy-lc-jNN" id="Yja-yR-aCo"/>
                         <outlet property="startYourWalkButton" destination="Kxc-1k-ryA" id="8DU-qr-m5m"/>
                         <outlet property="stopYourWalkButton" destination="Xty-fD-2db" id="gBx-W0-Vc0"/>
                         <outlet property="timeLabel" destination="WND-eR-dJ1" id="dK7-vv-41D"/>

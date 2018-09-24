@@ -86,7 +86,7 @@ class ParksViewController: UIViewController {
 
     func setUpViews() {
         addSearchAndCancelButtonTo(searchBar: zipCodeSearchBar)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         favoritesSegmentedControl.removeBorders()
         mapView.layer.cornerRadius = 12
@@ -222,6 +222,8 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
         favoritesViewTrailingConstraint.priority = UILayoutPriority(rawValue: 997)
         nearbyViewLeadingConstraint.priority = UILayoutPriority(rawValue: 999)
         favoritesSegmentedControl.selectedSegmentIndex = 1
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        favoritesSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
@@ -354,13 +356,28 @@ extension ParksViewController: ParkTableViewCellDelegate {
     func favoriteButtonTapped(_ sender: ParkTableViewCell) {
         let park = sender.park
         if park!.isFavorite {
-            sender.favoritesButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
-            ParkController.shared.deleteFavorite(park: park!)
+            let favoriteAlertController = UIAlertController(title: "Unfavorite \(park!.placemark.name ?? "Park")?", message: nil, preferredStyle: .alert)
+            
+            let unfavoriteAction = UIAlertAction(title: "Unfavorite", style: .destructive) { (_) in
+                DispatchQueue.main.async {
+                    sender.favoritesButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
+                    ParkController.shared.deleteFavorite(park: park!)
+                    self.reloadFavoriteView()
+                    park?.isFavorite = !park!.isFavorite
+                }
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            favoriteAlertController.addAction(unfavoriteAction)
+            favoriteAlertController.addAction(cancelAction)
+            present(favoriteAlertController, animated: true, completion: nil)
         } else {
             sender.favoritesButton.setImage(#imageLiteral(resourceName: "favoritedHeart"), for: .normal)
             ParkController.shared.addFavorite(park: park!)
+            reloadFavoriteView()
+            park?.isFavorite = !park!.isFavorite
         }
-        reloadFavoriteView()
-        park?.isFavorite = !park!.isFavorite
     }
+    
+    
 }

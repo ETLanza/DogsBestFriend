@@ -20,12 +20,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func usernameInfoButtonTapped(_ sender: UIButton) {
-    }
-
-    @IBAction func passwordInfoButtonTapped(_ sender: UIButton) {
-    }
-
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
     }
 

@@ -30,7 +30,8 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var registrationTextField: UITextField!
     @IBOutlet weak var medicalView: UIView!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var removeDogButton: UIButton!
+    
     // MARK: - Life Cycle Methods
 
     override func viewDidLoad() {
@@ -86,11 +87,33 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
 
         self.present(actionSheet, animated: true)
     }
+    
+    @IBAction func removeDogButtonTapped(_ sender: UIButton) {
+        let removeDogAlertController = UIAlertController(title: "Remove \(dog!.name)?", message: "Are you sure you want to delete all data for \(dog!.name)", preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            DogController.shared.deleteDog(self.dog!, completion: { (success) in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        removeDogAlertController.addAction(deleteAction)
+        removeDogAlertController.addAction(cancelAction)
+        
+        present(removeDogAlertController, animated: true, completion: nil)
+    }
+    
 
     // MARK: - Helper Methods
 
     func setUpViews() {
         imagePickerController.delegate = self
+        removeDogButton.layer.cornerRadius = 12
+        removeDogButton.layer.masksToBounds = true
         tableView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(tableViewSwiped)))
         scrollView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(scrollViewSwiped)))
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -107,6 +130,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
             microchipTextField.text = dog.microchipID
             colorTextField.text = dog.color
             registrationTextField.text = dog.registration
+            removeDogButton.isHidden = false
         }
     }
 
