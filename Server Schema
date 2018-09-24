@@ -1,0 +1,36 @@
+User Sign Up"
+
+	dogs.nathanlanza.com/users/
+
+?? Still unsure about this whole step as far as storing them on the server goes, but i'm pretty sure i'm just over thinking it
+
+User Login:
+
+	dogs.nathanlanza.com/?username=Query&password=Query
+
+	If username and password match in the database, the user exist and should log in.
+
+	If successful, return the username
+	If unsuccessful, send something???
+
+User's dogs:
+
+	dogs.nathanlanza.com/?username=Query&dogs=ALL
+
+	Returns all the user's dogs.  A typical user will only have 1 - 3 dogs, so querying each dog individually seems unnecissary.
+
+User's Favorite Parks:
+
+	dogs.nathanlanza.com/?username=Query&parks=ALL
+
+	Returns all the user's favorite parks.  A typical user will only favorite upwards of 4 parks, so querying each park 	 individually seems unnecissary.
+
+User's Walks:
+
+	dogs.nathanlanza.com/?username=Query&walk=Query
+
+	Currently, there is no local persistence with the app.  Makes querying individual apps much more difficult, if not 		impossible. Pagination for each individual walk seems excessive.
+
+	May just convert to "&walks=ALL" instead.
+
+
