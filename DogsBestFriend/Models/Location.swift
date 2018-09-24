@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Location: Equatable {
+class Location: Equatable, Codable {
 
     var latitude: Double
     var longitude: Double

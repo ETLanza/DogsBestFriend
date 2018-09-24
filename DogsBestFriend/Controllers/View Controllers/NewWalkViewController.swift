@@ -21,6 +21,8 @@ class NewWalkViewController: UIViewController {
 
     // MARK: - IBOutlets
 
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var cancelWalkButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startYourWalkButton: UIButton!
     @IBOutlet weak var stopYourWalkButton: UIButton!
@@ -41,9 +43,15 @@ class NewWalkViewController: UIViewController {
     }
 
     // MARK: - IBActions
-
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+        walk = nil
+    }
+    
     @IBAction func startYourWalkButtonTapped(_ sender: UIButton) {
         startWalk()
+        cancelWalkButton.title = ""
+        cancelWalkButton.isEnabled = false
     }
 
     @IBAction func stopYourWalkButtonTapped(_ sender: UIButton) {
@@ -53,6 +61,8 @@ class NewWalkViewController: UIViewController {
     // MARK: - Helper Methods
 
     func setUpViews() {
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
         locationManager.delegate = self
          startYourWalkButton.layer.cornerRadius = 12
         startYourWalkButton.layer.masksToBounds = true

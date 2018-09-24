@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Walk: Equatable {
+class Walk: Equatable, Codable {
 
     var distance: Double
     var timestamp: Date

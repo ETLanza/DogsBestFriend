@@ -11,10 +11,11 @@ import UIKit
 class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK: - Properties
 
-    @IBOutlet var dogBreedTextField: UITextField!
-    @IBOutlet var dogBreedImageView: UIImageView!
-    @IBOutlet var breedPicker: UIPickerView!
-    @IBOutlet var getRandomImageButton: UIButton!
+    @IBOutlet weak var dogBreedTextField: UITextField!
+    @IBOutlet weak var dogBreedImageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var breedPicker: UIPickerView!
+    @IBOutlet weak var getRandomImageButton: UIButton!
 
     // MARK: - Life Cycle Methods
 
@@ -34,6 +35,8 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
 
     @IBAction func getRandomImageTapped(_ sender: UIButton) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        activityIndicator.startAnimating()
+        getRandomImageButton.isEnabled = false
         dogBreedTextField.resignFirstResponder()
         let index = breedPicker.selectedRow(inComponent: 0)
         let breed = BreedController.breeds[index]
@@ -41,11 +44,15 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
             if image == nil {
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.getRandomImageButton.isEnabled = true
+                    self.activityIndicator.stopAnimating()
                 }
             }
             DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.dogBreedImageView.image = image
+                self.getRandomImageButton.isEnabled = true
+                self.activityIndicator.stopAnimating()
             }
         }
     }

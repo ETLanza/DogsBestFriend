@@ -19,6 +19,8 @@
 		3C641A382153014900FCA18E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C641A372153014900FCA18E /* UIImage+Extension.swift */; };
 		3C641A3A21530ED700FCA18E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
+		3C6995DB21594F79003FDB27 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DA21594F79003FDB27 /* User.swift */; };
+		3C6995DD215950E9003FDB27 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DC215950E9003FDB27 /* UserController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
 		3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */; };
 		3C7FA2A1214AC92C0037B1F4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */; };
@@ -70,6 +72,8 @@
 		3C641A372153014900FCA18E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
+		3C6995DA21594F79003FDB27 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3C6995DC215950E9003FDB27 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
 		3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -180,6 +184,7 @@
 		3C25670520FFAE9F0053E44E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3C6995DA21594F79003FDB27 /* User.swift */,
 				3CBC3D54214C652200F36E6A /* Dog.swift */,
 				3C8BBBB72151899A00325067 /* MedicalRecord.swift */,
 				3CBC3D4E214C20B100F36E6A /* Park.swift */,
@@ -202,6 +207,7 @@
 		3C25670720FFAEB20053E44E /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C6995DC215950E9003FDB27 /* UserController.swift */,
 				3CBC3D56214C66D600F36E6A /* DogController.swift */,
 				3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */,
 				3CBC3D50214C267600F36E6A /* ParkController.swift */,
@@ -380,6 +386,7 @@
 				3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */,
 				3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */,
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
+				3C6995DD215950E9003FDB27 /* UserController.swift in Sources */,
 				3C9F31CE2152CC1E00955416 /* Location.swift in Sources */,
 				3C8BBBB42151787900325067 /* MedicalViewController.swift in Sources */,
 				3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */,
@@ -406,6 +413,7 @@
 				3CA990622152AE0000C3824D /* DisplayFormatter.swift in Sources */,
 				3CA9905E2152A7CD00C3824D /* LoginViewController.swift in Sources */,
 				3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */,
+				3C6995DB21594F79003FDB27 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
