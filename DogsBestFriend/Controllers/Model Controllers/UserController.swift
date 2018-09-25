@@ -23,7 +23,25 @@ class UserController {
         
     }
     
-    func loginUser() {
+    func loginUser(completion: @escaping (Bool) -> Void) {
+        let url = Private.baseURL!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error loging in user: %@", error.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            guard let data = data else { completion(false); return }
+            
+        }
+    }
+    
+    func encryptPassword() {
         
     }
 }

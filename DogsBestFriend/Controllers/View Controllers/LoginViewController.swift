@@ -9,21 +9,24 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
-    @IBOutlet var validEmailView: UIView!
-    @IBOutlet var validPasswordView: UIView!
-
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    // MARK: - Life Cycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    // MARK: - IBActions
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        
     }
 
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
     }
 
     // MARK: - Navigation

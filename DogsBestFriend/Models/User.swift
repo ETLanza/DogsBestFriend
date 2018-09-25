@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct User {
-    let emailAddress: String
+class User {
+    let username: String
     var dogs: [Dog]
     var walks: [Walk]
     var favoriteParks: [Park]
+
+    init(username: String) {
+        self.username = username
+        self.dogs = []
+        self.walks = []
+        self.favoriteParks = []
+    }
 }

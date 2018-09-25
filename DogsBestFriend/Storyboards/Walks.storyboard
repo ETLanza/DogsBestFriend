@@ -119,8 +119,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xea-D1-1QU">
                                         <rect key="frame" x="0.0" y="134" width="375" height="368"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DId someone say walk!?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHt-3g-RlT">
-                                                <rect key="frame" x="96" y="274" width="183.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did someone say walk!?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHt-3g-RlT">
+                                                <rect key="frame" x="96" y="274" width="183" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -219,7 +219,7 @@
                 <viewControllerPlaceholder storyboardName="NewWalk" id="Qcm-Fh-2yw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJl-jG-eV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1581" y="334"/>
+            <point key="canvasLocation" x="1531" y="441"/>
         </scene>
         <!--walkDetailViewController-->
         <scene sceneID="jE0-Cw-WRx">
@@ -227,7 +227,7 @@
                 <viewControllerPlaceholder storyboardName="WalkDetail" referencedIdentifier="walkDetailViewController" id="GRd-Z5-p96" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBh-aW-avM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582" y="482"/>
+            <point key="canvasLocation" x="1610" y="561"/>
         </scene>
     </scenes>
     <resources>
