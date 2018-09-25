@@ -353,10 +353,10 @@
             </objects>
             <point key="canvasLocation" x="-1788" y="501"/>
         </scene>
-        <!--Medical-->
+        <!--medicalVC-->
         <scene sceneID="l1e-Em-mb5">
             <objects>
-                <viewControllerPlaceholder storyboardName="Medical" id="eHe-6t-851" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="medicalVC" storyboardName="Medical" referencedIdentifier="medicalVC" id="eHe-6t-851" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmK-Cf-J7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-747" y="500"/>
@@ -366,7 +366,7 @@
         <image name="coolDog" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="164-vc-0bx"/>
+        <segue reference="AeG-BB-syS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
