@@ -38,5 +38,4 @@ class ParkController {
     func removeAllNonFavoriteParks() {
         parks = []
     }
-
 }

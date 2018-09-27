@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CommonCrypto
 
 class UserController {
     // MARK: - Shared Instance
@@ -19,29 +20,89 @@ class UserController {
     
     // MARK: - CRUD Functions
     
-    func signUpUser() {
-        
-    }
-    
-    func loginUser(completion: @escaping (Bool) -> Void) {
+    func signUp(username: String, password: String, completion: @escaping (Bool) -> Void) {
+        let encryptedPassword = Private.encryptPassword(password)
         let url = Private.baseURL!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: ["username": username, "password": encryptedPassword], options: .prettyPrinted)
+        } catch let error {
+            NSLog("Error encoding HTTPBody: %@", error.localizedDescription)
+            completion(false)
+            return
+        }
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
-                NSLog("Error loging in user: %@", error.localizedDescription)
+                NSLog("Error performing signUp data task: %@", error.localizedDescription)
                 completion(false)
                 return
             }
-            
-            guard let data = data else { completion(false); return }
-            
-        }
+            do {
+                let jsonFromData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: String]
+                
+                if let jsonDict = jsonFromData {
+                    let username = jsonDict[Keys.User.username]
+                    
+                    if (username?.isEmpty)! {
+                        NSLog("Could not get Username from JSON Data")
+                        completion(false)
+                        return
+                    } else {
+                        completion(true)
+                        return
+                    }
+                }
+            } catch {
+                NSLog("Could not serialize user data from database")
+                completion(false)
+            }
+        }.resume()
     }
     
-    func encryptPassword() {
+    func login(username: String, password: String, completion: @escaping (Bool) -> Void) {
+        let encryptedPassword = Private.encryptPassword(password)
+
+        let url = Private.baseURL!
         
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: ["username": username, "password": encryptedPassword], options: .prettyPrinted)
+        } catch let error {
+            NSLog("Error encoding HTTPBody: %@", error.localizedDescription)
+            completion(false)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error performing login data task: %@", error.localizedDescription)
+                completion(false)
+                return
+            }
+            do {
+                let jsonFromData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: String]
+                
+                if let jsonDict = jsonFromData {
+                    let username = jsonDict[Keys.User.username]
+                    
+                    if (username?.isEmpty)! {
+                        NSLog("Could not get Username from JSON Data")
+                        completion(false)
+                        return
+                    } else {
+                        completion(true)
+                        return
+                    }
+                }
+            } catch {
+                NSLog("Could not serialize user data from database")
+                completion(false)
+            }
+            }.resume()
     }
 }

@@ -6,4 +6,15 @@
 //  Copyright © 2018 ETLanza. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class AlertManager {
+    
+    static func displayAlertMessage(userMessage: String) -> UIAlertController{
+        let alertController = UIAlertController(title: nil, message: userMessage, preferredStyle: .alert)
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertController.addAction(okayAction)
+        return alertController
+    }
+}
