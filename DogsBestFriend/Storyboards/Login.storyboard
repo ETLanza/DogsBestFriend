@@ -80,7 +80,6 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="signUpButtonTapped:" destination="xp7-gp-Gza" eventType="touchUpInside" id="taj-4Y-TkY"/>
                                                             <segue destination="6nx-gd-c5h" kind="show" id="Q4K-yG-AUP"/>
                                                         </connections>
                                                     </button>
@@ -143,7 +142,9 @@
                         <viewLayoutGuide key="safeArea" id="XBF-MG-iri"/>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="0rH-jq-ZM6" id="gLb-qC-t9x"/>
                         <outlet property="passwordTextField" destination="4GD-uR-Ehf" id="J7c-qB-6hw"/>
+                        <outlet property="signUpButton" destination="xrm-Td-WJn" id="pUN-Ly-M8K"/>
                         <outlet property="usernameTextField" destination="ZK0-Nu-fMO" id="YO2-b7-r3Z"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import UIKit
 
 class YourDogViewController: UIViewController {
     // MARK: - IBOutlets
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noDogView: UIView!
 
