@@ -34,12 +34,14 @@ class ParksViewController: UIViewController {
         super.viewDidLoad()
         setUpViews()
         setUpMapKit()
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-
-        }
         if !ParkController.shared.favoriteParks.isEmpty {
             noFavoritesView.isHidden = true
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
     }
 
     // MARK: - IBActions
@@ -113,7 +115,7 @@ class ParksViewController: UIViewController {
 
         case .authorizedWhenInUse, .authorizedAlways:
             mapKitEnabled = true
-            searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
+            LocationManager.shared.requestLocation()
             break
         }
     }
@@ -361,11 +363,17 @@ extension ParksViewController: ParkTableViewCellDelegate {
             let unfavoriteAction = UIAlertAction(title: "Unfavorite", style: .destructive) { (_) in
                 DispatchQueue.main.async {
                     sender.favoritesButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
-                    ParkController.shared.deleteFavorite(park: park!)
-                    self.reloadFavoriteView()
-                    park?.isFavorite = !park!.isFavorite
+                    ParkController.shared.deleteFavorite(park: park!, completion: { (success) in
+                        if success {
+                            DispatchQueue.main.async {
+                                self.reloadFavoriteView()
+                                park?.isFavorite = !park!.isFavorite
+                            }
+                        }
+                    })
                 }
             }
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
             favoriteAlertController.addAction(unfavoriteAction)
@@ -373,11 +381,14 @@ extension ParksViewController: ParkTableViewCellDelegate {
             present(favoriteAlertController, animated: true, completion: nil)
         } else {
             sender.favoritesButton.setImage(#imageLiteral(resourceName: "favoritedHeart"), for: .normal)
-            ParkController.shared.addFavorite(park: park!)
-            reloadFavoriteView()
-            park?.isFavorite = !park!.isFavorite
+            ParkController.shared.addFavorite(park: park!) { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.reloadFavoriteView()
+                        park?.isFavorite = !park!.isFavorite
+                    }
+                }
+            }
         }
     }
-    
-    
 }

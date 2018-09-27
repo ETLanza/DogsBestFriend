@@ -11,8 +11,12 @@ import UIKit
 
 class OnboardViewController: UIViewController {
 
+    // MARK: - Properties
+    
     var presentTriggered: Bool = false
 
+    // MARK: - Life Cycle Method
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         LocationManager.shared.delegate = self
@@ -24,8 +28,11 @@ class OnboardViewController: UIViewController {
         }
     }
 
+    // MARK: - Helper Method
+    
     func presentMainView() {
         if presentTriggered == false {
+            LocationManager.shared.requestLocation()
             presentTriggered = true
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let newViewController = storyboard.instantiateInitialViewController()
@@ -36,6 +43,8 @@ class OnboardViewController: UIViewController {
     }
 }
 
+// MARK: - Location Manager Delegate
+
 extension OnboardViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -44,5 +53,13 @@ extension OnboardViewController: CLLocationManagerDelegate {
         default:
             presentMainView()
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        NSLog("Error with location manager: %@", error.localizedDescription)
     }
 }

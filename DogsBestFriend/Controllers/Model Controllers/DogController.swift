@@ -40,14 +40,16 @@ class DogController {
                          profileImageAsData: profileImageAsData,
                          medicalHistory: medicalHistory)
         
+
+        // TODO: NEEDS TO BE REMOVED ONCE DATABASE IS SET UP
         dogs.append(newDog)
         completion(true)
-
-        //TODO: API Persistence
+        // BOTTOM OF MOVED DATA
         let url = Private.baseURL!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.httpBody = newDog.asData
         
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
@@ -56,14 +58,26 @@ class DogController {
                 return
             }
             
-            
+            self.dogs.append(newDog)
+            completion(true)
         }
     }
 
-    func addMedicalTo(dog: Dog, medical: MedicalRecord, completion: @escaping (Bool) -> Void) {
+    func addMedicalTo(dog: Dog,
+                      medical: MedicalRecord,
+                      completion: @escaping (Bool) -> Void) {
+        
         dog.medicalHistory.append(medical)
-        completion(true)
-        // TODO: API Persistence∫
+        updateDog(dog, withName: dog.name,
+                  birthdate: dog.birthdate,
+                  adoptionDate: dog.adoptionDate,
+                  microchipID: dog.microchipID,
+                  breed: dog.breed,
+                  color: dog.color,
+                  registration: dog.registration,
+                  profileImageAsData: dog.profileImageAsData,
+                  medicalHistory: dog.medicalHistory,
+                  completion: completion)        
     }
 
     func updateDog(_ dog: Dog,
@@ -86,14 +100,51 @@ class DogController {
         dog.color = color
         dog.registration = registration
         dog.medicalHistory = medicalHistory
-        completion(true)
-        // TODO: API Persistence
+        
+        let url = Private.baseURL!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.httpBody = dog.asData
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error updating %@: %@", [dog.name, error.localizedDescription])
+                completion(false)
+                return
+            }
+            
+            guard let _ = data else {
+                NSLog("Error converting updated data for \(dog.name)")
+                completion(false)
+                return
+            }
+            completion(true)
+        }.resume()
     }
 
     func deleteDog(_ dog: Dog, completion: @escaping (Bool) -> Void) {
-        guard let index = dogs.index(of: dog) else { return }
-        dogs.remove(at: index)
-        completion(true)
-        //TODO: API Persistence
+        let url = Private.baseURL!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DEL"
+        request.httpBody = dog.asData
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error deleteing %@ from database: %@", [dog.name, error.localizedDescription])
+                completion(false)
+                return
+            }
+            
+            if let index = self.dogs.index(of: dog) {
+                self.dogs.remove(at: index)
+                completion(true)
+                return
+            }
+            
+            NSLog("Error deleting %@ from local controller", dog.name)
+            completion(false)
+        }.resume()
     }
 }

@@ -21,7 +21,8 @@ class UserController {
     // MARK: - CRUD Functions
     
     func signUp(username: String, password: String, completion: @escaping (Bool) -> Void) {
-        let encryptedPassword = Private.encryptPassword(password)
+        let encryptedPassword = Private.encrypt(password: password)
+        
         let url = Private.baseURL!
         
         var request = URLRequest(url: url)
@@ -34,6 +35,7 @@ class UserController {
             completion(false)
             return
         }
+        
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error performing signUp data task: %@", error.localizedDescription)
@@ -63,7 +65,7 @@ class UserController {
     }
     
     func login(username: String, password: String, completion: @escaping (Bool) -> Void) {
-        let encryptedPassword = Private.encryptPassword(password)
+        let encryptedPassword = Private.encrypt(password: password)
 
         let url = Private.baseURL!
         

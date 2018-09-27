@@ -46,6 +46,16 @@ struct Keys {
 
     struct Walk {
         static let type = "walk"
-        static let date = "date"
+        static let distance = "distance"
+        static let timestamp = "timestamp"
+        static let duration = "duration"
+        static let locations = "locations"
+    }
+    
+    struct Location {
+        static let type = "location"
+        static let latitude = "latitude"
+        static let longitude = "longitude"
+        static let timestamp = "timestamp"
     }
 }

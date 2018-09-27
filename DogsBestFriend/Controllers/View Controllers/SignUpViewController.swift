@@ -30,7 +30,24 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        
+        if usernameTextField.text == repeatPasswordTextField.text {
+            guard let username = usernameTextField.text, !username.isEmpty,
+                let password = passwordTextField.text, !password.isEmpty else {
+                    let missingInfoAlert = AlertManager.displayAlertMessage(userMessage: "All fields must be filled out and the passwords must match")
+                    present(missingInfoAlert, animated: true, completion: nil)
+                    return
+            }
+            UserController.shared.signUp(username: username, password: password) { (success) in
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "Onboard", bundle: nil)
+                    let destinationVC = storyboard.instantiateInitialViewController()
+                    self.present(destinationVC!, animated: true, completion: nil)
+                }
+            }
+        } else {
+            let matchingPasswordAlert = AlertManager.displayAlertMessage(userMessage: "Both password fields must match")
+            present(matchingPasswordAlert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helper Methods

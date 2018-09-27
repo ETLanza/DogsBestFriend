@@ -21,11 +21,13 @@ class MedicalViewController: UIViewController {
     var index: Int?
 
     // MARK: - IBOutlets
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var noteTextView: UITextView!
 
     // MARK: - Life Cycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -35,9 +37,11 @@ class MedicalViewController: UIViewController {
 
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let name = nameTextField.text, !name.isEmpty else {
-            //TODO: MISSING NAME ALERT
+            let missingInfoAlert = AlertManager.displayAlertMessage(userMessage: "The name field must be filled out.")
+            present(missingInfoAlert, animated: true, completion: nil)
             return
         }
+        
         let note = noteTextView.text ?? ""
         let newMedical = MedicalRecord(name: name, date: datePicker.date, note: note)
         medicalRecord = newMedical

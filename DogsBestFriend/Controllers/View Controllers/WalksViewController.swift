@@ -11,8 +11,8 @@ import MapKit
 import UIKit
 
 class WalksViewController: UIViewController {
-
     // MARK: - IBOutlets
+    
     @IBOutlet weak var addWalkButton: UIButton!
     @IBOutlet weak var noPastWalksView: UIView!
     @IBOutlet weak var pastWalkTableView: UITableView!
@@ -57,6 +57,8 @@ class WalksViewController: UIViewController {
         }
     }
 }
+
+// MARK: - Table View Delete and Data Source
 
 extension WalksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

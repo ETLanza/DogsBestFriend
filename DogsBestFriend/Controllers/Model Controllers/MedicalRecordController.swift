@@ -10,24 +10,28 @@ import Foundation
 
 class MedicalRecordController {
     // MARK: - Shared Instance
-
+    
     static let shared = MedicalRecordController()
-
+    
     // MARK: - CRUD Functions
     func addMedicalRecordTo(dog: Dog, name: String, date: Date, note: String, completion: @escaping (Bool) -> Void) {
         let newMedical = MedicalRecord(name: name, date: date, note: note)
-        DogController.shared.addMedicalTo(dog: dog, medical: newMedical) { success in
-            if success {
-
-            }
-        }
+        DogController.shared.addMedicalTo(dog: dog, medical: newMedical, completion: completion)
     }
-
-    func update(medicalRecord: MedicalRecord, name: String, date: Date, note: String, completion: @escaping (Bool) -> Void) {
-
-    }
-
-    func delete(medicalRecord: MedicalRecord, completion: @escaping (Bool) -> Void) {
-
+    
+    func delete(medicalRecord: MedicalRecord, fromDog dog: Dog, completion: @escaping (Bool) -> Void) {
+        guard let index = dog.medicalHistory.index(of: medicalRecord) else { return }
+        dog.medicalHistory.remove(at: index)
+        
+        DogController.shared.updateDog(dog, withName: dog.name,
+                                       birthdate: dog.birthdate,
+                                       adoptionDate: dog.adoptionDate,
+                                       microchipID: dog.microchipID,
+                                       breed: dog.breed,
+                                       color: dog.color,
+                                       registration: dog.registration,
+                                       profileImageAsData: dog.profileImageAsData,
+                                       medicalHistory: dog.medicalHistory,
+                                       completion: completion)
     }
 }
