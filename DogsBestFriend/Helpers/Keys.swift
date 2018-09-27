@@ -9,6 +9,14 @@
 import Foundation
 
 struct Keys {
+    
+    struct User {
+        static let type = "user"
+        static let username = "username"
+        static let dogs = "dogs"
+        static let walks = "walks"
+        static let favoriteParks = "favoriteParks"
+    }
 
     struct Dog {
         static let type = "dog"

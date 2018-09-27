@@ -43,3 +43,5 @@ extension Park {
         return try? JSONSerialization.data(withJSONObject: asJSONDictionary, options: .prettyPrinted)
     }
 }
+
+
