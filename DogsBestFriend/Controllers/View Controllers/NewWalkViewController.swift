@@ -92,6 +92,8 @@ class NewWalkViewController: UIViewController {
         dataView.isHidden = false
         startYourWalkButton.isHidden = true
         stopYourWalkButton.isHidden = false
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
         mapView.removeOverlays(mapView.overlays)
 
         seconds = 0
@@ -115,8 +117,11 @@ class NewWalkViewController: UIViewController {
 
     func startLocationUpdates() {
         locationManager.activityType = .fitness
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
+        locationManager.pausesLocationUpdatesAutomatically = true
+        locationManager.allowsBackgroundLocationUpdates = true
     }
 
     func displayStopWalkAlert() {
@@ -170,6 +175,18 @@ extension NewWalkViewController: CLLocationManagerDelegate {
             }
             locationList.append(newLocation)
         }
+    }
+    
+    func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("LocationManager failed with error: \(error.localizedDescription).")
     }
 }
 

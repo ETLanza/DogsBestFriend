@@ -206,8 +206,8 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.delegate = self
         cell.park = park
-        cell.parkAddressLabel.text = AddressFormatter.shared.parseAddress(selectedItem: park!.placemark)
-        cell.parkNameLabel.text = park!.placemark.name
+        cell.parkAddressLabel.text = AddressFormatter.shared.parseAddress(selectedItem: park!.placemark!)
+        cell.parkNameLabel.text = park!.name
 
         return cell
     }
@@ -318,12 +318,14 @@ extension ParksViewController {
         clGeocoder.geocodeAddressString(searchText) { placemarks, error in
             if let error = error {
                 print(error.localizedDescription)
-                // TODO: displayZipCodeSearchErrorAlert()
+                let wrongZipCodeAlert = AlertManager.displayAlertMessage(userMessage: "The zip code could not be searched!")
+                self.present(wrongZipCodeAlert, animated: true, completion: nil)
                 return
             }
             guard let placemarks = placemarks else {
                 print("Error with zipcode placemarks")
-                // TODO: displayZipCodeSearchErrorAlert()
+                let noPlacemarksAlert = AlertManager.displayAlertMessage(userMessage: "No parks found near that zipcode")
+                self.present(noPlacemarksAlert, animated: true, completion: nil)
                 return
             }
             self.searchForDogParks(searchLocation: placemarks.first!.location!.coordinate)
@@ -341,9 +343,9 @@ extension ParksViewController {
 extension ParksViewController: ParkTableViewCellDelegate {
     func directionsButtonTapped(_ sender: ParkTableViewCell) {
         let alertController = UIAlertController(title: "Open in Apple Maps?", message: "This will close Dog's Best Friend to show directions to the park", preferredStyle: .alert)
-        let continueAction = UIAlertAction(title: "Continie", style: .default) { _ in
+        let continueAction = UIAlertAction(title: "Continue", style: .default) { _ in
             let currentLocMapItem = MKMapItem.forCurrentLocation()
-            let selectedMapItem = MKMapItem(placemark: sender.park!.placemark)
+            let selectedMapItem = MKMapItem(placemark: sender.park!.placemark!)
             let mapItems = [selectedMapItem, currentLocMapItem]
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             MKMapItem.openMaps(with: mapItems, launchOptions: launchOptions)
@@ -358,7 +360,7 @@ extension ParksViewController: ParkTableViewCellDelegate {
     func favoriteButtonTapped(_ sender: ParkTableViewCell) {
         let park = sender.park
         if park!.isFavorite {
-            let favoriteAlertController = UIAlertController(title: "Unfavorite \(park!.placemark.name ?? "Park")?", message: nil, preferredStyle: .alert)
+            let favoriteAlertController = UIAlertController(title: "Unfavorite \(park!.name)?", message: nil, preferredStyle: .alert)
             
             let unfavoriteAction = UIAlertAction(title: "Unfavorite", style: .destructive) { (_) in
                 DispatchQueue.main.async {

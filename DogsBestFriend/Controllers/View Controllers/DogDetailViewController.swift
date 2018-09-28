@@ -245,12 +245,10 @@ extension DogDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: - ImagePicker Delegate
+// MARK: - UIImagePickerController Delegate Methods
 
 extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    // MARK: - UIImagePickerController Delegate Methods
-    
+        
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         // Local variable inserted by Swift 4.2 migrator.
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)

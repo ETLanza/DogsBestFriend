@@ -124,6 +124,12 @@ class DogController {
     }
 
     func deleteDog(_ dog: Dog, completion: @escaping (Bool) -> Void) {
+        // MARK: - TO DELETE AFTER API FINISHED
+        if let index = self.dogs.index(of: dog) {
+        self.dogs.remove(at: index)
+        completion(true)
+        }
+        completion(false)
         let url = Private.baseURL!
         
         var request = URLRequest(url: url)
@@ -132,7 +138,7 @@ class DogController {
         
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
-                NSLog("Error deleteing %@ from database: %@", [dog.name, error.localizedDescription])
+                NSLog("Error deleting dog from database: %@", [dog.name, error.localizedDescription])
                 completion(false)
                 return
             }

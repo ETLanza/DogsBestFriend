@@ -22,11 +22,16 @@ class ParkController {
     // MARK: - CRUD Functions
 
     func addParkwith(placemark: MKPlacemark) {
-        let newPark = Park(placemark: placemark)
+        let newPark = Park(name: placemark.name ?? "Unknown Park", latitude: placemark.coordinate.latitude, longitude: placemark.coordinate.longitude)
+        newPark.placemark = placemark
         parks.append(newPark)
     }
 
     func addFavorite(park: Park, completion: @escaping (Bool) -> Void) {
+        
+        // MARK: - DELETE THIS AFTER API FINISHED
+        self.favoriteParks.append(park)
+        completion(true)
         
         let url = Private.baseURL!
         
@@ -53,6 +58,12 @@ class ParkController {
     }
 
     func deleteFavorite(park: Park, completion: @escaping (Bool) -> Void) {
+        
+        // MARK: - DELETE THIS AFTER API FINISHED
+        guard let index = self.favoriteParks.index(of: park) else { completion(false); return }
+        self.favoriteParks.remove(at: index)
+        completion(true)
+        
         let url = Private.baseURL!
         
         var request = URLRequest(url: url)
@@ -74,5 +85,22 @@ class ParkController {
 
     func removeAllNonFavoriteParks() {
         parks = []
+    }
+    
+    func getPlacemarkFor(park: Park, completion: @escaping (MKPlacemark?)-> Void){
+        let geocoder = CLGeocoder()
+        var placemark = MKPlacemark()
+        geocoder.reverseGeocodeLocation(CLLocation(latitude: park.latitude, longitude: park.longitude)) { (placemarks, error) in
+            if let error = error {
+                NSLog("Error getting placemark for park: %@", [park.name, error.localizedDescription])
+                completion(nil)
+                return
+            }
+            
+            guard let newPlacemark = placemarks?.first else { completion(nil); return }
+            
+            placemark = MKPlacemark(placemark: newPlacemark)
+            completion(placemark)
+        }
     }
 }
