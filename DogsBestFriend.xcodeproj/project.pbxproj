@@ -14,7 +14,7 @@
 		3C25670220FFA8070053E44E /* BreedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25670120FFA8070053E44E /* BreedController.swift */; };
 		3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27F9992150BD6E006236A6 /* Keys.swift */; };
 		3C2B88FF215D48A800581864 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B88FE215D48A800581864 /* Private.swift */; };
-		3C2B8901215D4A7C00581864 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8900215D4A7C00581864 /* SHA1.swift */; };
+		3C2B8903215DCB1E00581864 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8902215DCB1E00581864 /* SHA1.swift */; };
 		3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34AC34214B973B00A97CA9 /* LocationManager.swift */; };
 		3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* Onboard.storyboard */; };
 		3C4F47402150898500309457 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F473F2150898500309457 /* OnboardViewController.swift */; };
@@ -72,7 +72,7 @@
 		3C25670120FFA8070053E44E /* BreedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedController.swift; sourceTree = "<group>"; };
 		3C27F9992150BD6E006236A6 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		3C2B88FE215D48A800581864 /* Private.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
-		3C2B8900215D4A7C00581864 /* SHA1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SHA1.swift; path = "../../../../Downloads/sha1-swift-master/SHA1.swift"; sourceTree = "<group>"; };
+		3C2B8902215DCB1E00581864 /* SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA1.swift; sourceTree = "<group>"; };
 		3C34AC34214B973B00A97CA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C4F473D215086CC00309457 /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 		3C4F473F2150898500309457 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				3C27F9992150BD6E006236A6 /* Keys.swift */,
-				3C2B8900215D4A7C00581864 /* SHA1.swift */,
+				3C2B8902215DCB1E00581864 /* SHA1.swift */,
 				3C2B88FE215D48A800581864 /* Private.swift */,
 				3C9F31CA2152BE5B00955416 /* Formatters */,
 				3C34AC37214B99B600A97CA9 /* Managers */,
@@ -420,7 +420,7 @@
 				3C25670220FFA8070053E44E /* BreedController.swift in Sources */,
 				3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */,
 				3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */,
-				3C2B8901215D4A7C00581864 /* SHA1.swift in Sources */,
+				3C2B8903215DCB1E00581864 /* SHA1.swift in Sources */,
 				3C9B90B32146E32100253B85 /* WalksViewController.swift in Sources */,
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
 				3C9F31D42152E01600955416 /* NewWalkViewController.swift in Sources */,
