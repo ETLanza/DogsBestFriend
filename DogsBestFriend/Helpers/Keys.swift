@@ -40,6 +40,9 @@ struct Keys {
 
     struct Park {
         static let type = "park"
+        static let name = "name"
+        static let latitude = "latitude"
+        static let longitude = "longitude"
         static let placemark = "placemark"
         static let isFavorite = "isFavorite"
     }
