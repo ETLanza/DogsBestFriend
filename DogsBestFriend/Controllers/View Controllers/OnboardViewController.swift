@@ -32,7 +32,6 @@ class OnboardViewController: UIViewController {
     
     func presentMainView() {
         if presentTriggered == false {
-            LocationManager.shared.requestLocation()
             presentTriggered = true
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let newViewController = storyboard.instantiateInitialViewController()
