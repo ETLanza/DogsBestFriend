@@ -11,8 +11,14 @@ mongoose.connect('mongodb://localhost/dbfdb');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var routes = require('./api/routes/DogRoutes');
-routes(app);
+var dogRoutes = require('./api/routes/DogRoutes');
+dogRoutes(app);
+
+var userRoutes = require('./api/routes/UserRoutes');
+userRoutes(app); 
+
+var loginRoutes = require('./api/routes/LoginRoutes');
+loginRoutes(app);
 
 app.listen(port);
 
