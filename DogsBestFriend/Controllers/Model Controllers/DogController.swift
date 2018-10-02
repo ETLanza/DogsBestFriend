@@ -10,15 +10,15 @@ import Foundation
 
 class DogController {
     // MARK: - Shared Instance
-
+    
     static let shared = DogController()
-
+    
     // MARK: - Properties
-
+    
     var dogs: [Dog] = []
-
+    
     // MARK: - CRUD Functions
-
+    
     func addDogWith(name: String,
                     birthdate: Date,
                     adoptionDate: Date,
@@ -40,14 +40,26 @@ class DogController {
                          profileImageAsData: profileImageAsData,
                          medicalHistory: medicalHistory)
         
-
+        
         // TODO: NEEDS TO BE REMOVED ONCE DATABASE IS SET UP
         dogs.append(newDog)
         completion(true)
         // BOTTOM OF MOVED DATA
-        let url = Private.baseURL!
         
-        var request = URLRequest(url: url)
+        let url = Private.baseURL!.appendingPathComponent("dogs")
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        
+        let userQuery = URLQueryItem(name: "user", value: UserController.shared.loggedInUser?.username)
+        components?.queryItems = [userQuery]
+        
+        guard let requestURL = components?.url else {
+            NSLog("Error converting URLComponents to URL")
+            completion(false)
+            return
+        }
+        
+        var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
         request.httpBody = newDog.asData
         
@@ -57,12 +69,11 @@ class DogController {
                 completion(false)
                 return
             }
-            
             self.dogs.append(newDog)
             completion(true)
         }
     }
-
+    
     func addMedicalTo(dog: Dog,
                       medical: MedicalRecord,
                       completion: @escaping (Bool) -> Void) {
@@ -79,7 +90,7 @@ class DogController {
                   medicalHistory: dog.medicalHistory,
                   completion: completion)        
     }
-
+    
     func updateDog(_ dog: Dog,
                    withName name: String,
                    birthdate: Date,
@@ -101,7 +112,7 @@ class DogController {
         dog.registration = registration
         dog.medicalHistory = medicalHistory
         
-        let url = Private.baseURL!
+        let url = Private.baseURL!.appendingPathComponent("dogs")
         
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
@@ -120,17 +131,21 @@ class DogController {
                 return
             }
             completion(true)
-        }.resume()
+            }.resume()
     }
-
+    
     func deleteDog(_ dog: Dog, completion: @escaping (Bool) -> Void) {
         // MARK: - TO DELETE AFTER API FINISHED
         if let index = self.dogs.index(of: dog) {
-        self.dogs.remove(at: index)
-        completion(true)
+            self.dogs.remove(at: index)
+            completion(true)
+            return
         }
         completion(false)
-        let url = Private.baseURL!
+        return
+        
+        
+        let url = Private.baseURL!.appendingPathComponent("dogs")
         
         var request = URLRequest(url: url)
         request.httpMethod = "DEL"
@@ -151,6 +166,6 @@ class DogController {
             
             NSLog("Error deleting %@ from local controller", dog.name)
             completion(false)
-        }.resume()
+            }.resume()
     }
 }
