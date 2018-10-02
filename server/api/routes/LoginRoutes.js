@@ -4,4 +4,5 @@ module.exports = function(app) {
 
   app.route('/login/:username/:hashed_password')
     .get(LoginController.attempt_login)
+    .post(LoginController.create_user)
 };

@@ -2,20 +2,26 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var Dog = require('./DogSchema');
+
 var UserSchema = new Schema({
-  name: {
+  username: {
     type: String,
-    required: 'User name'
+    required: 'Must supply a username'
+  },
+  firstName: {
+    type: String,
+  },
+  lastName: {
+    type: String,
   },
   Created_date: {
     type: Date,
     default: Date.now
   },
-  dogs: {
-    type: [Dog]
-  },
   hashed_password: {
-    type: String
+    type: String,
+    required: 'Must supply a password'
   }
 });
 

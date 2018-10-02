@@ -1,6 +1,6 @@
 'use strict';
 
-var LoginController = requrie('../controllers/LoginController');
+var LoginController = require('../controllers/LoginController');
 
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
