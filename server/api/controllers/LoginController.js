@@ -21,6 +21,7 @@ exports.attempt_login = function(request, response) {
   }); 
 };
 
+
 exports.create_user = function(request, response) {
   var new_user = new User(request.body);
   new_user.username = request.params.username;
