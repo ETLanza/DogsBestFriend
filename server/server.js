@@ -4,7 +4,9 @@ var port = process.env.PORT || 3005;
 var mongoose = require('mongoose');
 
 var Dog = require('./api/models/DogSchema');
-var user = require('./api/models/UserSchema');
+var User = require('./api/models/UserSchema');
+var Park = require('./api/models/ParkSchema');
+var Walk = require('./api/models/WalkSchema');
 
 var bodyParser = require('body-parser');
 
@@ -23,6 +25,12 @@ userRoutes(app);
 var loginRoutes = require('./api/routes/LoginRoutes');
 loginRoutes(app);
 
-app.listen(port);
+var walkRoutes = require('./api/routes/WalkRoutes');
+walkRoutes(app);
 
-console.log("DogsBestFriend RESTful API server started on: " + port);
+var parkRoutes = require('./api/routes/ParkRoutes');
+parkRoutes(app);
+
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
