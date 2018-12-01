@@ -20,7 +20,6 @@ class Dog: Equatable, Codable {
         case registration
         case profileImageAsData
         case medicalHistory
-        case id = "_id"
     }
 
     var name: String
@@ -32,8 +31,7 @@ class Dog: Equatable, Codable {
     var registration: String?
     var profileImageAsData: Data
     var medicalHistory: [MedicalRecord] = []
-    var id: String?
-    
+
     init(name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data, medicalHistory: [MedicalRecord] = []) {
         self.name = name
         self.birthdate = birthdate

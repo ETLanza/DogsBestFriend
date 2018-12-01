@@ -29,7 +29,6 @@ struct Keys {
         static let registration = "registration"
         static let profileImageAsData = "profileImageAsData"
         static let medicalHistory = "medicalHistory"
-        static let id = "_id"
     }
 
     struct MedicalRecord {
@@ -37,7 +36,6 @@ struct Keys {
         static let name = "name"
         static let date = "date"
         static let note = "note"
-        static let id = "_id"
     }
 
     struct Park {
@@ -47,7 +45,6 @@ struct Keys {
         static let longitude = "longitude"
         static let placemark = "placemark"
         static let isFavorite = "isFavorite"
-        static let id = "_id"
     }
 
     struct Walk {
@@ -56,7 +53,6 @@ struct Keys {
         static let timestamp = "timestamp"
         static let duration = "duration"
         static let locations = "locations"
-        static let id = "_id"
     }
     
     struct Location {
