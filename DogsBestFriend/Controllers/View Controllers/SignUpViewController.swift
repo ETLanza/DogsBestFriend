@@ -25,7 +25,6 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

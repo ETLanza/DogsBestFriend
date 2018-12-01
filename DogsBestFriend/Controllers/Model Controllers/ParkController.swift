@@ -32,11 +32,8 @@ class ParkController {
         // MARK: - DELETE THIS AFTER API FINISHED
         self.favoriteParks.append(park)
         completion(true)
-        return
-        // END DELETE
         
-        
-        let url = Private.baseURL!.appendingPathComponent("parks")
+        let url = Private.baseURL!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -66,9 +63,6 @@ class ParkController {
         guard let index = self.favoriteParks.index(of: park) else { completion(false); return }
         self.favoriteParks.remove(at: index)
         completion(true)
-        return
-        
-        // END DELETE
         
         let url = Private.baseURL!
         
