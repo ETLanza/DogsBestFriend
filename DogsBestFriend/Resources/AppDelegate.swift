@@ -14,22 +14,21 @@ import FirebaseUI
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
     var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         FirebaseApp.configure()
-        let authUI = FUIAuth.defaultAuthUI()
-
-        authUI?.delegate = self
+        FUIAuth.defaultAuthUI()?.shouldHideCancelButton = true
+        let authUI = FUIAuth.defaultAuthUI()!
+        
+        authUI.delegate = self
         
         let providers: [FUIAuthProvider] = [
             FUIGoogleAuth()
         ]
-        authUI?.providers = providers
+        authUI.providers = providers
         
-        let authViewController = authPickerViewController(forAuthUI: authUI!)
-        
-        window?.rootViewController = authViewController
+        presentAuthView(authUI)
         
         return true
     }
@@ -45,6 +44,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
     }
     
     func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
-        return LoginViewController(authUI: authUI)
+        return SignInViewController(nibName: "SignInViewController", bundle: Bundle.main, authUI: authUI)
+    }
+    
+    func presentAuthView(_ authUI: FUIAuth) {
+        let fuiAuthPickerViewController = authUI.delegate?.authPickerViewController!(forAuthUI: authUI)
+        
+        let rootNavigationController = authUI.authViewController()
+        rootNavigationController.setViewControllers([fuiAuthPickerViewController!], animated: true)
+        rootNavigationController.modalTransitionStyle = .coverVertical
+        
+        rootNavigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        rootNavigationController.navigationBar.shadowImage = UIImage()
+        rootNavigationController.navigationBar.prefersLargeTitles = true
+        rootNavigationController.navigationBar.tintColor = .black
+        
+        
+        window?.rootViewController = rootNavigationController
     }
 }
