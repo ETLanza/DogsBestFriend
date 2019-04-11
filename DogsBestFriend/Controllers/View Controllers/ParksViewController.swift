@@ -115,6 +115,9 @@ class ParksViewController: UIViewController {
             mapKitEnabled = true
             locationManager.requestLocation()
             break
+        
+        @unknown default:
+            fatalError()
         }
     }
 

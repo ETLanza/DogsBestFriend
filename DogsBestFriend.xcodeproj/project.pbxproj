@@ -58,6 +58,7 @@
 		3CBC3D55214C652200F36E6A /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D54214C652200F36E6A /* Dog.swift */; };
 		3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D56214C66D600F36E6A /* DogController.swift */; };
 		3CBC3D59214C710A00F36E6A /* DogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */; };
+		3CCF2ED2225EBDFB00910397 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CCF2ED1225EBDFB00910397 /* GoogleService-Info.plist */; };
 		3CDDE19F215C179800BDD128 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE19E215C179700BDD128 /* AlertManager.swift */; };
 		3CDDE1A1215C3AA700BDD128 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE1A0215C3AA700BDD128 /* APIManager.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		3CBC3D54214C652200F36E6A /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		3CBC3D56214C66D600F36E6A /* DogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogController.swift; sourceTree = "<group>"; };
 		3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCollectionViewCell.swift; sourceTree = "<group>"; };
+		3CCF2ED1225EBDFB00910397 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CDDE19E215C179700BDD128 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		3CDDE1A0215C3AA700BDD128 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				3C2566BE20FF8D2E0053E44E /* DogsBestFriend */,
+				3CCF2ED1225EBDFB00910397 /* GoogleService-Info.plist */,
 				3C2566BD20FF8D2E0053E44E /* Products */,
 				3C7FA29F214AC92C0037B1F4 /* Frameworks */,
 			);
@@ -337,7 +340,7 @@
 				TargetAttributes = {
 					3C2566BB20FF8D2E0053E44E = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -374,6 +377,7 @@
 			files = (
 				3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */,
 				3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */,
+				3CCF2ED2225EBDFB00910397 /* GoogleService-Info.plist in Resources */,
 				3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */,
 				3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */,
 				3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */,
@@ -579,7 +583,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.Lanza.DogsBestFriend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -598,7 +602,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.Lanza.DogsBestFriend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

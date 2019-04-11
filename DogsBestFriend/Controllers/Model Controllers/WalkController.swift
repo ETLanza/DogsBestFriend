@@ -39,7 +39,7 @@ class WalkController {
     }
 
     func delete(walk: Walk, completion: @escaping (Bool) -> Void) {
-        if let index = walks.index(of: walk) {
+        if let index = walks.firstIndex(of: walk) {
             walks.remove(at: index)
         }
         

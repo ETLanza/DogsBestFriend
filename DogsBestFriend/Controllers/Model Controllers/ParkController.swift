@@ -63,12 +63,12 @@ class ParkController {
     func deleteFavorite(park: Park, completion: @escaping (Bool) -> Void) {
         
         // MARK: - DELETE THIS AFTER API FINISHED
-        guard let index = self.favoriteParks.index(of: park) else { completion(false); return }
+        guard let index = self.favoriteParks.firstIndex(of: park) else { completion(false); return }
         self.favoriteParks.remove(at: index)
         completion(true)
         return
-        
         // END DELETE
+        
         
         let url = Private.baseURL!
         
@@ -83,7 +83,7 @@ class ParkController {
                 return
             }
             
-            guard let index = self.favoriteParks.index(of: park) else { completion(false); return }
+            guard let index = self.favoriteParks.firstIndex(of: park) else { completion(false); return }
             self.favoriteParks.remove(at: index)
             completion(true)
         }
