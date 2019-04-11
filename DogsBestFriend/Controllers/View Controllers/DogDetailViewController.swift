@@ -23,7 +23,9 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var dogImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var birthdateDatePicker: UIDatePicker!
+    @IBOutlet weak var birthdateTextField: UITextField!
     @IBOutlet weak var adoptionDateDatePicker: UIDatePicker!
+    @IBOutlet weak var adoptionDateTextField: UITextField!
     @IBOutlet weak var microchipTextField: UITextField!
     @IBOutlet weak var breedTextField: UITextField!
     @IBOutlet weak var colorTextField: UITextField!
@@ -114,8 +116,11 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
         imagePickerController.delegate = self
         removeDogButton.layer.cornerRadius = 12
         removeDogButton.layer.masksToBounds = true
+        setUpTextFields()
         tableView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(tableViewSwiped)))
         scrollView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(scrollViewSwiped)))
+        birthdateDatePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        adoptionDateDatePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -132,6 +137,12 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
             registrationTextField.text = dog.registration
             removeDogButton.isHidden = false
         }
+    }
+    
+    func setUpTextFields() {
+        birthdateTextField.inputView = birthdateDatePicker
+        adoptionDateTextField.inputView = adoptionDateDatePicker
+        addInputAccessoryForTextFields(textFields: [nameTextField, birthdateTextField, adoptionDateTextField, microchipTextField, breedTextField, colorTextField, registrationTextField], dismissable: true, previousNextable: true)
     }
     
     @objc func tableViewSwiped() {
@@ -157,6 +168,17 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
     @objc func keyboardWillHide(notification: NSNotification) {
         let contentInset = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
+    }
+    
+    @objc func datePickerValueChanged(_ picker: UIDatePicker) {
+        switch picker {
+        case adoptionDateDatePicker:
+            adoptionDateTextField.text = DisplayFormatter.stringFrom(date: adoptionDateDatePicker.date)
+        case birthdateDatePicker:
+            birthdateTextField.text = DisplayFormatter.stringFrom(date: birthdateDatePicker.date)
+        default:
+            break
+        }
     }
     
     // MARK: - Navigation
@@ -278,3 +300,27 @@ private func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIIma
 private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
     return input.rawValue
 }
+
+// MARK: - UITextFieldDelegate Methods
+extension DogDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nameTextField:
+            birthdateTextField.becomeFirstResponder()
+        case birthdateTextField:
+            adoptionDateTextField.becomeFirstResponder()
+        case adoptionDateTextField:
+            microchipTextField.becomeFirstResponder()
+        case microchipTextField:
+            breedTextField.becomeFirstResponder()
+        case breedTextField:
+            colorTextField.becomeFirstResponder()
+        case colorTextField:
+            registrationTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
+
