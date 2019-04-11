@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import FirebaseUI
 
-class LoginViewController: UIViewController {
+class LoginViewController: FUIAuthPickerViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var usernameTextField: UITextField!
