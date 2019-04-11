@@ -6,7 +6,7 @@
 //  Copyright © 2018 ETLanza. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Dog: Equatable, Codable {
 
@@ -24,7 +24,13 @@ class Dog: Equatable, Codable {
 
     var name: String
     var birthdate: Date
+    var birthdateAsString: String {
+        return DisplayFormatter.stringFrom(date: birthdate)
+    }
     var adoptionDate: Date
+    var adoptionDateAsString: String {
+        return DisplayFormatter.stringFrom(date: adoptionDate)
+    }
     var microchipID: String?
     var breed: String?
     var color: String?
@@ -52,33 +58,39 @@ class Dog: Equatable, Codable {
 extension Dog {
     convenience init?(jsonDictionary: [String: Any]) {
         guard let name = jsonDictionary[Keys.Dog.name] as? String,
-            let birthDate = jsonDictionary[Keys.Dog.birthdate] as? Date,
-            let adoptionDate = jsonDictionary[Keys.Dog.adoptionDate] as? Date,
+            let birthdateAsString = jsonDictionary[Keys.Dog.birthdateAsString] as? String,
+            let adoptionDateAsString = jsonDictionary[Keys.Dog.adoptionDateAsString] as? String,
             let microchipID = jsonDictionary[Keys.Dog.microchipID] as? String,
             let breed = jsonDictionary[Keys.Dog.breed] as? String,
             let color = jsonDictionary[Keys.Dog.color] as? String,
             let registration = jsonDictionary[Keys.Dog.registration] as? String,
-            let profileImageAsData = jsonDictionary[Keys.Dog.profileImageAsData] as? Data,
-            let medicalHistory = jsonDictionary[Keys.Dog.medicalHistory] as? [MedicalRecord]
+            let medicalHistoryArray = jsonDictionary[Keys.Dog.medicalHistory] as? [[String: Any]]
             else { return nil }
+        
+        let birthdate = DisplayFormatter.dateFrom(string: birthdateAsString)
+        let adoptionDate = DisplayFormatter.dateFrom(string: adoptionDateAsString)
+//        let profileImageAsData = jsonDictionary[Keys.Dog.profileImageAsData] as? Data
+        let data = UIImage(named: "bluePaw")!.jpegData(compressionQuality: 0.5)!
+        print(data)
+        let medicalHistory = medicalHistoryArray.compactMap { MedicalRecord(jsonDictionary: $0) }
 
         self.init(name: name,
-                  birthdate: birthDate,
+                  birthdate: birthdate,
                   adoptionDate: adoptionDate,
                   microchipID: microchipID,
                   breed: breed, color: color,
                   registration: registration,
-                  profileImageAsData: profileImageAsData,
+                  profileImageAsData: data,
                   medicalHistory: medicalHistory)
     }
 
     var asDictionary: [String: Any] {
         
-        let medicalHistoryAsDictionaries = self.medicalHistory.map { $0.asDictionary }
+        let medicalHistoryAsDictionaries = self.medicalHistory.compactMap { $0.asDictionary }
         
         return [Keys.Dog.name: self.name,
-                Keys.Dog.birthdate: self.birthdate,
-                Keys.Dog.adoptionDate: self.adoptionDate,
+                Keys.Dog.birthdateAsString: self.birthdateAsString,
+                Keys.Dog.adoptionDateAsString: self.adoptionDateAsString,
                 Keys.Dog.microchipID: self.microchipID ?? "",
                 Keys.Dog.breed: self.breed ?? "",
                 Keys.Dog.color: self.color ?? "",

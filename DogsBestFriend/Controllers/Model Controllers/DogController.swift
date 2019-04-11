@@ -42,7 +42,7 @@ class DogController {
         
 
         UserController.shared.loggedInUser?.dogs.append(newDog)
-        completion(true)
+        UserController.shared.saveLoggedInUser(completion: completion)
     }
 
     func addMedicalTo(dog: Dog,
@@ -82,6 +82,8 @@ class DogController {
         dog.color = color
         dog.registration = registration
         dog.medicalHistory = medicalHistory
+        
+        UserController.shared.saveLoggedInUser(completion: completion)
     }
 
     func deleteDog(_ dog: Dog, completion: @escaping (Bool) -> Void) {

@@ -27,11 +27,17 @@ struct DisplayFormatter {
         return formatter.string(from: TimeInterval(seconds))!
     }
 
-    static func date(_ timestamp: Date?) -> String {
-        guard let timestamp = timestamp as Date? else { return "" }
+    static func stringFrom(date: Date?) -> String {
+        guard let date = date as Date? else { return "" }
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        return formatter.string(from: timestamp)
+        return formatter.string(from: date)
+    }
+    
+    static func dateFrom(string: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.date(from: string)!
     }
 
     static func dayOfTheWeek(_ timestamp: Date?) -> String {
