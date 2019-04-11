@@ -63,6 +63,7 @@
 		3CCF2ED2225EBDFB00910397 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CCF2ED1225EBDFB00910397 /* GoogleService-Info.plist */; };
 		3CDDE19F215C179800BDD128 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE19E215C179700BDD128 /* AlertManager.swift */; };
 		3CDDE1A1215C3AA700BDD128 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE1A0215C3AA700BDD128 /* APIManager.swift */; };
+		3CFC022F225F3205005AFE36 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC022E225F3205005AFE36 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		3CCF2ED1225EBDFB00910397 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CDDE19E215C179700BDD128 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		3CDDE1A0215C3AA700BDD128 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		3CFC022E225F3205005AFE36 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		72CFF06A01764969A25EAA51 /* Pods-DogsBestFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsBestFriend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend.debug.xcconfig"; sourceTree = "<group>"; };
 		B30C3A49CAF1CF834A428881 /* Pods_DogsBestFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsBestFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE25E0494B028565D47AA68F /* Pods-DogsBestFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsBestFriend.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend.release.xcconfig"; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */,
+				3CFC022E225F3205005AFE36 /* UIViewController+Extension.swift */,
 				3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */,
 				3C641A372153014900FCA18E /* UIImage+Extension.swift */,
 				3C423962225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift */,
@@ -511,6 +514,7 @@
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
 				3CDDE1A1215C3AA700BDD128 /* APIManager.swift in Sources */,
 				3C423963225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift in Sources */,
+				3CFC022F225F3205005AFE36 /* UIViewController+Extension.swift in Sources */,
 				3C6995DD215950E9003FDB27 /* UserController.swift in Sources */,
 				3C9F31CE2152CC1E00955416 /* Location.swift in Sources */,
 				3CDDE19F215C179800BDD128 /* AlertManager.swift in Sources */,

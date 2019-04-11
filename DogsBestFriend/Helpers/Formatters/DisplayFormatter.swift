@@ -30,13 +30,13 @@ struct DisplayFormatter {
     static func stringFrom(date: Date?) -> String {
         guard let date = date as Date? else { return "" }
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateStyle = .long
         return formatter.string(from: date)
     }
     
     static func dateFrom(string: String) -> Date {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateStyle = .long
         return formatter.date(from: string)!
     }
 
