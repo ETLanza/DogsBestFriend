@@ -18,6 +18,9 @@ class MedicalRecord: Codable, Equatable {
 
     var name: String
     var date: Date
+    var dateAsString: String {
+        return DisplayFormatter.stringFrom(date: date)
+    }
     var note: String?
 
     init(name: String, date: Date, note: String?) {
@@ -34,15 +37,17 @@ class MedicalRecord: Codable, Equatable {
 extension MedicalRecord {
     convenience init?(jsonDictionary: [String: Any]) {
         guard let name = jsonDictionary[Keys.MedicalRecord.name] as? String,
-            let date = jsonDictionary[Keys.MedicalRecord.date] as? Date,
+            let dateAsString = jsonDictionary[Keys.MedicalRecord.dateAsString] as? String,
             let note = jsonDictionary[Keys.MedicalRecord.note] as? String
             else { return nil }
+                
+                let date = DisplayFormatter.dateFrom(string: dateAsString)
         self.init(name: name, date: date, note: note)
     }
 
     var asDictionary: [String: Any] {
         return [Keys.MedicalRecord.name: self.name,
-        Keys.MedicalRecord.date: self.date,
+        Keys.MedicalRecord.dateAsString: self.dateAsString,
         Keys.MedicalRecord.note: self.note ?? ""]
     }
 

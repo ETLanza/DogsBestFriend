@@ -17,13 +17,16 @@ struct Keys {
         static let dogs = "dogs"
         static let walks = "walks"
         static let favoriteParks = "favoriteParks"
+        static let documentRef = "documentRef"
     }
 
     struct Dog {
         static let type = "dog"
         static let name = "name"
         static let birthdate = "birthdate"
+        static let birthdateAsString = "birthdateAsString"
         static let adoptionDate = "adoptionDate"
+        static let adoptionDateAsString = "adoptionDateAsString"
         static let microchipID = "microchipId"
         static let breed = "breed"
         static let color = "color"
@@ -36,6 +39,7 @@ struct Keys {
         static let type = "medicalRecord"
         static let name = "name"
         static let date = "date"
+        static let dateAsString = "dateAsString"
         static let note = "note"
     }
 

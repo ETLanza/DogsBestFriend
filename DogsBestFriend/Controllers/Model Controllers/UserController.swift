@@ -22,14 +22,15 @@ class UserController {
     // MARK: - Properties
     
     var loggedInUser: DBFUser?
-    var fbDocRef: DocumentReference?
     var db: Firestore!
     
     // MARK: - CRUD Functions
     
     func createNewUserFrom(firebase user: User, completion: @escaping (Bool) -> Void) {
-        let newUser = DBFUser(username: user.displayName ?? "New User", uuid: user.uid)
-        db.collection("users").document(newUser.uuid).setData(newUser.asJSONDictionary) { (error) in
+        let documentRef = db.collection("users").document(user.uid)
+        let newUser = DBFUser(username: user.displayName ?? "New User", uuid: user.uid, documentRef: documentRef)
+        
+        documentRef.setData(newUser.asDictionary) { (error) in
             if let error = error {
                 NSLog("Error saving User: %@ : %@ : %@", [newUser, error, error.localizedDescription])
                 completion(false)
@@ -37,7 +38,6 @@ class UserController {
             }
             
             self.loggedInUser = newUser
-            self.fbDocRef = self.db.collection("users").document(newUser.uuid)
             completion(true)
         }
     }
@@ -71,6 +71,20 @@ class UserController {
             
             let dbfUser = DBFUser(jsonDictionary: userDictionary)
             completion(dbfUser)
+        }
+    }
+    
+    func saveLoggedInUser(completion: @escaping (Bool) -> Void) {
+        guard let user = loggedInUser else {
+            NSLog("No loggedInUser found to save")
+            completion(false); return }
+        user.documentRef.setData(user.asDictionary){ (error) in
+            if let error = error {
+                NSLog("Error saving logged in user with UUID: %@ : %@ : %@", [user.uuid, error, error.localizedDescription])
+                completion(false)
+                return
+            }
+            completion(true)
         }
     }
 }

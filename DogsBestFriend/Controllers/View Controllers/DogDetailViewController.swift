@@ -52,7 +52,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
             present(missingInfoAlert, animated: true, completion: nil)
             return
         }
-        let imageData = profileImageAsData ?? #imageLiteral(resourceName: "coolDog").pngData()
+        let imageData = profileImageAsData ?? #imageLiteral(resourceName: "coolDog").jpegData(compressionQuality: 0.7)
         if let dog = dog {
             DogController.shared.updateDog(dog, withName: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!, medicalHistory: dog.medicalHistory) { success in
                 if success {
@@ -236,10 +236,10 @@ extension DogDetailViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "medicalCell", for: indexPath)
         if dog == nil {
             cell.textLabel?.text = tempDog.medicalHistory[indexPath.row].name
-            cell.detailTextLabel?.text = DisplayFormatter.date(tempDog.medicalHistory[indexPath.row].date)
+            cell.detailTextLabel?.text = DisplayFormatter.stringFrom(date: tempDog.medicalHistory[indexPath.row].date)
         } else {
             cell.textLabel?.text = dog?.medicalHistory[indexPath.row].name
-            cell.detailTextLabel?.text = DisplayFormatter.date(dog?.medicalHistory[indexPath.row].date)
+            cell.detailTextLabel?.text = DisplayFormatter.stringFrom(date: dog?.medicalHistory[indexPath.row].date)
         }
         return cell
     }

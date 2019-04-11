@@ -38,7 +38,7 @@ class WalkDetailViewController: UIViewController {
         self.title = DisplayFormatter.dayOfTheWeek(walk.timestamp) + " Walk"
         mapView.layer.cornerRadius = 12
         mapView.layer.masksToBounds = true
-        dayLabel.text = DisplayFormatter.date(walk.timestamp)
+        dayLabel.text = DisplayFormatter.stringFrom(date: walk.timestamp)
         durationLabel.text = DisplayFormatter.time(walk.duration)
         distanceLabel.text = DisplayFormatter.distance(walk.distance)
         loadMap()

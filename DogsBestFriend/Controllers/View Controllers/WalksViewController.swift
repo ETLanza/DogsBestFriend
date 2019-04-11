@@ -70,7 +70,7 @@ extension WalksViewController: UITableViewDelegate, UITableViewDataSource {
 
         let walk = WalkController.shared.walks[indexPath.row]
 
-        cell.textLabel?.text = DisplayFormatter.date(walk.timestamp)
+        cell.textLabel?.text = DisplayFormatter.stringFrom(date: walk.timestamp)
         cell.detailTextLabel?.text = DisplayFormatter.time(walk.duration)
 
         return cell
