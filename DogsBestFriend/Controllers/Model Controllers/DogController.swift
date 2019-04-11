@@ -125,9 +125,10 @@ class DogController {
 
     func deleteDog(_ dog: Dog, completion: @escaping (Bool) -> Void) {
         // MARK: - TO DELETE AFTER API FINISHED
-        if let index = self.dogs.index(of: dog) {
-        self.dogs.remove(at: index)
-        completion(true)
+        if let index = self.dogs.firstIndex(of: dog) {
+            self.dogs.remove(at: index)
+            completion(true)
+            return
         }
         completion(false)
         let url = Private.baseURL!
@@ -143,7 +144,7 @@ class DogController {
                 return
             }
             
-            if let index = self.dogs.index(of: dog) {
+            if let index = self.dogs.firstIndex(of: dog) {
                 self.dogs.remove(at: index)
                 completion(true)
                 return

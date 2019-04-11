@@ -20,7 +20,7 @@ class MedicalRecordController {
     }
     
     func delete(medicalRecord: MedicalRecord, fromDog dog: Dog, completion: @escaping (Bool) -> Void) {
-        guard let index = dog.medicalHistory.index(of: medicalRecord) else { return }
+        guard let index = dog.medicalHistory.firstIndex(of: medicalRecord) else { return }
         dog.medicalHistory.remove(at: index)
         
         DogController.shared.updateDog(dog, withName: dog.name,

@@ -49,7 +49,7 @@ extension OnboardViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .restricted, .notDetermined:
-            break
+            break            
         default:
             presentMainView()
         }

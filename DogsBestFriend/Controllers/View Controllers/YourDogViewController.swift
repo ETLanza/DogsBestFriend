@@ -13,30 +13,30 @@ class YourDogViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noDogView: UIView!
-
+    
     // MARK: - Life Cycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadViews()
     }
-
+    
     // MARK: - Helper Methods
-
+    
     func setUpViews() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         self.tabBarController!.tabBar.layer.borderWidth = 0.50
         self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
         self.tabBarController?.tabBar.clipsToBounds = true
-
+        
     }
-
+    
     func reloadViews() {
         collectionView.reloadData()
         if DogController.shared.dogs.isEmpty {
@@ -45,9 +45,9 @@ class YourDogViewController: UIViewController {
             noDogView.isHidden = true
         }
     }
-
+    
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editDogSegue" {
             guard let destinationVC = segue.destination as? DogDetailViewController,
@@ -66,13 +66,13 @@ extension YourDogViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dogCell", for: indexPath) as? DogCollectionViewCell else { return UICollectionViewCell() }
-
+        
         let dog = DogController.shared.dogs[indexPath.row]
         let image = UIImage(data: dog.profileImageAsData)
         cell.dog = dog
         cell.dogProfilePicture.image = image
         cell.dogNameLabel.text = dog.name
-
+        
         return cell
     }
 }
