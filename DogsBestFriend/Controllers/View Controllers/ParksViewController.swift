@@ -14,8 +14,6 @@ class ParksViewController: UIViewController {
 
     var selectedPin: MKPlacemark?
     var mapKitEnabled: Bool = false
-    var initialSearchCalled: Bool = false
-    var locationManager = LocationManager.shared
 
     // MARK: - IBOutlets
 
@@ -36,12 +34,18 @@ class ParksViewController: UIViewController {
         super.viewDidLoad()
         setUpViews()
         setUpMapKit()
-        reloadFavoriteView()
+        if !ParkController.shared.favoriteParks.isEmpty {
+            noFavoritesView.isHidden = true
+        }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
+    }
+
     // MARK: - IBActions
 
-    // Opens the drawer on the bottom of view
     @IBAction func drawerSwipedUp(_ sender: UISwipeGestureRecognizer) {
         drawerClosedConstraint.priority = UILayoutPriority(rawValue: 997)
         UIView.animate(withDuration: 0.3) {
@@ -49,7 +53,6 @@ class ParksViewController: UIViewController {
         }
     }
 
-    //Closes the drawer on the bottom of the view
     @IBAction func drawerSwipedDown(_ sender: UISwipeGestureRecognizer) {
         drawerClosedConstraint.priority = UILayoutPriority(rawValue: 999)
         UIView.animate(withDuration: 0.3) {
@@ -57,7 +60,6 @@ class ParksViewController: UIViewController {
         }
     }
 
-    
     @IBAction func favoritesSegementedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             favoritesViewTrailingConstraint.priority = UILayoutPriority(rawValue: 999)
@@ -98,7 +100,7 @@ class ParksViewController: UIViewController {
     // MARK: - Map Kit Helper Methods
 
     func setUpMapKit() {
-        locationManager.delegate = self
+        LocationManager.shared.delegate = self
         enableBasicLocationServices()
     }
 
@@ -113,7 +115,7 @@ class ParksViewController: UIViewController {
 
         case .authorizedWhenInUse, .authorizedAlways:
             mapKitEnabled = true
-            locationManager.requestLocation()
+            LocationManager.shared.requestLocation()
             break
         
         @unknown default:
@@ -174,6 +176,7 @@ class ParksViewController: UIViewController {
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
+
 }
 
 // MARK: - UITableView Data Source and Delegates
@@ -244,13 +247,12 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ParksViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            LocationManager.shared.requestLocation()
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if initialSearchCalled == false {
-            searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
-            initialSearchCalled = true
-        }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
