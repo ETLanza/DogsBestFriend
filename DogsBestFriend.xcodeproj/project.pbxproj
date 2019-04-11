@@ -20,12 +20,14 @@
 		3C423960225EDF6B007421B4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42395E225EDF6B007421B4 /* SignInViewController.swift */; };
 		3C423961225EDF6B007421B4 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C42395F225EDF6B007421B4 /* SignInViewController.xib */; };
 		3C423963225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C423962225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift */; };
+		3C423965225EFE93007421B4 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C423964225EFE93007421B4 /* SplashScreenViewController.swift */; };
+		3C423967225EFEA9007421B4 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C423966225EFEA9007421B4 /* SplashScreen.storyboard */; };
 		3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* Onboard.storyboard */; };
 		3C4F47402150898500309457 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F473F2150898500309457 /* OnboardViewController.swift */; };
 		3C641A382153014900FCA18E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C641A372153014900FCA18E /* UIImage+Extension.swift */; };
 		3C641A3A21530ED700FCA18E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
-		3C6995DB21594F79003FDB27 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DA21594F79003FDB27 /* User.swift */; };
+		3C6995DB21594F79003FDB27 /* DBFUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DA21594F79003FDB27 /* DBFUser.swift */; };
 		3C6995DD215950E9003FDB27 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DC215950E9003FDB27 /* UserController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
 		3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */; };
@@ -78,12 +80,14 @@
 		3C42395E225EDF6B007421B4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3C42395F225EDF6B007421B4 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		3C423962225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FUIAuthPickerViewController+Extension.swift"; sourceTree = "<group>"; };
+		3C423964225EFE93007421B4 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		3C423966225EFEA9007421B4 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		3C4F473D215086CC00309457 /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 		3C4F473F2150898500309457 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		3C641A372153014900FCA18E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
-		3C6995DA21594F79003FDB27 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3C6995DA21594F79003FDB27 /* DBFUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFUser.swift; sourceTree = "<group>"; };
 		3C6995DC215950E9003FDB27 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 		3C2566D220FF8D760053E44E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				3C423966225EFEA9007421B4 /* SplashScreen.storyboard */,
 				3C42395F225EDF6B007421B4 /* SignInViewController.xib */,
 				3C4F473D215086CC00309457 /* Onboard.storyboard */,
 				3C2566C320FF8D2E0053E44E /* TabBar.storyboard */,
@@ -210,7 +215,7 @@
 		3C25670520FFAE9F0053E44E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3C6995DA21594F79003FDB27 /* User.swift */,
+				3C6995DA21594F79003FDB27 /* DBFUser.swift */,
 				3CBC3D54214C652200F36E6A /* Dog.swift */,
 				3C8BBBB72151899A00325067 /* MedicalRecord.swift */,
 				3CBC3D4E214C20B100F36E6A /* Park.swift */,
@@ -246,6 +251,7 @@
 		3C25670820FFAEB90053E44E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C423964225EFE93007421B4 /* SplashScreenViewController.swift */,
 				3C42395E225EDF6B007421B4 /* SignInViewController.swift */,
 				3C4F473F2150898500309457 /* OnboardViewController.swift */,
 				3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */,
@@ -404,6 +410,7 @@
 				3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */,
 				3CAF298621407EE600AF8114 /* Walks.storyboard in Resources */,
 				3C9F31D62152E10F00955416 /* NewWalk.storyboard in Resources */,
+				3C423967225EFEA9007421B4 /* SplashScreen.storyboard in Resources */,
 				3C423961225EDF6B007421B4 /* SignInViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +532,7 @@
 				3C2B8903215DCB1E00581864 /* SHA1.swift in Sources */,
 				3C9B90B32146E32100253B85 /* WalksViewController.swift in Sources */,
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
+				3C423965225EFE93007421B4 /* SplashScreenViewController.swift in Sources */,
 				3C9F31D42152E01600955416 /* NewWalkViewController.swift in Sources */,
 				3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */,
 				3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */,
@@ -533,7 +541,7 @@
 				3C4F47402150898500309457 /* OnboardViewController.swift in Sources */,
 				3CA990622152AE0000C3824D /* DisplayFormatter.swift in Sources */,
 				3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */,
-				3C6995DB21594F79003FDB27 /* User.swift in Sources */,
+				3C6995DB21594F79003FDB27 /* DBFUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

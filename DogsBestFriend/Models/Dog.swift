@@ -72,7 +72,10 @@ extension Dog {
                   medicalHistory: medicalHistory)
     }
 
-    var asJSONDictionary: [String: Any] {
+    var asDictionary: [String: Any] {
+        
+        let medicalHistoryAsDictionaries = self.medicalHistory.map { $0.asDictionary }
+        
         return [Keys.Dog.name: self.name,
                 Keys.Dog.birthdate: self.birthdate,
                 Keys.Dog.adoptionDate: self.adoptionDate,
@@ -81,7 +84,7 @@ extension Dog {
                 Keys.Dog.color: self.color ?? "",
                 Keys.Dog.registration: self.registration ?? "",
                 Keys.Dog.profileImageAsData: self.profileImageAsData,
-                Keys.Dog.medicalHistory: self.medicalHistory]
+                Keys.Dog.medicalHistory: medicalHistoryAsDictionaries]
     }
 
     var asData: Data? {

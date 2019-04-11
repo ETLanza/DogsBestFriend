@@ -15,7 +15,9 @@ class Park: Equatable {
     var name: String
     var latitude: Double
     var longitude: Double
-    var placemark: MKPlacemark?
+    var placemark: MKPlacemark {
+        return MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+    }
 
     init(name: String, latitude: Double, longitude: Double, isFavorite: Bool = false) {
         self.name = name
@@ -41,7 +43,7 @@ extension Park {
         self.init(name: name, latitude: latitude, longitude: longitude, isFavorite: isFavorite)
     }
 
-    var asJSONDictionary: [String: Any] {
+    var asDictionary: [String: Any] {
         return [Keys.Park.name: self.name,
                 Keys.Park.latitude: self.latitude,
                 Keys.Park.longitude: self.longitude,
@@ -49,7 +51,7 @@ extension Park {
     }
 
     var asData: Data? {
-        return try? JSONSerialization.data(withJSONObject: asJSONDictionary, options: .prettyPrinted)
+        return try? JSONSerialization.data(withJSONObject: asDictionary, options: .prettyPrinted)
     }
 }
 

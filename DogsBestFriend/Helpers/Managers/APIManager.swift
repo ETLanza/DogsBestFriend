@@ -13,7 +13,7 @@ class APIManager {
     
     static let shared = APIManager()
     
-    func getAllDataFor(user: User, completion: @escaping (Bool) -> Void) {
+    func getAllDataFor(user: DBFUser, completion: @escaping (Bool) -> Void) {
         let url = Private.baseURL!.appendingPathComponent("User")
         let searchUsername = UserController.shared.loggedInUser?.username
         

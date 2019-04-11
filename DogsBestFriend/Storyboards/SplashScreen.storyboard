@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nDi-Sp-44X">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="d9e-cv-dRX">
+            <objects>
+                <viewController id="nDi-Sp-44X" customClass="SplashScreenViewController" customModule="DogsBestFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kca-xz-9ck">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluePaw" translatesAutoresizingMaskIntoConstraints="NO" id="BRE-kC-YU0">
+                                <rect key="frame" x="41.5" y="282.5" width="331" height="331"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BRE-kC-YU0" secondAttribute="height" multiplier="1:1" id="ziV-3y-aUZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.31731320880000002" green="0.60024412289999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="BRE-kC-YU0" firstAttribute="width" secondItem="Kca-xz-9ck" secondAttribute="width" multiplier="0.8" id="lhj-rS-qXG"/>
+                            <constraint firstItem="BRE-kC-YU0" firstAttribute="centerX" secondItem="Kca-xz-9ck" secondAttribute="centerX" id="qjH-RE-oI2"/>
+                            <constraint firstItem="BRE-kC-YU0" firstAttribute="centerY" secondItem="Kca-xz-9ck" secondAttribute="centerY" id="sCO-Qj-ftH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hcg-te-9uF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9F-gM-RuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-61" y="12"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bluePaw" width="512" height="512"/>
+    </resources>
+</document>
