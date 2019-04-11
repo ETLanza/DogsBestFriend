@@ -7,104 +7,70 @@
 //
 
 import Foundation
-import CommonCrypto
+import Firebase
+import FirebaseAuth
 
 class UserController {
     // MARK: - Shared Instance
     
     static let shared = UserController()
     
+    private init() {        
+        db = Firestore.firestore()
+    }
+    
     // MARK: - Properties
     
-    var loggedInUser: User?
+    var loggedInUser: DBFUser?
+    var fbDocRef: DocumentReference?
+    var db: Firestore!
     
     // MARK: - CRUD Functions
     
-    func signUp(username: String, password: String, completion: @escaping (Bool) -> Void) {
-        let encryptedPassword = Private.encrypt(password: password)
-        
-        let url = Private.baseURL!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: ["username": username, "password": encryptedPassword], options: .prettyPrinted)
-        } catch let error {
-            NSLog("Error encoding HTTPBody: %@", error.localizedDescription)
-            completion(false)
-            return
-        }
-        
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+    func createNewUserFrom(firebase user: User, completion: @escaping (Bool) -> Void) {
+        let newUser = DBFUser(username: user.displayName ?? "New User", uuid: user.uid)
+        db.collection("users").document(newUser.uuid).setData(newUser.asJSONDictionary) { (error) in
             if let error = error {
-                NSLog("Error performing signUp data task: %@", error.localizedDescription)
+                NSLog("Error saving User: %@ : %@ : %@", [newUser, error, error.localizedDescription])
                 completion(false)
                 return
             }
-            do {
-                let jsonFromData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: String]
-                
-                if let jsonDict = jsonFromData {
-                    let username = jsonDict[Keys.User.username]
-                    
-                    if (username?.isEmpty)! {
-                        NSLog("Could not get Username from JSON Data")
-                        completion(false)
-                        return
-                    } else {
-                        completion(true)
-                        return
-                    }
-                }
-            } catch {
-                NSLog("Could not serialize user data from database")
-                completion(false)
-            }
-        }.resume()
+            
+            self.loggedInUser = newUser
+            self.fbDocRef = self.db.collection("users").document(newUser.uuid)
+            completion(true)
+        }
     }
     
-    func login(username: String, password: String, completion: @escaping (Bool) -> Void) {
-        let encryptedPassword = Private.encrypt(password: password)
-
-        let url = Private.baseURL!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: ["username": username, "password": encryptedPassword], options: .prettyPrinted)
-        } catch let error {
-            NSLog("Error encoding HTTPBody: %@", error.localizedDescription)
+    func fetchUser(completion: @escaping (Bool) -> Void) {
+        if let authedUser = Auth.auth().currentUser  {
+            self.checkIfDBFUserExistFor(user: authedUser) { (dbfUser) in
+                if let dbfUser = dbfUser {
+                    self.loggedInUser = dbfUser
+                    completion(true)
+                }
+            }
+        } else {
             completion(false)
-            return
         }
-        
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+    }
+    
+    func checkIfDBFUserExistFor(user: User, completion: @escaping (DBFUser?) -> Void) {
+        db.collection("users").document(user.uid).getDocument { (snapshot, error) in
             if let error = error {
-                NSLog("Error performing login data task: %@", error.localizedDescription)
-                completion(false)
+                NSLog("No DBFUser found for UUID: %@ : %@ : %@", [user.uid, error, error.localizedDescription])
+                completion(nil)
                 return
             }
-            do {
-                let jsonFromData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: String]
-                
-                if let jsonDict = jsonFromData {
-                    let username = jsonDict[Keys.User.username]
-                    
-                    if (username?.isEmpty)! {
-                        NSLog("Could not get Username from JSON Data")
-                        completion(false)
-                        return
-                    } else {
-                        completion(true)
-                        return
-                    }
-                }
-            } catch {
-                NSLog("Could not serialize user data from database")
-                completion(false)
+            
+            guard let userDictionary = snapshot?.data() else {
+                NSLog("Unable to get user data for UUID: %@", [user.uid])
+                completion(nil)
+                return
             }
-            }.resume()
+            
+            let dbfUser = DBFUser(jsonDictionary: userDictionary)
+            completion(dbfUser)
+        }
     }
 }

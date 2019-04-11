@@ -13,6 +13,7 @@ struct Keys {
     struct User {
         static let type = "user"
         static let username = "username"
+        static let uuid = "uuid"
         static let dogs = "dogs"
         static let walks = "walks"
         static let favoriteParks = "favoriteParks"

@@ -209,7 +209,7 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.delegate = self
         cell.park = park
-        cell.parkAddressLabel.text = AddressFormatter.shared.parseAddress(selectedItem: park!.placemark!)
+        cell.parkAddressLabel.text = AddressFormatter.shared.parseAddress(selectedItem: park!.placemark)
         cell.parkNameLabel.text = park!.name
 
         return cell
@@ -348,7 +348,7 @@ extension ParksViewController: ParkTableViewCellDelegate {
         let alertController = UIAlertController(title: "Open in Apple Maps?", message: "This will close Dog's Best Friend to show directions to the park", preferredStyle: .alert)
         let continueAction = UIAlertAction(title: "Continue", style: .default) { _ in
             let currentLocMapItem = MKMapItem.forCurrentLocation()
-            let selectedMapItem = MKMapItem(placemark: sender.park!.placemark!)
+            let selectedMapItem = MKMapItem(placemark: sender.park!.placemark)
             let mapItems = [selectedMapItem, currentLocMapItem]
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             MKMapItem.openMaps(with: mapItems, launchOptions: launchOptions)

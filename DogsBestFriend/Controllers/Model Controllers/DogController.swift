@@ -41,26 +41,8 @@ class DogController {
                          medicalHistory: medicalHistory)
         
 
-        // TODO: NEEDS TO BE REMOVED ONCE DATABASE IS SET UP
-        dogs.append(newDog)
+        UserController.shared.loggedInUser?.dogs.append(newDog)
         completion(true)
-        // BOTTOM OF MOVED DATA
-        let url = Private.baseURL!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.httpBody = newDog.asData
-        
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            if let error = error {
-                NSLog("Error adding dog to database: %@", error.localizedDescription)
-                completion(false)
-                return
-            }
-            
-            self.dogs.append(newDog)
-            completion(true)
-        }
     }
 
     func addMedicalTo(dog: Dog,
@@ -100,27 +82,6 @@ class DogController {
         dog.color = color
         dog.registration = registration
         dog.medicalHistory = medicalHistory
-        
-        let url = Private.baseURL!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        request.httpBody = dog.asData
-        
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            if let error = error {
-                NSLog("Error updating %@: %@", [dog.name, error.localizedDescription])
-                completion(false)
-                return
-            }
-            
-            guard let _ = data else {
-                NSLog("Error converting updated data for \(dog.name)")
-                completion(false)
-                return
-            }
-            completion(true)
-        }.resume()
     }
 
     func deleteDog(_ dog: Dog, completion: @escaping (Bool) -> Void) {
@@ -131,27 +92,5 @@ class DogController {
             return
         }
         completion(false)
-        let url = Private.baseURL!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "DEL"
-        request.httpBody = dog.asData
-        
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            if let error = error {
-                NSLog("Error deleting dog from database: %@", [dog.name, error.localizedDescription])
-                completion(false)
-                return
-            }
-            
-            if let index = self.dogs.firstIndex(of: dog) {
-                self.dogs.remove(at: index)
-                completion(true)
-                return
-            }
-            
-            NSLog("Error deleting %@ from local controller", dog.name)
-            completion(false)
-        }.resume()
     }
 }

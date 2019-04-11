@@ -39,10 +39,13 @@ extension Walk {
     }
     
     var asDictionary: [String: Any] {
+        
+        let locationsAsDictionaries = self.locations.map { $0.asDictionary }
+        
         return [Keys.Walk.distance: self.distance,
                 Keys.Walk.timestamp: self.timestamp,
                 Keys.Walk.duration: self.duration,
-                Keys.Walk.locations: self.locations]
+                Keys.Walk.locations: locationsAsDictionaries]
     }
     
     var asData: Data? {

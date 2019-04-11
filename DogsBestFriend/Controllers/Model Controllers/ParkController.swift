@@ -23,7 +23,6 @@ class ParkController {
 
     func addParkwith(placemark: MKPlacemark) {
         let newPark = Park(name: placemark.name ?? "Unknown Park", latitude: placemark.coordinate.latitude, longitude: placemark.coordinate.longitude)
-        newPark.placemark = placemark
         parks.append(newPark)
     }
 
@@ -32,29 +31,6 @@ class ParkController {
         // MARK: - DELETE THIS AFTER API FINISHED
         self.favoriteParks.append(park)
         completion(true)
-        
-        let url = Private.baseURL!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.httpBody = park.asData
-        
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            if let error = error {
-                NSLog("Error adding favorite park to database: %@", error.localizedDescription)
-                completion(false)
-                return
-            }
-            
-            if data != nil {
-                self.favoriteParks.append(park)
-                completion(true)
-                return
-            }
-            
-            NSLog("Error adding favorite park to local controller")
-            completion(false)
-        }
     }
 
     func deleteFavorite(park: Park, completion: @escaping (Bool) -> Void) {
@@ -63,26 +39,6 @@ class ParkController {
         guard let index = self.favoriteParks.firstIndex(of: park) else { completion(false); return }
         self.favoriteParks.remove(at: index)
         completion(true)
-        return
-        // END DELETE
-   
-        let url = Private.baseURL!
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "DEL"
-        request.httpBody = park.asData
-        
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            if let error = error {
-                NSLog("Error deleting favorite park from database: %@", error.localizedDescription)
-                completion(false)
-                return
-            }
-            
-            guard let index = self.favoriteParks.firstIndex(of: park) else { completion(false); return }
-            self.favoriteParks.remove(at: index)
-            completion(true)
-        }
     }
 
     func removeAllNonFavoriteParks() {
