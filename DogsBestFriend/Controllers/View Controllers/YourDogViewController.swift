@@ -69,7 +69,7 @@ extension YourDogViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dogCell", for: indexPath) as? DogCollectionViewCell else { return UICollectionViewCell() }
         
         let dog = UserController.shared.loggedInUser!.dogs[indexPath.row]
-        let image = dog.proileImage
+        let image = dog.profileImage
         cell.dog = dog
         cell.dogProfilePicture.image = image
         cell.dogNameLabel.text = dog.name

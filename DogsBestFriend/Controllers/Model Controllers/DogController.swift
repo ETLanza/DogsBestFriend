@@ -35,10 +35,8 @@ class DogController {
         
         let documentRef = dbRef.document()
         let profileImageStorageRef = storageRef.child(documentRef.documentID)
-        profileImageStorageRef.putData(profileImageAsData)
         let profileImageStorageRefPath = profileImageStorageRef.name
         let ownerDocumentRef = UserController.shared.loggedInUser!.documentRef
-        
         
         let newDog = Dog(name: name,
                          birthdate: birthdate,
@@ -94,9 +92,7 @@ class DogController {
                    color: String?,
                    registration: String?,
                    profileImageAsData: Data,
-                   profileImageStorageRef: StorageReference? = nil,
                    medicalHistory: [MedicalRecord],
-                   documentRef: DocumentReference? = nil,
                    completion: @escaping (Bool) -> Void) {
         
         dog.name = name
@@ -109,17 +105,29 @@ class DogController {
         dog.profileImageAsData = profileImageAsData
         dog.medicalHistory = medicalHistory
         
-        UserController.shared.saveLoggedInUser(completion: completion)
+        saveDogToFirebase(dog) { (success) in
+            if success {
+                UserController.shared.saveLoggedInUser(completion: completion)
+            } else {
+                completion(false)
+            }
+        }
     }
     
     func saveDogToFirebase(_ dog: Dog, completion: @escaping (Bool) -> Void) {
-        dog.documentRef.setData(dog.asDictionary) { (error) in
-            if let error = error {
-                print("Error saving dog \(dog.name) : \(error) : \(error.localizedDescription)")
+        saveImageFor(dog: dog) { (success) in
+            if success {
+                dog.documentRef.setData(dog.asDictionary) { (error) in
+                    if let error = error {
+                        print("Error saving dog \(dog.name) : \(error) : \(error.localizedDescription)")
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                }
+            } else {
                 completion(false)
-                return
             }
-            completion(true)
         }
     }
 
@@ -188,6 +196,17 @@ class DogController {
             guard let data = data else { completion(false); return }
             
             dog.profileImageAsData = data
+            completion(true)
+        }
+    }
+    
+    func saveImageFor(dog: Dog, completion: @escaping (Bool) -> Void) {
+        storageRef.child(dog.profileImageStorageRefPath).putData(dog.profileImageAsData!, metadata: nil) { (_, error) in
+            if let error = error {
+                print("Error saving \(dog.name)'s profile image : \(error) : \(error.localizedDescription)")
+                completion(false)
+                return
+            }
             completion(true)
         }
     }

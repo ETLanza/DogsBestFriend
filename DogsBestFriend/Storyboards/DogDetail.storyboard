@@ -144,7 +144,7 @@
                                                                 <rect key="frame" x="0.0" y="26.333333333333314" width="280" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="mOf-os-m0o"/>
                                                                 </connections>
@@ -204,7 +204,7 @@
                                                                 <rect key="frame" x="0.0" y="26.333333333333371" width="280" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="baD-rx-jL3"/>
                                                                 </connections>
@@ -225,7 +225,7 @@
                                                                 <rect key="frame" x="0.0" y="26.333333333333258" width="280" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="x0D-J9-Ybc"/>
                                                                 </connections>
@@ -246,7 +246,7 @@
                                                                 <rect key="frame" x="0.0" y="26.333333333333371" width="280" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="B7x-fX-7cp"/>
                                                                 </connections>
@@ -267,7 +267,7 @@
                                                                 <rect key="frame" x="0.0" y="26.333333333333371" width="280" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="M0O-1T-3YB"/>
                                                                 </connections>

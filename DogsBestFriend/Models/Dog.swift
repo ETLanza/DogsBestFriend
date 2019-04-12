@@ -25,7 +25,7 @@ class Dog: Equatable {
     var color: String?
     var registration: String?
     var profileImageAsData: Data?
-    var proileImage: UIImage? {
+    var profileImage: UIImage? {
         guard let profileImageAsData = profileImageAsData else { return nil }
         return UIImage(data: profileImageAsData)
     }

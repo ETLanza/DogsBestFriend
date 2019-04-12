@@ -56,7 +56,15 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         let imageData = profileImageAsData ?? #imageLiteral(resourceName: "coolDog").jpegData(compressionQuality: 0.7)
         if let dog = dog {
-            DogController.shared.updateDog(dog, withName: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!, medicalHistory: dog.medicalHistory) { success in
+            DogController.shared.updateDog(dog, withName: name,
+                                           birthdate: birthdateDatePicker.date,
+                                           adoptionDate: adoptionDateDatePicker.date,
+                                           microchipID: microchipTextField.text,
+                                           breed: breedTextField.text,
+                                           color: colorTextField.text,
+                                           registration: registrationTextField.text,
+                                           profileImageAsData: imageData!,
+                                           medicalHistory: dog.medicalHistory) { success in
                 if success {
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -129,12 +137,13 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         if let dog = dog {
             title = dog.name
-            dogImageView.image = UIImage(data: dog.profileImageAsData!)
+            dogImageView.image = dog.profileImage
+            profileImageAsData = dog.profileImageAsData
             nameTextField.text = dog.name
             birthdateDatePicker.date = dog.birthdate
-            birthdateTextField.text = dog.birthdateAsString
+            birthdateTextField.text = DisplayFormatter.stringFrom(date: dog.birthdate)
             adoptionDateDatePicker.date = dog.adoptionDate
-            adoptionDateTextField.text = dog.adoptionDateAsString
+            adoptionDateTextField.text = DisplayFormatter.stringFrom(date: dog.adoptionDate)
             breedTextField.text = dog.breed
             microchipTextField.text = dog.microchipID
             colorTextField.text = dog.color
