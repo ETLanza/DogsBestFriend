@@ -34,7 +34,6 @@
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="3cs-SL-lYv" secondAttribute="height" multiplier="1:1" id="mUt-cK-8x1"/>
-                                                    <constraint firstAttribute="height" constant="224" id="pHS-5P-A1y"/>
                                                 </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="mtc-uS-dab" appends="YES" id="0Fj-W2-2DP"/>
@@ -146,11 +145,6 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clearAccessory" value="NO"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAndClearAccessories" value="NO"/>
-                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="mOf-os-m0o"/>
                                                                 </connections>
@@ -171,11 +165,6 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clearAccessory" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAndClearAccessories" value="NO"/>
-                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="ELY-fD-UtL"/>
                                                                 </connections>
@@ -196,11 +185,6 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clearAccessory" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAndClearAccessories" value="NO"/>
-                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="Pcl-O0-7vZ"/>
                                                                 </connections>
@@ -221,11 +205,6 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clearAccessory" value="NO"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAndClearAccessories" value="NO"/>
-                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="baD-rx-jL3"/>
                                                                 </connections>
@@ -247,11 +226,6 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clearAccessory" value="NO"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAndClearAccessories" value="NO"/>
-                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="x0D-J9-Ybc"/>
                                                                 </connections>
@@ -273,11 +247,6 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clearAccessory" value="NO"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAndClearAccessories" value="NO"/>
-                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="B7x-fX-7cp"/>
                                                                 </connections>
@@ -299,11 +268,6 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clearAccessory" value="NO"/>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAndClearAccessories" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="acb-es-eCO" id="M0O-1T-3YB"/>
                                                                 </connections>

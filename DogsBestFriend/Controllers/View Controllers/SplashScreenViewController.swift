@@ -50,7 +50,7 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         
         if let error = error {
-            NSLog("Error with firebase Sign In: %@ : %@", [error, error.localizedDescription])
+            print("Error with firebase Sign In: \(error) : \(error.localizedDescription)")
             return
         }
         
@@ -87,8 +87,8 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
     }
     
     func presentOnboarding() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         DispatchQueue.main.async {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = OnboardViewController()
         }
     }

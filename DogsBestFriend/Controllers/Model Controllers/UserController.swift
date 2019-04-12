@@ -11,8 +11,8 @@ import Firebase
 import FirebaseAuth
 
 class UserController {
-    // MARK: - Shared Instance
     
+    // MARK: - Shared Instance
     static let shared = UserController()
     
     private init() {        
@@ -32,7 +32,7 @@ class UserController {
         
         documentRef.setData(newUser.asDictionary) { (error) in
             if let error = error {
-                NSLog("Error saving User: %@ : %@ : %@", [newUser, error, error.localizedDescription])
+                NSLog("Error saving User: \(newUser) : \(error) : \(error.localizedDescription)")
                 completion(false)
                 return
             }
@@ -47,7 +47,7 @@ class UserController {
             self.checkIfDBFUserExistFor(user: authedUser) { (dbfUser) in
                 if let dbfUser = dbfUser {
                     self.loggedInUser = dbfUser
-                    completion(true)
+                    DogController.shared.fetchDogsFor(dbfUser: dbfUser, completion: completion)
                 }
             }
         } else {
@@ -58,7 +58,7 @@ class UserController {
     func checkIfDBFUserExistFor(user: User, completion: @escaping (DBFUser?) -> Void) {
         db.collection("users").document(user.uid).getDocument { (snapshot, error) in
             if let error = error {
-                NSLog("No DBFUser found for UUID: %@ : %@ : %@", [user.uid, error, error.localizedDescription])
+                print("No DBFUser found for UUID: \(user.uid) : \(error) : \(error.localizedDescription)")
                 completion(nil)
                 return
             }
@@ -86,5 +86,24 @@ class UserController {
             }
             completion(true)
         }
+    }
+    
+    func add(dog: Dog, to dbfUser: DBFUser = UserController.shared.loggedInUser!, completion: @escaping (Bool) -> Void) {
+        dbfUser.dogs.append(dog)
+        dbfUser.dogReferences.append(dog.documentRef)
+        completion(true)
+    }
+    
+    func remove(dog: Dog, from dbfUser: DBFUser = UserController.shared.loggedInUser!, completion: @escaping (Bool) -> Void) {
+        
+        guard let refIndex = dbfUser.dogReferences.firstIndex(of: dog.documentRef), let dogIndex = dbfUser.dogs.firstIndex(of: dog) else {
+            print("Unable to find dog or dog reference to delete for \(dog.name)")
+            completion(false)
+            return
+        }
+        dbfUser.dogReferences.remove(at: refIndex)
+        dbfUser.dogs.remove(at: dogIndex)
+    
+        UserController.shared.saveLoggedInUser(completion: completion)
     }
 }

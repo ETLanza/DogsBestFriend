@@ -12,7 +12,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Properties
     
     var dog: Dog?
-    var tempDog = Dog(name: "temp", birthdate: Date(), adoptionDate: Date(), microchipID: "", breed: "", color: "", registration: "", profileImageAsData: Data(), medicalHistory: [])
+    var medicalHistory: [MedicalRecord] = []
     var profileImageAsData: Data?
     let imagePickerController = UIImagePickerController()
     
@@ -62,7 +62,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
         } else {
-            DogController.shared.addDogWith(name: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!, medicalHistory: tempDog.medicalHistory) { success in
+            DogController.shared.addDogWith(name: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!, medicalHistory: medicalHistory) { success in
                 if success {
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -96,7 +96,9 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             DogController.shared.deleteDog(self.dog!, completion: { (success) in
                 if success {
-                    self.navigationController?.popViewController(animated: true)
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             })
         }
@@ -127,10 +129,12 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         if let dog = dog {
             title = dog.name
-            dogImageView.image = UIImage(data: dog.profileImageAsData)
+            dogImageView.image = UIImage(data: dog.profileImageAsData!)
             nameTextField.text = dog.name
             birthdateDatePicker.date = dog.birthdate
+            birthdateTextField.text = dog.birthdateAsString
             adoptionDateDatePicker.date = dog.adoptionDate
+            adoptionDateTextField.text = dog.adoptionDateAsString
             breedTextField.text = dog.breed
             microchipTextField.text = dog.microchipID
             colorTextField.text = dog.color
@@ -188,7 +192,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
             guard let destinationVC = segue.destination as? MedicalViewController,
                 let index = tableView.indexPathForSelectedRow else { return }
             if dog == nil {
-                destinationVC.medicalRecord = tempDog.medicalHistory[index.row]
+                destinationVC.medicalRecord = medicalHistory[index.row]
                 destinationVC.editingRecord = true
                 destinationVC.index = index.row
             } else {
@@ -204,10 +208,10 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
             if let senderVC = sender.source as? MedicalViewController {
                 if dog == nil {
                     if senderVC.editingRecord {
-                        tempDog.medicalHistory.remove(at: senderVC.index!)
-                        tempDog.medicalHistory.insert(senderVC.medicalRecord!, at: senderVC.index!)
+                        medicalHistory.remove(at: senderVC.index!)
+                        medicalHistory.insert(senderVC.medicalRecord!, at: senderVC.index!)
                     } else {
-                        tempDog.medicalHistory.append(senderVC.medicalRecord!)
+                        medicalHistory.append(senderVC.medicalRecord!)
                     }
                 } else {
                     if senderVC.editingRecord {
@@ -216,15 +220,15 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
                     } else {
                         dog!.medicalHistory.insert(senderVC.medicalRecord!, at: 0)
                     }
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = true                    
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
                     DogController.shared.updateDog(dog!, withName: dog!.name,
                                                    birthdate: dog!.birthdate,
                                                    adoptionDate: dog!.adoptionDate,
                                                    microchipID: dog!.microchipID,
                                                    breed: dog!.breed,
-                                                   color: dog?.color,
-                                                   registration: dog?.registration,
-                                                   profileImageAsData: dog!.profileImageAsData,
+                                                   color: dog!.color,
+                                                   registration: dog!.registration,
+                                                   profileImageAsData: dog!.profileImageAsData!,
                                                    medicalHistory: dog!.medicalHistory) { (success) in
                         if success {
                             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -248,7 +252,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
 extension DogDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if dog == nil {
-            return tempDog.medicalHistory.count
+            return medicalHistory.count
         } else {
             return dog?.medicalHistory.count ?? 0
         }
@@ -257,8 +261,8 @@ extension DogDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "medicalCell", for: indexPath)
         if dog == nil {
-            cell.textLabel?.text = tempDog.medicalHistory[indexPath.row].name
-            cell.detailTextLabel?.text = DisplayFormatter.stringFrom(date: tempDog.medicalHistory[indexPath.row].date)
+            cell.textLabel?.text = medicalHistory[indexPath.row].name
+            cell.detailTextLabel?.text = DisplayFormatter.stringFrom(date: medicalHistory[indexPath.row].date)
         } else {
             cell.textLabel?.text = dog?.medicalHistory[indexPath.row].name
             cell.detailTextLabel?.text = DisplayFormatter.stringFrom(date: dog?.medicalHistory[indexPath.row].date)
@@ -276,7 +280,7 @@ extension DogDetailViewController: UIImagePickerControllerDelegate, UINavigation
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage, let fixedImage = image.fixOrientation() {
-            let profileImageAsData = fixedImage.pngData()
+            let profileImageAsData = fixedImage.jpegData(compressionQuality: 0.7)
             self.profileImageAsData = profileImageAsData
             dog?.profileImageAsData = profileImageAsData!
             dogImageView.image = image
