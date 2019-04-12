@@ -7,20 +7,9 @@
 //
 
 import UIKit
+import Firebase
 
-class Dog: Equatable, Codable {
-
-    enum CodingKeys: String, CodingKey {
-        case name
-        case birthdate
-        case adoptionDate
-        case microchipID
-        case breed
-        case color
-        case registration
-        case profileImageAsData
-        case medicalHistory
-    }
+class Dog: Equatable {
 
     var name: String
     var birthdate: Date
@@ -35,10 +24,19 @@ class Dog: Equatable, Codable {
     var breed: String?
     var color: String?
     var registration: String?
-    var profileImageAsData: Data
+    var profileImageAsData: Data?
+    var proileImage: UIImage? {
+        guard let profileImageAsData = profileImageAsData else { return nil }
+        return UIImage(data: profileImageAsData)
+    }
+    var profileImageStorageRefPath: String
     var medicalHistory: [MedicalRecord] = []
+    var documentRef: DocumentReference
+    var ownerDocumentRef: DocumentReference
+    var uuid: String
 
-    init(name: String, birthdate: Date, adoptionDate: Date, microchipID: String?, breed: String?, color: String?, registration: String?, profileImageAsData: Data, medicalHistory: [MedicalRecord] = []) {
+    init(name: String, birthdate: Date, adoptionDate: Date, microchipID: String? = nil, breed: String? = nil, color: String? = nil, registration: String? = nil, profileImageAsData: Data? = UIImage(named: "coolDog")!.pngData(), profileImageStorageRefPath: String, medicalHistory: [MedicalRecord] = [], documentRef: DocumentReference, ownerDocumentRef: DocumentReference) {
+        
         self.name = name
         self.birthdate = birthdate
         self.adoptionDate = adoptionDate
@@ -47,7 +45,11 @@ class Dog: Equatable, Codable {
         self.color = color
         self.registration = registration
         self.profileImageAsData = profileImageAsData
+        self.profileImageStorageRefPath = profileImageStorageRefPath
         self.medicalHistory = medicalHistory
+        self.documentRef = documentRef
+        self.ownerDocumentRef = ownerDocumentRef
+        self.uuid = documentRef.documentID
     }
 
     static func == (lhs: Dog, rhs: Dog) -> Bool {
@@ -64,14 +66,15 @@ extension Dog {
             let breed = jsonDictionary[Keys.Dog.breed] as? String,
             let color = jsonDictionary[Keys.Dog.color] as? String,
             let registration = jsonDictionary[Keys.Dog.registration] as? String,
-            let medicalHistoryArray = jsonDictionary[Keys.Dog.medicalHistory] as? [[String: Any]]
+            let profileImageStorageRefPath = jsonDictionary[Keys.Dog.profileImageStorageRefPath] as? String,
+            let medicalHistoryArray = jsonDictionary[Keys.Dog.medicalHistory] as? [[String: Any]],
+            let documentRef = jsonDictionary[Keys.Dog.documentRef] as? DocumentReference,
+            let ownerDocumentRef = jsonDictionary[Keys.Dog.ownerDocumentRef] as? DocumentReference
             else { return nil }
         
         let birthdate = DisplayFormatter.dateFrom(string: birthdateAsString)
         let adoptionDate = DisplayFormatter.dateFrom(string: adoptionDateAsString)
-//        let profileImageAsData = jsonDictionary[Keys.Dog.profileImageAsData] as? Data
-        let data = UIImage(named: "bluePaw")!.jpegData(compressionQuality: 0.5)!
-        print(data)
+
         let medicalHistory = medicalHistoryArray.compactMap { MedicalRecord(jsonDictionary: $0) }
 
         self.init(name: name,
@@ -80,8 +83,10 @@ extension Dog {
                   microchipID: microchipID,
                   breed: breed, color: color,
                   registration: registration,
-                  profileImageAsData: data,
-                  medicalHistory: medicalHistory)
+                  profileImageStorageRefPath: profileImageStorageRefPath,
+                  medicalHistory: medicalHistory,
+                  documentRef: documentRef,
+                  ownerDocumentRef: ownerDocumentRef)
     }
 
     var asDictionary: [String: Any] {
@@ -95,12 +100,9 @@ extension Dog {
                 Keys.Dog.breed: self.breed ?? "",
                 Keys.Dog.color: self.color ?? "",
                 Keys.Dog.registration: self.registration ?? "",
-                Keys.Dog.profileImageAsData: self.profileImageAsData,
-                Keys.Dog.medicalHistory: medicalHistoryAsDictionaries]
-    }
-
-    var asData: Data? {
-        let encoder = JSONEncoder()
-        return try? encoder.encode(self)
+                Keys.Dog.medicalHistory: medicalHistoryAsDictionaries,
+                Keys.Dog.documentRef: self.documentRef,
+                Keys.Dog.profileImageStorageRefPath: self.profileImageStorageRefPath,
+                Keys.Dog.ownerDocumentRef: self.ownerDocumentRef]
     }
 }

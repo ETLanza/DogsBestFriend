@@ -50,7 +50,7 @@ class ParkController {
         var placemark = MKPlacemark()
         geocoder.reverseGeocodeLocation(CLLocation(latitude: park.latitude, longitude: park.longitude)) { (placemarks, error) in
             if let error = error {
-                NSLog("Error getting placemark for park: %@", [park.name, error.localizedDescription])
+                print("Error getting placemark for park: \(park.name) : \(error) : \(error.localizedDescription)")
                 completion(nil)
                 return
             }

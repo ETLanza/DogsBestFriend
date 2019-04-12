@@ -15,8 +15,11 @@ struct Keys {
         static let username = "username"
         static let uuid = "uuid"
         static let dogs = "dogs"
+        static let dogReferences = "dogReferences"
         static let walks = "walks"
+        static let walkReferences = "walkReferences"
         static let favoriteParks = "favoriteParks"
+        static let favoriteParkReferences = "favoriteParkReferences"
         static let documentRef = "documentRef"
     }
 
@@ -32,7 +35,12 @@ struct Keys {
         static let color = "color"
         static let registration = "registration"
         static let profileImageAsData = "profileImageAsData"
+        static let profileImage = "profileImage"
+        static let profileImageStorageRefPath = "profileImageStorageRef"
         static let medicalHistory = "medicalHistory"
+        static let medicalHistoryDocumentRefs = "medicalHistoryDocumentRefs"
+        static let documentRef = "documentRef"
+        static let ownerDocumentRef = "ownerDocumentRef"
     }
 
     struct MedicalRecord {

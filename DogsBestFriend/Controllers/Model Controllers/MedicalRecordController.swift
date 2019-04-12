@@ -30,7 +30,7 @@ class MedicalRecordController {
                                        breed: dog.breed,
                                        color: dog.color,
                                        registration: dog.registration,
-                                       profileImageAsData: dog.profileImageAsData,
+                                       profileImageAsData: dog.profileImageAsData!,
                                        medicalHistory: dog.medicalHistory,
                                        completion: completion)
     }
