@@ -67,7 +67,7 @@ extension Dog {
             let color = jsonDictionary[Keys.Dog.color] as? String,
             let registration = jsonDictionary[Keys.Dog.registration] as? String,
             let profileImageStorageRefPath = jsonDictionary[Keys.Dog.profileImageStorageRefPath] as? String,
-            let medicalHistoryArray = jsonDictionary[Keys.Dog.medicalHistory] as? [[String: Any]],
+            let medicalHistoryArray = jsonDictionary[Keys.Dog.medicalHistory] as? [String:[String: Any]],
             let documentRef = jsonDictionary[Keys.Dog.documentRef] as? DocumentReference,
             let ownerDocumentRef = jsonDictionary[Keys.Dog.ownerDocumentRef] as? DocumentReference
             else { return nil }
@@ -75,7 +75,7 @@ extension Dog {
         let birthdate = DisplayFormatter.dateFrom(string: birthdateAsString)
         let adoptionDate = DisplayFormatter.dateFrom(string: adoptionDateAsString)
 
-        let medicalHistory = medicalHistoryArray.compactMap { MedicalRecord(jsonDictionary: $0) }
+        let medicalHistory = medicalHistoryArray.compactMap { MedicalRecord(jsonDictionary: $0.value) }
 
         self.init(name: name,
                   birthdate: birthdate,
@@ -91,7 +91,10 @@ extension Dog {
 
     var asDictionary: [String: Any] {
         
-        let medicalHistoryAsDictionaries = self.medicalHistory.compactMap { $0.asDictionary }
+        var medicalHistoryAsDictionaries: [String: [String:Any]] = [:]
+        self.medicalHistory.forEach { (record) in
+            medicalHistoryAsDictionaries[record.uuid] = record.asDictionary
+        }
         
         return [Keys.Dog.name: self.name,
                 Keys.Dog.birthdateAsString: self.birthdateAsString,

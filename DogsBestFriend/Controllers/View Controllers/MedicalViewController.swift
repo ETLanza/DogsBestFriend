@@ -53,11 +53,46 @@ class MedicalViewController: UIViewController {
     func setUpViews() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        addInputAccessoryForTextFields(textFields: [nameTextField], dismissable: true, previousNextable: false)
+        noteTextView.layer.borderColor = UIColor.lightGray.cgColor
+        noteTextView.layer.borderWidth = 0.25
+        noteTextView.layer.cornerRadius = 5
+        noteTextView.layer.masksToBounds = true
+        if medicalRecord?.note != nil && medicalRecord?.note != "Enter notes..." {
+            noteTextView.textColor = UIColor.black
+        }
     }
 
     func setUpLabels() {
         nameTextField.text = medicalRecord?.name ?? "Was Nil"
         datePicker.date = medicalRecord?.date ?? Date()
         noteTextView.text = medicalRecord?.note ?? "Why Tho"
+    }
+}
+
+extension MedicalViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if noteTextView.text == "Enter notes..." {
+            noteTextView.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
+
+extension MedicalViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.textColor = UIColor.black
+        if textView.text == "Enter notes..." {
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Enter notes..."
+            textView.textColor = UIColor(red: 0.78, green: 0.78, blue: 0.80, alpha: 1.0)
+        }
     }
 }

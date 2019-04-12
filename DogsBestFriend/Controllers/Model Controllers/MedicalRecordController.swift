@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import Firebase
 
 class MedicalRecordController {
     // MARK: - Shared Instance
     
     static let shared = MedicalRecordController()
+    
+    let db = Firestore.firestore().collection("dogs")
     
     // MARK: - CRUD Functions
     func addMedicalRecordTo(dog: Dog, name: String, date: Date, note: String, completion: @escaping (Bool) -> Void) {
@@ -23,15 +26,14 @@ class MedicalRecordController {
         guard let index = dog.medicalHistory.firstIndex(of: medicalRecord) else { return }
         dog.medicalHistory.remove(at: index)
         
-        DogController.shared.updateDog(dog, withName: dog.name,
-                                       birthdate: dog.birthdate,
-                                       adoptionDate: dog.adoptionDate,
-                                       microchipID: dog.microchipID,
-                                       breed: dog.breed,
-                                       color: dog.color,
-                                       registration: dog.registration,
-                                       profileImageAsData: dog.profileImageAsData!,
-                                       medicalHistory: dog.medicalHistory,
-                                       completion: completion)
+        dog.documentRef.setData(dog.asDictionary, mergeFields: [Keys.Dog.medicalHistory]) { (error) in
+            if let error = error {
+                print("Error deleting \(medicalRecord.name) from \(dog.name) : \(error) : \(error.localizedDescription)")
+                completion(false)
+                return
+            } else {
+                completion(true)
+            }
+        }
     }
 }
