@@ -278,6 +278,29 @@ extension DogDetailViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            if let dog = dog {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                MedicalRecordController.shared.delete(medicalRecord: dog.medicalHistory[indexPath.row], fromDog: dog) { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                            self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
+                        }
+                    }
+                }
+            } else {
+                medicalHistory.remove(at: indexPath.row)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
+            }
+        default:
+            return
+        }
+    }
 }
 
 // MARK: - UIImagePickerController Delegate Methods

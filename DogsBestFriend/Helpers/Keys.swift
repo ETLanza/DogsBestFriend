@@ -49,6 +49,7 @@ struct Keys {
         static let date = "date"
         static let dateAsString = "dateAsString"
         static let note = "note"
+        static let uuid = "uuid"
     }
 
     struct Park {
