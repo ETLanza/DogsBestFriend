@@ -7,25 +7,123 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DDC3CA21C756987D3634AFF /* Pods_DogsBestFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30C3A49CAF1CF834A428881 /* Pods_DogsBestFriend.framework */; };
+		3C0BC011226106C100E4C714 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC010226106C100E4C714 /* UITextView+Extension.swift */; };
 		3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2566BF20FF8D2E0053E44E /* AppDelegate.swift */; };
-		3C2566C520FF8D2E0053E44E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2566C320FF8D2E0053E44E /* Main.storyboard */; };
+		3C2566C520FF8D2E0053E44E /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2566C320FF8D2E0053E44E /* TabBar.storyboard */; };
 		3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2566C620FF8D2F0053E44E /* Assets.xcassets */; };
-		3C2566CA20FF8D2F0053E44E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2566C820FF8D2F0053E44E /* LaunchScreen.storyboard */; };
 		3C2566D620FF940D0053E44E /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2566D520FF940D0053E44E /* Breed.swift */; };
 		3C25670220FFA8070053E44E /* BreedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25670120FFA8070053E44E /* BreedController.swift */; };
+		3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27F9992150BD6E006236A6 /* Keys.swift */; };
+		3C2B596422682BAE001838BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B596322682BAE001838BA /* GoogleService-Info.plist */; };
+		3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34AC34214B973B00A97CA9 /* LocationManager.swift */; };
+		3C423960225EDF6B007421B4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42395E225EDF6B007421B4 /* SignInViewController.swift */; };
+		3C423961225EDF6B007421B4 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C42395F225EDF6B007421B4 /* SignInViewController.xib */; };
+		3C423963225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C423962225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift */; };
+		3C423965225EFE93007421B4 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C423964225EFE93007421B4 /* SplashScreenViewController.swift */; };
+		3C423967225EFEA9007421B4 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C423966225EFEA9007421B4 /* SplashScreen.storyboard */; };
+		3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* Onboard.storyboard */; };
+		3C4F47402150898500309457 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F473F2150898500309457 /* OnboardViewController.swift */; };
+		3C641A382153014900FCA18E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C641A372153014900FCA18E /* UIImage+Extension.swift */; };
+		3C641A3A21530ED700FCA18E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
+		3C6995DB21594F79003FDB27 /* DBFUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DA21594F79003FDB27 /* DBFUser.swift */; };
+		3C6995DD215950E9003FDB27 /* DBFUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DC215950E9003FDB27 /* DBFUserController.swift */; };
+		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
+		3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */; };
+		3C7FA2A1214AC92C0037B1F4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */; };
+		3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */; };
+		3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */; };
+		3C8BBBB42151787900325067 /* MedicalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB32151787900325067 /* MedicalViewController.swift */; };
+		3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB5215178D300325067 /* Medical.storyboard */; };
+		3C8BBBB82151899A00325067 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBB72151899A00325067 /* MedicalRecord.swift */; };
+		3C8BBBBE2151BB3700325067 /* MedicalRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */; };
+		3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */; };
+		3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B02146E30D00253B85 /* ParksViewController.swift */; };
+		3C9B90B32146E32100253B85 /* WalksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B22146E32100253B85 /* WalksViewController.swift */; };
+		3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */; };
+		3C9F31CC2152CBCB00955416 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9F31CB2152CBCB00955416 /* Walk.swift */; };
+		3C9F31CE2152CC1E00955416 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9F31CD2152CC1E00955416 /* Location.swift */; };
+		3C9F31D02152D65E00955416 /* WalkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9F31CF2152D65E00955416 /* WalkController.swift */; };
+		3C9F31D42152E01600955416 /* NewWalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9F31D32152E01600955416 /* NewWalkViewController.swift */; };
+		3C9F31D62152E10F00955416 /* NewWalk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C9F31D52152E10F00955416 /* NewWalk.storyboard */; };
+		3CA990622152AE0000C3824D /* DisplayFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA990612152AE0000C3824D /* DisplayFormatter.swift */; };
+		3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298321407D1700AF8114 /* BreedImage.storyboard */; };
+		3CAF298621407EE600AF8114 /* Walks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298521407EE600AF8114 /* Walks.storyboard */; };
+		3CAF298821407F1200AF8114 /* Parks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298721407F1200AF8114 /* Parks.storyboard */; };
+		3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAF298921407F2B00AF8114 /* YourDog.storyboard */; };
+		3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D49214C060300F36E6A /* ParkTableViewCell.swift */; };
+		3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */; };
+		3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D4E214C20B100F36E6A /* Park.swift */; };
+		3CBC3D51214C267600F36E6A /* ParkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D50214C267600F36E6A /* ParkController.swift */; };
+		3CBC3D53214C542600F36E6A /* SegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */; };
+		3CBC3D55214C652200F36E6A /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D54214C652200F36E6A /* Dog.swift */; };
+		3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D56214C66D600F36E6A /* DogController.swift */; };
+		3CBC3D59214C710A00F36E6A /* DogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */; };
+		3CDDE19F215C179800BDD128 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE19E215C179700BDD128 /* AlertManager.swift */; };
+		3CFC022F225F3205005AFE36 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC022E225F3205005AFE36 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C0BC010226106C100E4C714 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		3C2566BC20FF8D2E0053E44E /* DogsBestFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogsBestFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2566BF20FF8D2E0053E44E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3C2566C420FF8D2E0053E44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3C2566C420FF8D2E0053E44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TabBar.storyboard; sourceTree = "<group>"; };
 		3C2566C620FF8D2F0053E44E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3C2566C920FF8D2F0053E44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C2566CB20FF8D2F0053E44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C2566D520FF940D0053E44E /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		3C25670120FFA8070053E44E /* BreedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedController.swift; sourceTree = "<group>"; };
+		3C27F9992150BD6E006236A6 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		3C2B596322682BAE001838BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3C34AC34214B973B00A97CA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3C42395E225EDF6B007421B4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		3C42395F225EDF6B007421B4 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		3C423962225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FUIAuthPickerViewController+Extension.swift"; sourceTree = "<group>"; };
+		3C423964225EFE93007421B4 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		3C423966225EFEA9007421B4 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		3C4F473D215086CC00309457 /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
+		3C4F473F2150898500309457 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		3C641A372153014900FCA18E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
+		3C6995DA21594F79003FDB27 /* DBFUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFUser.swift; sourceTree = "<group>"; };
+		3C6995DC215950E9003FDB27 /* DBFUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFUserController.swift; sourceTree = "<group>"; };
+		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
+		3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
+		3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DogDetail.storyboard; sourceTree = "<group>"; };
+		3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WalkDetail.storyboard; sourceTree = "<group>"; };
+		3C8BBBB32151787900325067 /* MedicalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalViewController.swift; sourceTree = "<group>"; };
+		3C8BBBB5215178D300325067 /* Medical.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Medical.storyboard; sourceTree = "<group>"; };
+		3C8BBBB72151899A00325067 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
+		3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordController.swift; sourceTree = "<group>"; };
+		3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourDogViewController.swift; sourceTree = "<group>"; };
+		3C9B90B02146E30D00253B85 /* ParksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksViewController.swift; sourceTree = "<group>"; };
+		3C9B90B22146E32100253B85 /* WalksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalksViewController.swift; sourceTree = "<group>"; };
+		3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		3C9F31CB2152CBCB00955416 /* Walk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
+		3C9F31CD2152CC1E00955416 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		3C9F31CF2152D65E00955416 /* WalkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkController.swift; sourceTree = "<group>"; };
+		3C9F31D32152E01600955416 /* NewWalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalkViewController.swift; sourceTree = "<group>"; };
+		3C9F31D52152E10F00955416 /* NewWalk.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewWalk.storyboard; sourceTree = "<group>"; };
+		3CA990612152AE0000C3824D /* DisplayFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFormatter.swift; sourceTree = "<group>"; };
+		3CAF298321407D1700AF8114 /* BreedImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreedImage.storyboard; sourceTree = "<group>"; };
+		3CAF298521407EE600AF8114 /* Walks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Walks.storyboard; sourceTree = "<group>"; };
+		3CAF298721407F1200AF8114 /* Parks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Parks.storyboard; sourceTree = "<group>"; };
+		3CAF298921407F2B00AF8114 /* YourDog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YourDog.storyboard; sourceTree = "<group>"; };
+		3CBC3D49214C060300F36E6A /* ParkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkTableViewCell.swift; sourceTree = "<group>"; };
+		3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormatter.swift; sourceTree = "<group>"; };
+		3CBC3D4E214C20B100F36E6A /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		3CBC3D50214C267600F36E6A /* ParkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkController.swift; sourceTree = "<group>"; };
+		3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl+Extension.swift"; sourceTree = "<group>"; };
+		3CBC3D54214C652200F36E6A /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		3CBC3D56214C66D600F36E6A /* DogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogController.swift; sourceTree = "<group>"; };
+		3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCollectionViewCell.swift; sourceTree = "<group>"; };
+		3CDDE19E215C179700BDD128 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		3CFC022E225F3205005AFE36 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		72CFF06A01764969A25EAA51 /* Pods-DogsBestFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsBestFriend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend.debug.xcconfig"; sourceTree = "<group>"; };
+		B30C3A49CAF1CF834A428881 /* Pods_DogsBestFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsBestFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE25E0494B028565D47AA68F /* Pods-DogsBestFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsBestFriend.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +131,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C7FA2A1214AC92C0037B1F4 /* MapKit.framework in Frameworks */,
+				0DDC3CA21C756987D3634AFF /* Pods_DogsBestFriend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		343979A956A9B568B96E7D7A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72CFF06A01764969A25EAA51 /* Pods-DogsBestFriend.debug.xcconfig */,
+				BE25E0494B028565D47AA68F /* Pods-DogsBestFriend.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3C2566B320FF8D2E0053E44E = {
 			isa = PBXGroup;
 			children = (
 				3C2566BE20FF8D2E0053E44E /* DogsBestFriend */,
 				3C2566BD20FF8D2E0053E44E /* Products */,
+				3C7FA29F214AC92C0037B1F4 /* Frameworks */,
+				343979A956A9B568B96E7D7A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,8 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				3C25670520FFAE9F0053E44E /* Models */,
-				3C25670620FFAEA80053E44E /* Controllers */,
+				3CBC3D4B214C060F00F36E6A /* Views */,
 				3C2566D220FF8D760053E44E /* Storyboards */,
+				3C25670620FFAEA80053E44E /* Controllers */,
+				3C34AC36214B99AC00A97CA9 /* Helpers */,
 				3C2566D120FF8D650053E44E /* Resources */,
 			);
 			path = DogsBestFriend;
@@ -70,8 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				3C2566BF20FF8D2E0053E44E /* AppDelegate.swift */,
+				3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */,
 				3C2566C620FF8D2F0053E44E /* Assets.xcassets */,
-				3C2566C820FF8D2F0053E44E /* LaunchScreen.storyboard */,
+				3C2B596322682BAE001838BA /* GoogleService-Info.plist */,
 				3C2566CB20FF8D2F0053E44E /* Info.plist */,
 			);
 			path = Resources;
@@ -80,7 +194,18 @@
 		3C2566D220FF8D760053E44E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				3C2566C320FF8D2E0053E44E /* Main.storyboard */,
+				3C423966225EFEA9007421B4 /* SplashScreen.storyboard */,
+				3C42395F225EDF6B007421B4 /* SignInViewController.xib */,
+				3C4F473D215086CC00309457 /* Onboard.storyboard */,
+				3C2566C320FF8D2E0053E44E /* TabBar.storyboard */,
+				3CAF298921407F2B00AF8114 /* YourDog.storyboard */,
+				3C7FA2A4214AD3920037B1F4 /* DogDetail.storyboard */,
+				3C8BBBB5215178D300325067 /* Medical.storyboard */,
+				3CAF298721407F1200AF8114 /* Parks.storyboard */,
+				3CAF298521407EE600AF8114 /* Walks.storyboard */,
+				3C9F31D52152E10F00955416 /* NewWalk.storyboard */,
+				3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */,
+				3CAF298321407D1700AF8114 /* BreedImage.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -88,6 +213,12 @@
 		3C25670520FFAE9F0053E44E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3C6995DA21594F79003FDB27 /* DBFUser.swift */,
+				3CBC3D54214C652200F36E6A /* Dog.swift */,
+				3C8BBBB72151899A00325067 /* MedicalRecord.swift */,
+				3CBC3D4E214C20B100F36E6A /* Park.swift */,
+				3C9F31CB2152CBCB00955416 /* Walk.swift */,
+				3C9F31CD2152CC1E00955416 /* Location.swift */,
 				3C2566D520FF940D0053E44E /* Breed.swift */,
 			);
 			path = Models;
@@ -105,6 +236,11 @@
 		3C25670720FFAEB20053E44E /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C6995DC215950E9003FDB27 /* DBFUserController.swift */,
+				3CBC3D56214C66D600F36E6A /* DogController.swift */,
+				3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */,
+				3CBC3D50214C267600F36E6A /* ParkController.swift */,
+				3C9F31CF2152D65E00955416 /* WalkController.swift */,
 				3C25670120FFA8070053E44E /* BreedController.swift */,
 			);
 			path = "Model Controllers";
@@ -113,9 +249,79 @@
 		3C25670820FFAEB90053E44E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C423964225EFE93007421B4 /* SplashScreenViewController.swift */,
+				3C42395E225EDF6B007421B4 /* SignInViewController.swift */,
+				3C4F473F2150898500309457 /* OnboardViewController.swift */,
+				3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */,
+				3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */,
+				3C8BBBB32151787900325067 /* MedicalViewController.swift */,
+				3C9B90B02146E30D00253B85 /* ParksViewController.swift */,
+				3C9B90B22146E32100253B85 /* WalksViewController.swift */,
+				3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */,
+				3C9F31D32152E01600955416 /* NewWalkViewController.swift */,
 				3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3C34AC36214B99AC00A97CA9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3C27F9992150BD6E006236A6 /* Keys.swift */,
+				3C9F31CA2152BE5B00955416 /* Formatters */,
+				3C34AC37214B99B600A97CA9 /* Managers */,
+				3C9B90B62146F9A700253B85 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3C34AC37214B99B600A97CA9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3C34AC34214B973B00A97CA9 /* LocationManager.swift */,
+				3CDDE19E215C179700BDD128 /* AlertManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		3C7FA29F214AC92C0037B1F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */,
+				B30C3A49CAF1CF834A428881 /* Pods_DogsBestFriend.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C9B90B62146F9A700253B85 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3C9B90B42146F9A100253B85 /* UITextField+Extensions.swift */,
+				3C0BC010226106C100E4C714 /* UITextView+Extension.swift */,
+				3CFC022E225F3205005AFE36 /* UIViewController+Extension.swift */,
+				3CBC3D52214C542600F36E6A /* SegmentedControl+Extension.swift */,
+				3C641A372153014900FCA18E /* UIImage+Extension.swift */,
+				3C423962225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3C9F31CA2152BE5B00955416 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				3CBC3D4C214C1E1100F36E6A /* AddressFormatter.swift */,
+				3CA990612152AE0000C3824D /* DisplayFormatter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		3CBC3D4B214C060F00F36E6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3CBC3D49214C060300F36E6A /* ParkTableViewCell.swift */,
+				3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +331,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2566CE20FF8D2F0053E44E /* Build configuration list for PBXNativeTarget "DogsBestFriend" */;
 			buildPhases = (
+				FF64B3A136D9CA8DD5A554C7 /* [CP] Check Pods Manifest.lock */,
 				3C2566B820FF8D2E0053E44E /* Sources */,
 				3C2566B920FF8D2E0053E44E /* Frameworks */,
 				3C2566BA20FF8D2E0053E44E /* Resources */,
+				FDB88FD9744ECDF029A255A0 /* [CP] Embed Pods Frameworks */,
+				1A11996DC156D4E947E31C0D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,6 +359,15 @@
 				TargetAttributes = {
 					3C2566BB20FF8D2E0053E44E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -176,43 +394,162 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C2566CA20FF8D2F0053E44E /* LaunchScreen.storyboard in Resources */,
+				3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */,
+				3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */,
+				3C2B596422682BAE001838BA /* GoogleService-Info.plist in Resources */,
+				3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */,
+				3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */,
+				3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */,
 				3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */,
-				3C2566C520FF8D2E0053E44E /* Main.storyboard in Resources */,
+				3CAF298821407F1200AF8114 /* Parks.storyboard in Resources */,
+				3C641A3A21530ED700FCA18E /* LaunchScreen.storyboard in Resources */,
+				3C2566C520FF8D2E0053E44E /* TabBar.storyboard in Resources */,
+				3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */,
+				3CAF298621407EE600AF8114 /* Walks.storyboard in Resources */,
+				3C9F31D62152E10F00955416 /* NewWalk.storyboard in Resources */,
+				3C423967225EFEA9007421B4 /* SplashScreen.storyboard in Resources */,
+				3C423961225EDF6B007421B4 /* SignInViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A11996DC156D4E947E31C0D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDB88FD9744ECDF029A255A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF64B3A136D9CA8DD5A554C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DogsBestFriend-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C2566B820FF8D2E0053E44E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBC3D53214C542600F36E6A /* SegmentedControl+Extension.swift in Sources */,
+				3C9B90B12146E30D00253B85 /* ParksViewController.swift in Sources */,
+				3CBC3D51214C267600F36E6A /* ParkController.swift in Sources */,
+				3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */,
+				3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */,
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
+				3C423963225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift in Sources */,
+				3CFC022F225F3205005AFE36 /* UIViewController+Extension.swift in Sources */,
+				3C6995DD215950E9003FDB27 /* DBFUserController.swift in Sources */,
+				3C9F31CE2152CC1E00955416 /* Location.swift in Sources */,
+				3CDDE19F215C179800BDD128 /* AlertManager.swift in Sources */,
+				3C8BBBB42151787900325067 /* MedicalViewController.swift in Sources */,
+				3C423960225EDF6B007421B4 /* SignInViewController.swift in Sources */,
+				3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */,
+				3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */,
+				3C8BBBB82151899A00325067 /* MedicalRecord.swift in Sources */,
+				3CBC3D59214C710A00F36E6A /* DogCollectionViewCell.swift in Sources */,
+				3C9B90AF2146E24C00253B85 /* YourDogViewController.swift in Sources */,
+				3C9F31CC2152CBCB00955416 /* Walk.swift in Sources */,
 				3C2566D620FF940D0053E44E /* Breed.swift in Sources */,
+				3CBC3D55214C652200F36E6A /* Dog.swift in Sources */,
+				3C9F31D02152D65E00955416 /* WalkController.swift in Sources */,
 				3C25670220FFA8070053E44E /* BreedController.swift in Sources */,
+				3C0BC011226106C100E4C714 /* UITextView+Extension.swift in Sources */,
+				3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */,
 				3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */,
+				3C9B90B32146E32100253B85 /* WalksViewController.swift in Sources */,
+				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
+				3C423965225EFE93007421B4 /* SplashScreenViewController.swift in Sources */,
+				3C9F31D42152E01600955416 /* NewWalkViewController.swift in Sources */,
+				3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */,
+				3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */,
+				3C8BBBBE2151BB3700325067 /* MedicalRecordController.swift in Sources */,
+				3C641A382153014900FCA18E /* UIImage+Extension.swift in Sources */,
+				3C4F47402150898500309457 /* OnboardViewController.swift in Sources */,
+				3CA990622152AE0000C3824D /* DisplayFormatter.swift in Sources */,
+				3CBC3D4D214C1E1100F36E6A /* AddressFormatter.swift in Sources */,
+				3C6995DB21594F79003FDB27 /* DBFUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3C2566C320FF8D2E0053E44E /* Main.storyboard */ = {
+		3C2566C320FF8D2E0053E44E /* TabBar.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3C2566C420FF8D2E0053E44E /* Base */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3C2566C820FF8D2F0053E44E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3C2566C920FF8D2F0053E44E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
+			name = TabBar.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -334,34 +671,40 @@
 		};
 		3C2566CF20FF8D2F0053E44E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72CFF06A01764969A25EAA51 /* Pods-DogsBestFriend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LWP4U374KN;
 				INFOPLIST_FILE = "$(SRCROOT)/DogsBestFriend/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.Lanza.DogsBestFriend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		3C2566D020FF8D2F0053E44E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE25E0494B028565D47AA68F /* Pods-DogsBestFriend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LWP4U374KN;
 				INFOPLIST_FILE = "$(SRCROOT)/DogsBestFriend/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.Lanza.DogsBestFriend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
