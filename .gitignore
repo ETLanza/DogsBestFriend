@@ -2,9 +2,7 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-*DogsBestFriend/Helpers/Private.swift
-*DogsBestFriend/Helpers/SHA1.swift
-
+*Resources/GoogleService-Info.plist
 
 ## Folders
 # Comment this out to disclude framework files
