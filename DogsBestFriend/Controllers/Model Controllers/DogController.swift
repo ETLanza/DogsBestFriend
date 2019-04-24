@@ -16,7 +16,6 @@ class DogController {
 
     // MARK: - Properties
 
-    var dogs: [Dog] = []
     let storageRef = Storage.storage().reference().child("dogs")
     let dbRef = Firestore.firestore().collection("dogs")
 
@@ -36,7 +35,7 @@ class DogController {
         let documentRef = dbRef.document()
         let profileImageStorageRef = storageRef.child(documentRef.documentID)
         let profileImageStorageRefPath = profileImageStorageRef.name
-        let ownerDocumentRef = UserController.shared.loggedInUser!.documentRef
+        let ownerDocumentRef = DBFUserController.shared.loggedInUser!.documentRef
         
         let newDog = Dog(name: name,
                          birthdate: birthdate,
@@ -53,9 +52,9 @@ class DogController {
 
         saveDogToFirebase(newDog) { (success) in
             if success {
-                UserController.shared.add(dog: newDog, completion: { (success) in
+                DBFUserController.shared.add(dog: newDog, completion: { (success) in
                     if success {
-                        UserController.shared.saveLoggedInUser(completion: completion)
+                        DBFUserController.shared.saveLoggedInUser(completion: completion)
                     } else {
                         completion(false)
                     }
@@ -107,7 +106,7 @@ class DogController {
         
         saveDogToFirebase(dog) { (success) in
             if success {
-                UserController.shared.saveLoggedInUser(completion: completion)
+                DBFUserController.shared.saveLoggedInUser(completion: completion)
             } else {
                 completion(false)
             }
@@ -132,7 +131,7 @@ class DogController {
     }
 
     func deleteDog(_ dog: Dog, completion: @escaping (Bool) -> Void) {
-        UserController.shared.remove(dog: dog) { (success) in
+        DBFUserController.shared.remove(dog: dog) { (success) in
             if success {
                 self.storageRef.child(dog.profileImageStorageRefPath).delete(completion: { (error) in
                     if let error = error {

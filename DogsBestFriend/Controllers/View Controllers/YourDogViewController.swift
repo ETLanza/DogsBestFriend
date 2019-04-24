@@ -39,7 +39,7 @@ class YourDogViewController: UIViewController {
     
     func reloadViews() {
         collectionView.reloadData()
-        if UserController.shared.loggedInUser!.dogs.isEmpty {
+        if DBFUserController.shared.loggedInUser!.dogs.isEmpty {
             noDogView.isHidden = false
         } else {
             noDogView.isHidden = true
@@ -52,7 +52,7 @@ class YourDogViewController: UIViewController {
         if segue.identifier == "editDogSegue" {
             guard let destinationVC = segue.destination as? DogDetailViewController,
                 let index = collectionView.indexPathsForSelectedItems?.first else { return }
-            let dog = UserController.shared.loggedInUser?.dogs[index.row]
+            let dog = DBFUserController.shared.loggedInUser?.dogs[index.row]
             destinationVC.dog = dog
         }
     }
@@ -62,13 +62,13 @@ class YourDogViewController: UIViewController {
 
 extension YourDogViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return UserController.shared.loggedInUser?.dogs.count ?? 0
+        return DBFUserController.shared.loggedInUser?.dogs.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dogCell", for: indexPath) as? DogCollectionViewCell else { return UICollectionViewCell() }
         
-        let dog = UserController.shared.loggedInUser!.dogs[indexPath.row]
+        let dog = DBFUserController.shared.loggedInUser!.dogs[indexPath.row]
         let image = dog.profileImage
         cell.dog = dog
         cell.dogProfilePicture.image = image

@@ -20,6 +20,8 @@ class ParkController {
     var favoriteParks: [Park] = []
 
     // MARK: - CRUD Functions
+    
+    //TODO CONVERT TO FIREBASE
 
     func addParkwith(placemark: MKPlacemark) {
         let newPark = Park(name: placemark.name ?? "Unknown Park", latitude: placemark.coordinate.latitude, longitude: placemark.coordinate.longitude)

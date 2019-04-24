@@ -15,8 +15,7 @@
 		3C2566D620FF940D0053E44E /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2566D520FF940D0053E44E /* Breed.swift */; };
 		3C25670220FFA8070053E44E /* BreedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25670120FFA8070053E44E /* BreedController.swift */; };
 		3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27F9992150BD6E006236A6 /* Keys.swift */; };
-		3C2B88FF215D48A800581864 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B88FE215D48A800581864 /* Private.swift */; };
-		3C2B8903215DCB1E00581864 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8902215DCB1E00581864 /* SHA1.swift */; };
+		3C2B596422682BAE001838BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B596322682BAE001838BA /* GoogleService-Info.plist */; };
 		3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34AC34214B973B00A97CA9 /* LocationManager.swift */; };
 		3C423960225EDF6B007421B4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42395E225EDF6B007421B4 /* SignInViewController.swift */; };
 		3C423961225EDF6B007421B4 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C42395F225EDF6B007421B4 /* SignInViewController.xib */; };
@@ -29,7 +28,7 @@
 		3C641A3A21530ED700FCA18E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */; };
 		3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */; };
 		3C6995DB21594F79003FDB27 /* DBFUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DA21594F79003FDB27 /* DBFUser.swift */; };
-		3C6995DD215950E9003FDB27 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DC215950E9003FDB27 /* UserController.swift */; };
+		3C6995DD215950E9003FDB27 /* DBFUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6995DC215950E9003FDB27 /* DBFUserController.swift */; };
 		3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */; };
 		3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */; };
 		3C7FA2A1214AC92C0037B1F4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */; };
@@ -61,9 +60,7 @@
 		3CBC3D55214C652200F36E6A /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D54214C652200F36E6A /* Dog.swift */; };
 		3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D56214C66D600F36E6A /* DogController.swift */; };
 		3CBC3D59214C710A00F36E6A /* DogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */; };
-		3CCF2ED2225EBDFB00910397 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CCF2ED1225EBDFB00910397 /* GoogleService-Info.plist */; };
 		3CDDE19F215C179800BDD128 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE19E215C179700BDD128 /* AlertManager.swift */; };
-		3CDDE1A1215C3AA700BDD128 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDE1A0215C3AA700BDD128 /* APIManager.swift */; };
 		3CFC022F225F3205005AFE36 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC022E225F3205005AFE36 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,8 +74,7 @@
 		3C2566D520FF940D0053E44E /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		3C25670120FFA8070053E44E /* BreedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedController.swift; sourceTree = "<group>"; };
 		3C27F9992150BD6E006236A6 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		3C2B88FE215D48A800581864 /* Private.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
-		3C2B8902215DCB1E00581864 /* SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA1.swift; sourceTree = "<group>"; };
+		3C2B596322682BAE001838BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C34AC34214B973B00A97CA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C42395E225EDF6B007421B4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3C42395F225EDF6B007421B4 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -91,7 +87,7 @@
 		3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageTableViewController.swift; sourceTree = "<group>"; };
 		3C6995DA21594F79003FDB27 /* DBFUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFUser.swift; sourceTree = "<group>"; };
-		3C6995DC215950E9003FDB27 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		3C6995DC215950E9003FDB27 /* DBFUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFUserController.swift; sourceTree = "<group>"; };
 		3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDetailViewController.swift; sourceTree = "<group>"; };
 		3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
 		3C7FA2A0214AC92C0037B1F4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -123,9 +119,7 @@
 		3CBC3D54214C652200F36E6A /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		3CBC3D56214C66D600F36E6A /* DogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogController.swift; sourceTree = "<group>"; };
 		3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCollectionViewCell.swift; sourceTree = "<group>"; };
-		3CCF2ED1225EBDFB00910397 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CDDE19E215C179700BDD128 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		3CDDE1A0215C3AA700BDD128 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		3CFC022E225F3205005AFE36 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		72CFF06A01764969A25EAA51 /* Pods-DogsBestFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsBestFriend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogsBestFriend/Pods-DogsBestFriend.debug.xcconfig"; sourceTree = "<group>"; };
 		B30C3A49CAF1CF834A428881 /* Pods_DogsBestFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsBestFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				3C2566BE20FF8D2E0053E44E /* DogsBestFriend */,
-				3CCF2ED1225EBDFB00910397 /* GoogleService-Info.plist */,
 				3C2566BD20FF8D2E0053E44E /* Products */,
 				3C7FA29F214AC92C0037B1F4 /* Frameworks */,
 				343979A956A9B568B96E7D7A /* Pods */,
@@ -192,6 +185,7 @@
 				3C2566BF20FF8D2E0053E44E /* AppDelegate.swift */,
 				3C641A3921530ED700FCA18E /* LaunchScreen.storyboard */,
 				3C2566C620FF8D2F0053E44E /* Assets.xcassets */,
+				3C2B596322682BAE001838BA /* GoogleService-Info.plist */,
 				3C2566CB20FF8D2F0053E44E /* Info.plist */,
 			);
 			path = Resources;
@@ -242,7 +236,7 @@
 		3C25670720FFAEB20053E44E /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3C6995DC215950E9003FDB27 /* UserController.swift */,
+				3C6995DC215950E9003FDB27 /* DBFUserController.swift */,
 				3CBC3D56214C66D600F36E6A /* DogController.swift */,
 				3C8BBBBD2151BB3700325067 /* MedicalRecordController.swift */,
 				3CBC3D50214C267600F36E6A /* ParkController.swift */,
@@ -274,8 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				3C27F9992150BD6E006236A6 /* Keys.swift */,
-				3C2B8902215DCB1E00581864 /* SHA1.swift */,
-				3C2B88FE215D48A800581864 /* Private.swift */,
 				3C9F31CA2152BE5B00955416 /* Formatters */,
 				3C34AC37214B99B600A97CA9 /* Managers */,
 				3C9B90B62146F9A700253B85 /* Extensions */,
@@ -288,7 +280,6 @@
 			children = (
 				3C34AC34214B973B00A97CA9 /* LocationManager.swift */,
 				3CDDE19E215C179700BDD128 /* AlertManager.swift */,
-				3CDDE1A0215C3AA700BDD128 /* APIManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -405,7 +396,7 @@
 			files = (
 				3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */,
 				3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */,
-				3CCF2ED2225EBDFB00910397 /* GoogleService-Info.plist in Resources */,
+				3C2B596422682BAE001838BA /* GoogleService-Info.plist in Resources */,
 				3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */,
 				3CAF298421407D1700AF8114 /* BreedImage.storyboard in Resources */,
 				3C8BBBB6215178D300325067 /* Medical.storyboard in Resources */,
@@ -515,15 +506,13 @@
 				3C9B90B52146F9A100253B85 /* UITextField+Extensions.swift in Sources */,
 				3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */,
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
-				3CDDE1A1215C3AA700BDD128 /* APIManager.swift in Sources */,
 				3C423963225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift in Sources */,
 				3CFC022F225F3205005AFE36 /* UIViewController+Extension.swift in Sources */,
-				3C6995DD215950E9003FDB27 /* UserController.swift in Sources */,
+				3C6995DD215950E9003FDB27 /* DBFUserController.swift in Sources */,
 				3C9F31CE2152CC1E00955416 /* Location.swift in Sources */,
 				3CDDE19F215C179800BDD128 /* AlertManager.swift in Sources */,
 				3C8BBBB42151787900325067 /* MedicalViewController.swift in Sources */,
 				3C423960225EDF6B007421B4 /* SignInViewController.swift in Sources */,
-				3C2B88FF215D48A800581864 /* Private.swift in Sources */,
 				3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */,
 				3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */,
 				3C8BBBB82151899A00325067 /* MedicalRecord.swift in Sources */,
@@ -537,7 +526,6 @@
 				3C0BC011226106C100E4C714 /* UITextView+Extension.swift in Sources */,
 				3C7191CA2149CC54007E91E3 /* WalkDetailViewController.swift in Sources */,
 				3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */,
-				3C2B8903215DCB1E00581864 /* SHA1.swift in Sources */,
 				3C9B90B32146E32100253B85 /* WalksViewController.swift in Sources */,
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
 				3C423965225EFE93007421B4 /* SplashScreenViewController.swift in Sources */,

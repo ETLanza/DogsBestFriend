@@ -14,7 +14,7 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserController.shared.fetchUser { (success) in
+        DBFUserController.shared.fetchUser { (success) in
             if success {
                 self.presentOnboarding()
             } else {
@@ -55,11 +55,11 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
         }
         
         if let authDataResult = authDataResult {
-            UserController.shared.checkIfDBFUserExistFor(user: authDataResult.user) { (dbfUser) in
+            DBFUserController.shared.checkIfDBFUserExistFor(user: authDataResult.user) { (dbfUser) in
                 if dbfUser != nil {
                     self.presentOnboarding()
                 } else {
-                    UserController.shared.createNewUserFrom(firebase: authDataResult.user) { (success) in
+                    DBFUserController.shared.createNewUserFrom(firebase: authDataResult.user) { (success) in
                         if success {
                             self.presentOnboarding()
                         }

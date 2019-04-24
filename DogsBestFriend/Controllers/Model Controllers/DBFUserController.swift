@@ -10,10 +10,10 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-class UserController {
+class DBFUserController {
     
     // MARK: - Shared Instance
-    static let shared = UserController()
+    static let shared = DBFUserController()
     
     private init() {        
         db = Firestore.firestore()
@@ -88,13 +88,13 @@ class UserController {
         }
     }
     
-    func add(dog: Dog, to dbfUser: DBFUser = UserController.shared.loggedInUser!, completion: @escaping (Bool) -> Void) {
+    func add(dog: Dog, to dbfUser: DBFUser = DBFUserController.shared.loggedInUser!, completion: @escaping (Bool) -> Void) {
         dbfUser.dogs.append(dog)
         dbfUser.dogReferences.append(dog.documentRef)
         completion(true)
     }
     
-    func remove(dog: Dog, from dbfUser: DBFUser = UserController.shared.loggedInUser!, completion: @escaping (Bool) -> Void) {
+    func remove(dog: Dog, from dbfUser: DBFUser = DBFUserController.shared.loggedInUser!, completion: @escaping (Bool) -> Void) {
         
         guard let refIndex = dbfUser.dogReferences.firstIndex(of: dog.documentRef), let dogIndex = dbfUser.dogs.firstIndex(of: dog) else {
             print("Unable to find dog or dog reference to delete for \(dog.name)")
@@ -104,6 +104,6 @@ class UserController {
         dbfUser.dogReferences.remove(at: refIndex)
         dbfUser.dogs.remove(at: dogIndex)
     
-        UserController.shared.saveLoggedInUser(completion: completion)
+        DBFUserController.shared.saveLoggedInUser(completion: completion)
     }
 }
