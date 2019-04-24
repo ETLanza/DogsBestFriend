@@ -21,7 +21,7 @@ class DBFUserController {
     
     // MARK: - Properties
     
-    var loggedInUser: DBFUser?
+    var loggedInUser: DBFUser!
     var db: Firestore!
     
     // MARK: - CRUD Functions

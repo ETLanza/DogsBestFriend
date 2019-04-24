@@ -17,29 +17,29 @@ class ParkController {
     // MARK: - Properties
 
     var parks: [Park] = []
-    var favoriteParks: [Park] = []
 
     // MARK: - CRUD Functions
     
     //TODO CONVERT TO FIREBASE
 
     func addParkwith(placemark: MKPlacemark) {
-        let newPark = Park(name: placemark.name ?? "Unknown Park", latitude: placemark.coordinate.latitude, longitude: placemark.coordinate.longitude)
+        let address = AddressFormatter.shared.parseAddress(selectedItem: placemark)
+        let newPark = Park(name: placemark.name ?? "Unknown Park", address: address, latitude: placemark.coordinate.latitude, longitude: placemark.coordinate.longitude)
         parks.append(newPark)
     }
 
     func addFavorite(park: Park, completion: @escaping (Bool) -> Void) {
         
         // MARK: - DELETE THIS AFTER API FINISHED
-        self.favoriteParks.append(park)
+//        self.favoriteParks.append(park)
         completion(true)
     }
 
     func deleteFavorite(park: Park, completion: @escaping (Bool) -> Void) {
         
         // MARK: - DELETE THIS AFTER API FINISHED
-        guard let index = self.favoriteParks.firstIndex(of: park) else { completion(false); return }
-        self.favoriteParks.remove(at: index)
+//        guard let index = self.favoriteParks.firstIndex(of: park) else { completion(false); return }
+//        self.favoriteParks.remove(at: index)
         completion(true)
     }
 
