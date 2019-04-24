@@ -34,7 +34,7 @@ class ParksViewController: UIViewController {
         super.viewDidLoad()
         setUpViews()
         setUpMapKit()
-        if !ParkController.shared.favoriteParks.isEmpty {
+        if !DBFUserController.shared.loggedInUser!.favoriteParks.isEmpty {
             noFavoritesView.isHidden = true
         }
     }
@@ -78,7 +78,7 @@ class ParksViewController: UIViewController {
     // MARK: - Helper Methods
 
     func reloadFavoriteView() {
-        if !ParkController.shared.favoriteParks.isEmpty {
+        if !DBFUserController.shared.loggedInUser!.favoriteParks.isEmpty {
             noFavoritesView.isHidden = true
         } else {
             noFavoritesView.isHidden = false
@@ -186,7 +186,7 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == parksTableView {
             return ParkController.shared.parks.count
         } else {
-            return ParkController.shared.favoriteParks.count
+            return DBFUserController.shared.loggedInUser?.favoriteParks.count ?? 0
         }
     }
 
@@ -195,12 +195,12 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
         var park: Park?
 
         if tableView == favoritesTableView {
-            park = ParkController.shared.favoriteParks[indexPath.row]
+            park = DBFUserController.shared.loggedInUser?.favoriteParks[indexPath.row]
         } else {
             park = ParkController.shared.parks[indexPath.row]
         }
 
-        if ParkController.shared.favoriteParks.contains(park!) {
+        if DBFUserController.shared.loggedInUser!.favoriteParks.contains(park!) {
             cell.favoritesButton.setImage(#imageLiteral(resourceName: "favoritedHeart"), for: .normal)
             park?.isFavorite = true
         } else {
@@ -209,7 +209,7 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.delegate = self
         cell.park = park
-        cell.parkAddressLabel.text = AddressFormatter.shared.parseAddress(selectedItem: park!.placemark)
+        cell.parkAddressLabel.text = park!.address
         cell.parkNameLabel.text = park!.name
 
         return cell
@@ -218,7 +218,7 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var selectedItem: MKPlacemark?
         if tableView == favoritesTableView {
-            selectedItem = ParkController.shared.favoriteParks[indexPath.row].placemark
+            selectedItem = DBFUserController.shared.loggedInUser?.favoriteParks[indexPath.row].placemark
         } else {
             selectedItem = ParkController.shared.parks[indexPath.row].placemark
         }
