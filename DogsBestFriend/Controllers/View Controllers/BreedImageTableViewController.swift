@@ -15,7 +15,7 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     @IBOutlet weak var dogBreedImageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var breedPicker: UIPickerView!
-    @IBOutlet weak var getRandomImageButton: UIButton!
+    @IBOutlet weak var getRandomImageButton: MainButton!
 
     // MARK: - Life Cycle Methods
 
@@ -60,8 +60,6 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     // MARK: - Helper Methods
 
     func setUpViews() {
-        getRandomImageButton.layer.cornerRadius = 12
-        getRandomImageButton.clipsToBounds = true
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }

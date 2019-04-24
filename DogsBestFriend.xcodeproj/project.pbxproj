@@ -17,11 +17,13 @@
 		3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C27F9992150BD6E006236A6 /* Keys.swift */; };
 		3C2B596422682BAE001838BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B596322682BAE001838BA /* GoogleService-Info.plist */; };
 		3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34AC34214B973B00A97CA9 /* LocationManager.swift */; };
-		3C423960225EDF6B007421B4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42395E225EDF6B007421B4 /* SignInViewController.swift */; };
-		3C423961225EDF6B007421B4 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C42395F225EDF6B007421B4 /* SignInViewController.xib */; };
+		3C423960225EDF6B007421B4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42395E225EDF6B007421B4 /* SignUpViewController.swift */; };
 		3C423963225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C423962225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift */; };
 		3C423965225EFE93007421B4 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C423964225EFE93007421B4 /* SplashScreenViewController.swift */; };
 		3C423967225EFEA9007421B4 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C423966225EFEA9007421B4 /* SplashScreen.storyboard */; };
+		3C4A7921227009FF00954E14 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4A7920227009FF00954E14 /* SignUp.storyboard */; };
+		3C4A7923227013F600954E14 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4A7922227013F600954E14 /* MainButton.swift */; };
+		3C4A7925227018B600954E14 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4A7924227018B600954E14 /* PickerTextField.swift */; };
 		3C4F473E215086CC00309457 /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F473D215086CC00309457 /* Onboard.storyboard */; };
 		3C4F47402150898500309457 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F473F2150898500309457 /* OnboardViewController.swift */; };
 		3C641A382153014900FCA18E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C641A372153014900FCA18E /* UIImage+Extension.swift */; };
@@ -76,11 +78,13 @@
 		3C27F9992150BD6E006236A6 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		3C2B596322682BAE001838BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C34AC34214B973B00A97CA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		3C42395E225EDF6B007421B4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		3C42395F225EDF6B007421B4 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		3C42395E225EDF6B007421B4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3C423962225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FUIAuthPickerViewController+Extension.swift"; sourceTree = "<group>"; };
 		3C423964225EFE93007421B4 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		3C423966225EFEA9007421B4 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		3C4A7920227009FF00954E14 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		3C4A7922227013F600954E14 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		3C4A7924227018B600954E14 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		3C4F473D215086CC00309457 /* Onboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 		3C4F473F2150898500309457 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		3C641A372153014900FCA18E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -171,8 +175,8 @@
 			children = (
 				3C25670520FFAE9F0053E44E /* Models */,
 				3CBC3D4B214C060F00F36E6A /* Views */,
-				3C2566D220FF8D760053E44E /* Storyboards */,
 				3C25670620FFAEA80053E44E /* Controllers */,
+				3C2566D220FF8D760053E44E /* Storyboards */,
 				3C34AC36214B99AC00A97CA9 /* Helpers */,
 				3C2566D120FF8D650053E44E /* Resources */,
 			);
@@ -195,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				3C423966225EFEA9007421B4 /* SplashScreen.storyboard */,
-				3C42395F225EDF6B007421B4 /* SignInViewController.xib */,
+				3C4A7920227009FF00954E14 /* SignUp.storyboard */,
 				3C4F473D215086CC00309457 /* Onboard.storyboard */,
 				3C2566C320FF8D2E0053E44E /* TabBar.storyboard */,
 				3CAF298921407F2B00AF8114 /* YourDog.storyboard */,
@@ -250,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				3C423964225EFE93007421B4 /* SplashScreenViewController.swift */,
-				3C42395E225EDF6B007421B4 /* SignInViewController.swift */,
+				3C42395E225EDF6B007421B4 /* SignUpViewController.swift */,
 				3C4F473F2150898500309457 /* OnboardViewController.swift */,
 				3C9B90AE2146E24C00253B85 /* YourDogViewController.swift */,
 				3C7191CD2149CC6B007E91E3 /* DogDetailViewController.swift */,
@@ -320,6 +324,8 @@
 			children = (
 				3CBC3D49214C060300F36E6A /* ParkTableViewCell.swift */,
 				3CBC3D58214C710A00F36E6A /* DogCollectionViewCell.swift */,
+				3C4A7924227018B600954E14 /* PickerTextField.swift */,
+				3C4A7922227013F600954E14 /* MainButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C4A7921227009FF00954E14 /* SignUp.storyboard in Resources */,
 				3C7FA2A5214AD3920037B1F4 /* DogDetail.storyboard in Resources */,
 				3CAF298A21407F2B00AF8114 /* YourDog.storyboard in Resources */,
 				3C2B596422682BAE001838BA /* GoogleService-Info.plist in Resources */,
@@ -408,7 +415,6 @@
 				3CAF298621407EE600AF8114 /* Walks.storyboard in Resources */,
 				3C9F31D62152E10F00955416 /* NewWalk.storyboard in Resources */,
 				3C423967225EFEA9007421B4 /* SplashScreen.storyboard in Resources */,
-				3C423961225EDF6B007421B4 /* SignInViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,8 +513,9 @@
 				3C6995DD215950E9003FDB27 /* DBFUserController.swift in Sources */,
 				3C9F31CE2152CC1E00955416 /* Location.swift in Sources */,
 				3CDDE19F215C179800BDD128 /* AlertManager.swift in Sources */,
+				3C4A7923227013F600954E14 /* MainButton.swift in Sources */,
 				3C8BBBB42151787900325067 /* MedicalViewController.swift in Sources */,
-				3C423960225EDF6B007421B4 /* SignInViewController.swift in Sources */,
+				3C423960225EDF6B007421B4 /* SignUpViewController.swift in Sources */,
 				3CBC3D4F214C20B100F36E6A /* Park.swift in Sources */,
 				3CBC3D4A214C060300F36E6A /* ParkTableViewCell.swift in Sources */,
 				3C8BBBB82151899A00325067 /* MedicalRecord.swift in Sources */,
@@ -526,6 +533,7 @@
 				3C7191CE2149CC6B007E91E3 /* DogDetailViewController.swift in Sources */,
 				3C423965225EFE93007421B4 /* SplashScreenViewController.swift in Sources */,
 				3C9F31D42152E01600955416 /* NewWalkViewController.swift in Sources */,
+				3C4A7925227018B600954E14 /* PickerTextField.swift in Sources */,
 				3C34AC35214B973B00A97CA9 /* LocationManager.swift in Sources */,
 				3CBC3D57214C66D600F36E6A /* DogController.swift in Sources */,
 				3C8BBBBE2151BB3700325067 /* MedicalRecordController.swift in Sources */,

@@ -26,7 +26,7 @@ class ParkTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        greyView.layer.cornerRadius = 14
+        greyView.layer.cornerRadius = 5
         greyView.layer.masksToBounds = true
     }
 
