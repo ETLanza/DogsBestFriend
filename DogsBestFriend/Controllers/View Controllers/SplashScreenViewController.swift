@@ -18,17 +18,7 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
             if success {
                 self.presentOnboarding()
             } else {
-                FUIAuth.defaultAuthUI()?.shouldHideCancelButton = true
-                let authUI = FUIAuth.defaultAuthUI()!
-                
-                authUI.delegate = self
-                
-                let providers: [FUIAuthProvider] = [
-                    FUIGoogleAuth()
-                ]
-                authUI.providers = providers
-                
-                self.presentAuthView(authUI)
+                self.presentAuthView()
             }
         }
     }
@@ -43,9 +33,6 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
         return false
     }
     
-    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
-        return SignInViewController(nibName: "SignInViewController", bundle: Bundle.main, authUI: authUI)
-    }
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         
@@ -69,20 +56,10 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
         }
     }
     
-    func presentAuthView(_ authUI: FUIAuth) {
-        let fuiAuthPickerViewController = authUI.delegate?.authPickerViewController!(forAuthUI: authUI)
-        
-        let rootNavigationController = authUI.authViewController()
-        rootNavigationController.setViewControllers([fuiAuthPickerViewController!], animated: true)
-        rootNavigationController.modalTransitionStyle = .coverVertical
-        
-        rootNavigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        rootNavigationController.navigationBar.shadowImage = UIImage()
-        rootNavigationController.navigationBar.prefersLargeTitles = true
-        rootNavigationController.navigationBar.tintColor = .black
-        
+    func presentAuthView() {
         DispatchQueue.main.async {
-            self.present(rootNavigationController, animated: true, completion: nil)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateInitialViewController()
         }
     }
     

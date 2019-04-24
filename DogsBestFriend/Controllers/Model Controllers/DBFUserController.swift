@@ -70,6 +70,7 @@ class DBFUserController {
             }
             
             let dbfUser = DBFUser(jsonDictionary: userDictionary)
+            self.loggedInUser = dbfUser
             completion(dbfUser)
         }
     }
