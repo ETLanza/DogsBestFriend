@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 class DBFUser {
-    let username: String
+    var username: String
     let uuid: String
     var dogs: [Dog]
     var dogReferences: [DocumentReference]

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7gA-Bj-QJ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7gA-Bj-QJ5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,6 +39,16 @@
             </objects>
             <point key="canvasLocation" x="-149" y="209"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="QPA-f3-u48">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="2b1-Ei-i2a" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="TWp-62-Gzj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CfA-YA-tO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302" y="209"/>
+        </scene>
         <!--BreedImage-->
         <scene sceneID="VaO-1b-f5b">
             <objects>
@@ -62,9 +73,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="EeH-OW-SYk" kind="relationship" relationship="viewControllers" id="QPR-X5-Mck"/>
-                        <segue destination="V0s-ob-BTO" kind="relationship" relationship="viewControllers" id="rmK-I8-dzP"/>
                         <segue destination="H8K-0d-mzW" kind="relationship" relationship="viewControllers" id="bR1-sP-Llk"/>
+                        <segue destination="V0s-ob-BTO" kind="relationship" relationship="viewControllers" id="rmK-I8-dzP"/>
                         <segue destination="wkJ-Fj-ynM" kind="relationship" relationship="viewControllers" id="Eoi-bq-msp"/>
+                        <segue destination="2b1-Ei-i2a" kind="relationship" relationship="viewControllers" id="fhf-WW-mkh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2q-mA-F2z" userLabel="First Responder" sceneMemberID="firstResponder"/>

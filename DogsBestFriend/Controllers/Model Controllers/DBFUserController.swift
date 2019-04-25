@@ -87,6 +87,11 @@ class DBFUserController {
         }
     }
     
+    func updateLoggedInUser(withUsername username: String, completion: @escaping (Bool) -> Void) {
+        loggedInUser!.username = username
+        saveLoggedInUser(completion: completion)
+    }
+    
     func saveLoggedInUser(completion: @escaping (Bool) -> Void) {
         guard let user = loggedInUser else {
             NSLog("No loggedInUser found to save")
@@ -151,5 +156,52 @@ class DBFUserController {
         dbfUser.walks.remove(at: walkIndex)
         dbfUser.walkReferences.remove(at: refIndex)
         DBFUserController.shared.saveLoggedInUser(completion: completion)
+    }
+    
+    func delete(dbfUser: DBFUser, completion: @escaping (Bool) -> Void) {
+        let dg = DispatchGroup()
+        dbfUser.dogReferences.forEach { (docRef) in
+            dg.enter()
+            docRef.delete(completion: { (error) in
+                if let error = error {
+                    print("Error deleting \(docRef) while deleting \(dbfUser.username) : \(error) : \(error.localizedDescription)")
+                    return
+                }
+                dg.leave()
+            })
+        }
+        
+        dbfUser.favoriteParkReferences.forEach { (docRef) in
+            dg.enter()
+            docRef.delete(completion: { (error) in
+                if let error = error {
+                    print("Error deleting \(docRef) while deleting \(dbfUser.username) : \(error) : \(error.localizedDescription)")
+                    return
+                }
+                dg.leave()
+            })
+        }
+        
+        dbfUser.walkReferences.forEach { (docRef) in
+            dg.enter()
+            docRef.delete(completion: { (error) in
+                if let error = error {
+                    print("Error deleting \(docRef) while deleting \(dbfUser.username) : \(error) : \(error.localizedDescription)")
+                    return
+                }
+                dg.leave()
+            })
+        }
+        
+        dg.notify(queue: .main) {
+            dbfUser.documentRef.delete(completion: { (error) in
+                if let error = error {
+                    print("Error deleting while deleting \(dbfUser.username) : \(error) : \(error.localizedDescription)")
+                    completion(false)
+                    return
+                }
+                completion(true)
+            })
+        }
     }
 }
