@@ -142,7 +142,7 @@ class DogController {
                     
                     dog.documentRef.delete(completion: { (error) in
                         if let error = error {
-                            print("Error deleting \(dog.name)'s profile image from storage : \(error) : \(error.localizedDescription)")
+                            print("Error deleting \(dog.name) : \(error) : \(error.localizedDescription)")
                             completion(false)
                             return
                         }

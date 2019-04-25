@@ -186,10 +186,12 @@
                     <connections>
                         <outlet property="activityIndicator" destination="4W5-5A-B8h" id="vho-6X-a4q"/>
                         <outlet property="confirmPasswordTextField" destination="QpD-Dr-YNI" id="efc-Wd-S8t"/>
+                        <outlet property="createAccountButton" destination="lhV-BI-Mzn" id="hrx-PO-YFa"/>
                         <outlet property="emailTextField" destination="dRP-4R-S8H" id="IAi-ms-V39"/>
                         <outlet property="googleSignInButton" destination="fTy-Xv-D0i" id="iC0-9h-vb8"/>
                         <outlet property="passwordTextField" destination="rUR-nv-PIo" id="zkj-g5-pet"/>
                         <outlet property="repeatPasswordStackView" destination="3df-rT-Y4z" id="mEH-IV-h1M"/>
+                        <outlet property="resetPasswordButton" destination="Gvk-pn-zwt" id="Tlk-ZK-zZY"/>
                         <outlet property="scrollView" destination="bgP-nj-AoT" id="r8J-kb-hOQ"/>
                         <outlet property="signInButton" destination="Cgs-c1-nP5" id="XcM-OV-KwE"/>
                     </connections>

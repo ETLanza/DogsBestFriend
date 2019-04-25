@@ -47,7 +47,13 @@ class DBFUserController {
             self.checkIfDBFUserExistFor(user: authedUser) { (dbfUser) in
                 if let dbfUser = dbfUser {
                     self.loggedInUser = dbfUser
-                    DogController.shared.fetchDogsFor(dbfUser: dbfUser, completion: completion)
+                    DogController.shared.fetchDogsFor(dbfUser: dbfUser, completion: { (success) in
+                        if success {
+                            ParkController.shared.fetchAllFavoriteParksFor(dbfUser: dbfUser, completion: completion)
+                        } else {
+                            completion(false)
+                        }
+                    })
                 }
             }
         } else {
@@ -95,7 +101,7 @@ class DBFUserController {
         completion(true)
     }
     
-    func remove(dog: Dog, from dbfUser: DBFUser = DBFUserController.shared.loggedInUser!, completion: @escaping (Bool) -> Void) {
+    func remove(dog: Dog, from dbfUser: DBFUser = DBFUserController.shared.loggedInUser, completion: @escaping (Bool) -> Void) {
         
         guard let refIndex = dbfUser.dogReferences.firstIndex(of: dog.documentRef), let dogIndex = dbfUser.dogs.firstIndex(of: dog) else {
             print("Unable to find dog or dog reference to delete for \(dog.name)")
@@ -106,5 +112,20 @@ class DBFUserController {
         dbfUser.dogs.remove(at: dogIndex)
     
         DBFUserController.shared.saveLoggedInUser(completion: completion)
+    }
+    
+    func remove(park: Park, from dbfUser: DBFUser = DBFUserController.shared.loggedInUser, completion: @escaping (Bool) -> Void) {
+        guard let refIndex = dbfUser.favoriteParkReferences.firstIndex(of: park.documentRef!), let parkIndex = dbfUser.favoriteParks.firstIndex(of: park) else {
+            print("Unable to find dog or dog reference to delete for \(park.name)")
+            completion(false)
+            return
+        }
+        
+        dbfUser.favoriteParks.remove(at: parkIndex)
+        dbfUser.favoriteParkReferences.remove(at: refIndex)
+        
+        DBFUserController.shared.saveLoggedInUser(completion: completion)
+        
+        
     }
 }

@@ -39,8 +39,8 @@ class ParksViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         searchForDogParks(searchLocation: LocationManager.shared.location!.coordinate)
     }
 
@@ -127,7 +127,7 @@ class ParksViewController: UIViewController {
         if mapKitEnabled {
             let searchRequest = MKLocalSearch.Request()
             searchRequest.naturalLanguageQuery = "dog park"
-            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
             let region = MKCoordinateRegion(center: searchLocation, span: span)
             searchRequest.region = region
 
@@ -142,11 +142,15 @@ class ParksViewController: UIViewController {
                     NSLog("No dog park search response")
                     return
                 }
-                self.mapView.removeAnnotations(self.mapView.annotations)
-                response.mapItems.forEach { ParkController.shared.addParkwith(placemark: $0.placemark) }
-                response.mapItems.forEach { self.addPinFor(placemark: $0.placemark) }
-                self.parksTableView.reloadData()
-                self.mapView.setRegion(region, animated: true)
+                
+                ParkController.shared.removeAllNonFavoriteParks()
+                response.mapItems.forEach { ParkController.shared.addParkWith(placemark: $0.placemark) }
+                DispatchQueue.main.async {
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    response.mapItems.forEach { self.addPinFor(placemark: $0.placemark) }
+                    self.parksTableView.reloadData()
+                    self.mapView.setRegion(region, animated: true)
+                }
             }
         }
     }
@@ -349,6 +353,7 @@ extension ParksViewController: ParkTableViewCellDelegate {
         let continueAction = UIAlertAction(title: "Continue", style: .default) { _ in
             let currentLocMapItem = MKMapItem.forCurrentLocation()
             let selectedMapItem = MKMapItem(placemark: sender.park!.placemark)
+            selectedMapItem.name = sender.park?.name ?? "Unknown Dog Park"
             let mapItems = [selectedMapItem, currentLocMapItem]
             let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             MKMapItem.openMaps(with: mapItems, launchOptions: launchOptions)
@@ -368,7 +373,7 @@ extension ParksViewController: ParkTableViewCellDelegate {
             let unfavoriteAction = UIAlertAction(title: "Unfavorite", style: .destructive) { (_) in
                 DispatchQueue.main.async {
                     sender.favoritesButton.setImage(#imageLiteral(resourceName: "emptyHeart"), for: .normal)
-                    ParkController.shared.deleteFavorite(park: park!, completion: { (success) in
+                    ParkController.shared.removeFavorite(park: park!, completion: { (success) in
                         if success {
                             DispatchQueue.main.async {
                                 self.reloadFavoriteView()
@@ -386,11 +391,11 @@ extension ParksViewController: ParkTableViewCellDelegate {
             present(favoriteAlertController, animated: true, completion: nil)
         } else {
             sender.favoritesButton.setImage(#imageLiteral(resourceName: "favoritedHeart"), for: .normal)
+            park?.isFavorite = !park!.isFavorite
             ParkController.shared.addFavorite(park: park!) { (success) in
                 if success {
                     DispatchQueue.main.async {
                         self.reloadFavoriteView()
-                        park?.isFavorite = !park!.isFavorite
                     }
                 }
             }

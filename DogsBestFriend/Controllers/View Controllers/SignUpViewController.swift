@@ -22,6 +22,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var repeatPasswordStackView: UIStackView!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var createAccountButton: MainButton!
+    @IBOutlet weak var resetPasswordButton: MainButton!
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -202,12 +204,18 @@ class SignUpViewController: UIViewController {
     
     @objc func startActivityIndicator() {
         DispatchQueue.main.async {
+            self.signInButton.isEnabled = false
+            self.resetPasswordButton.isEnabled = false
+            self.createAccountButton.isEnabled = false
             self.activityIndicator.startAnimating()
         }
     }
     
     func stopActivityIndicator() {
         DispatchQueue.main.async {
+            self.signInButton.isEnabled = true
+            self.resetPasswordButton.isEnabled = true
+            self.createAccountButton.isEnabled = true
             self.activityIndicator.stopAnimating()
         }
     }
