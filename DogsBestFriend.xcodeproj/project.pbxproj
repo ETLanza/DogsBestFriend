@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0DDC3CA21C756987D3634AFF /* Pods_DogsBestFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30C3A49CAF1CF834A428881 /* Pods_DogsBestFriend.framework */; };
 		3C0BC011226106C100E4C714 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BC010226106C100E4C714 /* UITextView+Extension.swift */; };
+		3C1BAC6C22726848007A85DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BAC6B22726848007A85DB /* SettingsViewController.swift */; };
+		3C1BAC6E22726A14007A85DB /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C1BAC6D22726A14007A85DB /* Settings.storyboard */; };
 		3C2566C020FF8D2E0053E44E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2566BF20FF8D2E0053E44E /* AppDelegate.swift */; };
 		3C2566C520FF8D2E0053E44E /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2566C320FF8D2E0053E44E /* TabBar.storyboard */; };
 		3C2566C720FF8D2F0053E44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2566C620FF8D2F0053E44E /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		3C0BC010226106C100E4C714 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		3C1BAC6B22726848007A85DB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3C1BAC6D22726A14007A85DB /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3C2566BC20FF8D2E0053E44E /* DogsBestFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogsBestFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2566BF20FF8D2E0053E44E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2566C420FF8D2E0053E44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TabBar.storyboard; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				3C9F31D52152E10F00955416 /* NewWalk.storyboard */,
 				3C7FA2A6214AD4D30037B1F4 /* WalkDetail.storyboard */,
 				3CAF298321407D1700AF8114 /* BreedImage.storyboard */,
+				3C1BAC6D22726A14007A85DB /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */,
 				3C9F31D32152E01600955416 /* NewWalkViewController.swift */,
 				3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */,
+				3C1BAC6B22726848007A85DB /* SettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -411,6 +417,7 @@
 				3CAF298821407F1200AF8114 /* Parks.storyboard in Resources */,
 				3C641A3A21530ED700FCA18E /* LaunchScreen.storyboard in Resources */,
 				3C2566C520FF8D2E0053E44E /* TabBar.storyboard in Resources */,
+				3C1BAC6E22726A14007A85DB /* Settings.storyboard in Resources */,
 				3C7FA2A7214AD4D30037B1F4 /* WalkDetail.storyboard in Resources */,
 				3CAF298621407EE600AF8114 /* Walks.storyboard in Resources */,
 				3C9F31D62152E10F00955416 /* NewWalk.storyboard in Resources */,
@@ -509,6 +516,7 @@
 				3C27F99A2150BD6E006236A6 /* Keys.swift in Sources */,
 				3C686F3C20FFFCC6008C828D /* BreedImageTableViewController.swift in Sources */,
 				3C423963225EE8BE007421B4 /* FUIAuthPickerViewController+Extension.swift in Sources */,
+				3C1BAC6C22726848007A85DB /* SettingsViewController.swift in Sources */,
 				3CFC022F225F3205005AFE36 /* UIViewController+Extension.swift in Sources */,
 				3C6995DD215950E9003FDB27 /* DBFUserController.swift in Sources */,
 				3C9F31CE2152CC1E00955416 /* Location.swift in Sources */,
