@@ -58,18 +58,18 @@ class Dog: Equatable {
 }
 
 extension Dog {
-    convenience init?(jsonDictionary: [String: Any]) {
-        guard let name = jsonDictionary[Keys.Dog.name] as? String,
-            let birthdateAsString = jsonDictionary[Keys.Dog.birthdateAsString] as? String,
-            let adoptionDateAsString = jsonDictionary[Keys.Dog.adoptionDateAsString] as? String,
-            let microchipID = jsonDictionary[Keys.Dog.microchipID] as? String,
-            let breed = jsonDictionary[Keys.Dog.breed] as? String,
-            let color = jsonDictionary[Keys.Dog.color] as? String,
-            let registration = jsonDictionary[Keys.Dog.registration] as? String,
-            let profileImageStorageRefPath = jsonDictionary[Keys.Dog.profileImageStorageRefPath] as? String,
-            let medicalHistoryArray = jsonDictionary[Keys.Dog.medicalHistory] as? [String:[String: Any]],
-            let documentRef = jsonDictionary[Keys.Dog.documentRef] as? DocumentReference,
-            let ownerDocumentRef = jsonDictionary[Keys.Dog.ownerDocumentRef] as? DocumentReference
+    convenience init?(dictionary: [String: Any]) {
+        guard let name = dictionary[Keys.Dog.name] as? String,
+            let birthdateAsString = dictionary[Keys.Dog.birthdateAsString] as? String,
+            let adoptionDateAsString = dictionary[Keys.Dog.adoptionDateAsString] as? String,
+            let microchipID = dictionary[Keys.Dog.microchipID] as? String,
+            let breed = dictionary[Keys.Dog.breed] as? String,
+            let color = dictionary[Keys.Dog.color] as? String,
+            let registration = dictionary[Keys.Dog.registration] as? String,
+            let profileImageStorageRefPath = dictionary[Keys.Dog.profileImageStorageRefPath] as? String,
+            let medicalHistoryArray = dictionary[Keys.Dog.medicalHistory] as? [String:[String: Any]],
+            let documentRef = dictionary[Keys.Dog.documentRef] as? DocumentReference,
+            let ownerDocumentRef = dictionary[Keys.Dog.ownerDocumentRef] as? DocumentReference
             else { return nil }
         
         let birthdate = DisplayFormatter.dateFrom(string: birthdateAsString)

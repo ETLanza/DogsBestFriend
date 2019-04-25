@@ -43,7 +43,14 @@ struct DisplayFormatter {
     static func dayOfTheWeek(_ timestamp: Date?) -> String {
         guard let timestamp = timestamp as Date? else { return "" }
         let formatter = DateFormatter()
-        let day = formatter.weekdaySymbols[Calendar.current.component(.weekday, from: timestamp)]
-        return "\(day)"
+        let day = formatter.weekdaySymbols[Calendar.current.component(.weekday, from: timestamp) - 1]
+        return day
+    }
+    
+    static func timeOfDay(_ timestamp: Date?) -> String {
+        guard let timestamp = timestamp as Date? else { return "" }
+        let formatter = DateFormatter()
+        formatter.timeStyle = .long
+        return formatter.string(from: timestamp)
     }
 }
