@@ -71,6 +71,9 @@ struct Keys {
         static let timestamp = "timestamp"
         static let duration = "duration"
         static let locations = "locations"
+        static let documentRef = "docuementRef"
+        static let ownerDocumentRef = "ownerDocumentRef"
+        static let uuid = "uuid"
     }
     
     struct Location {

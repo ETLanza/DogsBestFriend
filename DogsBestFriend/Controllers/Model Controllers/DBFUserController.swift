@@ -125,7 +125,18 @@ class DBFUserController {
         dbfUser.favoriteParkReferences.remove(at: refIndex)
         
         DBFUserController.shared.saveLoggedInUser(completion: completion)
+    }
+    
+    func remove(walk: Walk, from dbfUser: DBFUser = DBFUserController.shared.loggedInUser, completion: @escaping (Bool) -> Void) {
+        guard let refIndex = dbfUser.walkReferences.firstIndex(of: walk.documentRef), let walkIndex = dbfUser.walks.firstIndex(of: walk) else {
+            print("Unable to find dog or dog reference to delete for \(walk.uuid)")
+            completion(false)
+            return
+        }
         
+        dbfUser.walks.remove(at: walkIndex)
+        dbfUser.walkReferences.remove(at: refIndex)
         
+        DBFUserController.shared.saveLoggedInUser(completion: completion)
     }
 }
