@@ -10,11 +10,11 @@ import CoreLocation
 import UIKit
 
 class OnboardViewController: UIViewController {
-
+    
     // MARK: - Properties
     
     var presentTriggered: Bool = false
-
+    
     // MARK: - Life Cycle Method
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,7 +27,7 @@ class OnboardViewController: UIViewController {
             presentMainView()
         }
     }
-
+    
     // MARK: - Helper Method
     
     func presentMainView() {
@@ -36,9 +36,8 @@ class OnboardViewController: UIViewController {
             presentTriggered = true
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let newViewController = storyboard.instantiateInitialViewController()
-            newViewController?.modalPresentationStyle = .fullScreen
-            newViewController?.modalTransitionStyle = .crossDissolve
-            present(newViewController!, animated: true, completion: nil)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = newViewController
         }
     }
 }

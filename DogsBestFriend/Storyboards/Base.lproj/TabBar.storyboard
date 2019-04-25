@@ -71,10 +71,15 @@
                         <color key="barTintColor" white="1" alpha="0.49547887731481483" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="EeH-OW-SYk" kind="relationship" relationship="viewControllers" id="QPR-X5-Mck"/>
                         <segue destination="H8K-0d-mzW" kind="relationship" relationship="viewControllers" id="bR1-sP-Llk"/>
                         <segue destination="V0s-ob-BTO" kind="relationship" relationship="viewControllers" id="rmK-I8-dzP"/>
+                        <segue destination="EeH-OW-SYk" kind="relationship" relationship="viewControllers" id="QPR-X5-Mck"/>
                         <segue destination="wkJ-Fj-ynM" kind="relationship" relationship="viewControllers" id="Eoi-bq-msp"/>
                         <segue destination="2b1-Ei-i2a" kind="relationship" relationship="viewControllers" id="fhf-WW-mkh"/>
                     </connections>
