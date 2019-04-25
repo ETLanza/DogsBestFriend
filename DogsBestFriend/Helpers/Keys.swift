@@ -60,6 +60,9 @@ struct Keys {
         static let longitude = "longitude"
         static let placemark = "placemark"
         static let isFavorite = "isFavorite"
+        static let documentRef = "docuementRef"
+        static let ownerDocumentRef = "ownerDocumentRef"
+        static let uuid = "uuid"
     }
 
     struct Walk {
