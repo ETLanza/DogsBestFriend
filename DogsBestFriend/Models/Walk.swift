@@ -37,30 +37,35 @@ class Walk: Equatable {
 extension Walk {
     convenience init?(dictionary: [String: Any]) {
         guard let distance = dictionary[Keys.Walk.distance] as? Double,
-            let timestamp = dictionary[Keys.Walk.distance] as? Date,
+            let timestampAsDouble = dictionary[Keys.Walk.timestamp] as? TimeInterval,
             let duration = dictionary[Keys.Walk.duration] as? Int,
             let locationsArray = dictionary[Keys.Walk.locations] as? [String:[String: Any]],
             let documentRef = dictionary[Keys.Walk.documentRef] as? DocumentReference,
             let ownerDocumentRef = dictionary[Keys.Walk.ownerDocumentRef] as? DocumentReference
             else { return nil }
         
-        let locations: [Location] = locationsArray.compactMap( { Location(jsonDictionary: $0.value) })
+        let timestamp = Date(timeIntervalSince1970: timestampAsDouble)
+        
+        let locations: [Location] = locationsArray.compactMap( { Location(dictionary: $0.value) })
         
         self.init(distance: distance, timestamp: timestamp, duration: duration, locations: locations, documentRef: documentRef, ownerDocumentRef: ownerDocumentRef)
     }
     
     var asDictionary: [String: Any] {
-        
-        let locationsAsDictionaries = self.locations.map { $0.asDictionary }
-        
+        var locationsAsDictionaries: [String: [String:Any]] = [:]
+        self.locations.forEach { (location) in
+            locationsAsDictionaries[location.uuid] = location.asDictionary
+        }
         return [Keys.Walk.distance: self.distance,
-                Keys.Walk.timestamp: self.timestamp,
+                Keys.Walk.timestamp: self.timestamp.timeIntervalSince1970,
                 Keys.Walk.duration: self.duration,
-                Keys.Walk.locations: locationsAsDictionaries]
+                Keys.Walk.locations: locationsAsDictionaries,
+                Keys.Walk.documentRef: self.documentRef,
+                Keys.Walk.ownerDocumentRef: self.ownerDocumentRef,
+                Keys.Walk.uuid: self.uuid]
     }
     
-    //    var asData: Data? {
-    //        let encoder = JSONEncoder()
-    //        return try? encoder.encode(self)
-    //    }
+    var asData: Data? {
+        return try? JSONSerialization.data(withJSONObject: asDictionary, options: .prettyPrinted)
+    }
 }

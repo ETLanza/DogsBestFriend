@@ -49,7 +49,13 @@ class DBFUserController {
                     self.loggedInUser = dbfUser
                     DogController.shared.fetchDogsFor(dbfUser: dbfUser, completion: { (success) in
                         if success {
-                            ParkController.shared.fetchAllFavoriteParksFor(dbfUser: dbfUser, completion: completion)
+                            ParkController.shared.fetchFavoriteParksFor(dbfUser: dbfUser, completion: { (success) in
+                                if success {
+                                    WalkController.shared.fetchWalksFor(dbfUser: dbfUser, completion: completion)
+                                } else {
+                                    completion(false)
+                                }
+                            })
                         } else {
                             completion(false)
                         }
@@ -110,8 +116,13 @@ class DBFUserController {
         }
         dbfUser.dogReferences.remove(at: refIndex)
         dbfUser.dogs.remove(at: dogIndex)
-    
         DBFUserController.shared.saveLoggedInUser(completion: completion)
+    }
+    
+    func add(park: Park, to dbfUser: DBFUser = DBFUserController.shared.loggedInUser!, completion: @escaping (Bool) -> Void) {
+        dbfUser.favoriteParks.append(park)
+        dbfUser.favoriteParkReferences.append(park.documentRef!)
+        completion(true)
     }
     
     func remove(park: Park, from dbfUser: DBFUser = DBFUserController.shared.loggedInUser, completion: @escaping (Bool) -> Void) {
@@ -120,11 +131,15 @@ class DBFUserController {
             completion(false)
             return
         }
-        
         dbfUser.favoriteParks.remove(at: parkIndex)
         dbfUser.favoriteParkReferences.remove(at: refIndex)
-        
         DBFUserController.shared.saveLoggedInUser(completion: completion)
+    }
+    
+    func add(walk: Walk, from dbfUser: DBFUser = DBFUserController.shared.loggedInUser, completion: @escaping (Bool) -> Void) {
+        dbfUser.walks.append(walk)
+        dbfUser.walkReferences.append(walk.documentRef)
+        saveLoggedInUser(completion: completion)
     }
     
     func remove(walk: Walk, from dbfUser: DBFUser = DBFUserController.shared.loggedInUser, completion: @escaping (Bool) -> Void) {
@@ -133,10 +148,8 @@ class DBFUserController {
             completion(false)
             return
         }
-        
         dbfUser.walks.remove(at: walkIndex)
         dbfUser.walkReferences.remove(at: refIndex)
-        
         DBFUserController.shared.saveLoggedInUser(completion: completion)
     }
 }
