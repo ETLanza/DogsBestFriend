@@ -11,7 +11,7 @@ import Firebase
 
 class DogController {
     // MARK: - Shared Instance
-
+    
     static let shared = DogController()
 
     // MARK: - Properties
@@ -168,7 +168,7 @@ class DogController {
                 
                 guard let snapshotAsDict = documentSnapshot?.data() else { completion(false); dg.leave(); return }
                 
-                if let dog = Dog(jsonDictionary: snapshotAsDict) {
+                if let dog = Dog(dictionary: snapshotAsDict) {
                     self.fetchImageFor(dog: dog, completion: { (success) in
                         if success {
                             dbfUser.dogs.append(dog)

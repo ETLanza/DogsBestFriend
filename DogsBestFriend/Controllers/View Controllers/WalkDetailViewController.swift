@@ -28,8 +28,17 @@ class WalkDetailViewController: UIViewController {
     }
 
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        popSelf()
     }
+    
+    @IBAction func removeWalkButtonTapped(_ sender: MainButton) {
+        WalkController.shared.delete(walk: walk) { (success) in
+            if success {
+                self.popSelf()
+            }
+        }
+    }
+    
 
     // MARK: - Helper Methods
     func setUpViews() {
@@ -38,10 +47,16 @@ class WalkDetailViewController: UIViewController {
         self.title = DisplayFormatter.dayOfTheWeek(walk.timestamp) + " Walk"
         mapView.layer.cornerRadius = 12
         mapView.layer.masksToBounds = true
-        dayLabel.text = DisplayFormatter.stringFrom(date: walk.timestamp)
+        dayLabel.text = "\(DisplayFormatter.stringFrom(date: walk.timestamp)) at \(DisplayFormatter.timeOfDay(walk.timestamp))"
         durationLabel.text = DisplayFormatter.time(walk.duration)
         distanceLabel.text = DisplayFormatter.distance(walk.distance)
         loadMap()
+    }
+    
+    func popSelf() {
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     func mapRegion() -> MKCoordinateRegion? {

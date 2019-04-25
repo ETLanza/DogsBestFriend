@@ -34,13 +34,13 @@ class DBFUser {
 }
 
 extension DBFUser {
-    convenience init?(jsonDictionary: [String: Any]) {
-        guard let username = jsonDictionary[Keys.User.username] as? String,
-            let dogReferences = jsonDictionary[Keys.User.dogReferences] as? [DocumentReference],
-            let walkReferences = jsonDictionary[Keys.User.walkReferences] as? [DocumentReference],
-            let favoriteParkReferences = jsonDictionary[Keys.User.favoriteParkReferences] as? [DocumentReference],
-            let uuid = jsonDictionary[Keys.User.uuid] as? String,
-            let documentRef = jsonDictionary[Keys.User.documentRef] as? DocumentReference
+    convenience init?(dictionary: [String: Any]) {
+        guard let username = dictionary[Keys.User.username] as? String,
+            let dogReferences = dictionary[Keys.User.dogReferences] as? [DocumentReference],
+            let walkReferences = dictionary[Keys.User.walkReferences] as? [DocumentReference],
+            let favoriteParkReferences = dictionary[Keys.User.favoriteParkReferences] as? [DocumentReference],
+            let uuid = dictionary[Keys.User.uuid] as? String,
+            let documentRef = dictionary[Keys.User.documentRef] as? DocumentReference
             else { return nil }
         
         self.init(username: username, uuid: uuid, dogReferences: dogReferences, walkReferences: walkReferences, favoriteParkReferences: favoriteParkReferences, documentRef: documentRef)

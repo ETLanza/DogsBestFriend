@@ -17,8 +17,6 @@ class WalkController {
     let dbRef = Firestore.firestore().collection("walks")
 
     // MARK: - CRUD Functions
-    
-    //TODO: CONVERT TO FIREBASE
 
     func createNewWalk(distance: Double, timestamp: Date, duration: Int, locations: [Location], completion: @escaping (Walk?) -> Void) {
         
@@ -29,10 +27,19 @@ class WalkController {
     }
 
     func delete(walk: Walk, completion: @escaping (Bool) -> Void) {
-
+        DBFUserController.shared.remove(walk: walk) { (success) in
+            if success {
+                walk.documentRef.delete(completion: { (error) in
+                    if let error = error {
+                        print("Error deleting \(walk.uuid) from firebase : \(error) :\(error.localizedDescription)")
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                })
+            }
+        }
     }
-    
-    // MARK: - Helper Methods
     
     func add(locations: [Location], toWalk walk: Walk, completion: @escaping (Bool) -> Void) {
         walk.locations = locations
