@@ -43,8 +43,20 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
         
         if let authDataResult = authDataResult {
             DBFUserController.shared.checkIfDBFUserExistFor(user: authDataResult.user) { (dbfUser) in
-                if dbfUser != nil {
-                    self.presentOnboarding()
+                if let dbfUser = dbfUser {
+                    DogController.shared.fetchDogsFor(dbfUser: dbfUser, completion: { (success) in
+                        if success {
+                            ParkController.shared.fetchFavoriteParksFor(dbfUser: dbfUser, completion: { (success) in
+                                if success {
+                                    WalkController.shared.fetchWalksFor(dbfUser: dbfUser, completion: { (success) in
+                                        if success {
+                                            self.presentOnboarding()
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
                 } else {
                     DBFUserController.shared.createNewUserFrom(firebase: authDataResult.user) { (success) in
                         if success {
