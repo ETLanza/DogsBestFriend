@@ -141,13 +141,32 @@ class NewWalkViewController: UIViewController {
     func saveWalk() {
         WalkController.shared.createNewWalk(distance: distance.value, timestamp: Date(), duration: seconds, locations: []) { walk in
             if let walk = walk {
-                for location in self.locationList {
-                    let locationObject = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, timestamp: location.timestamp)
-                    WalkController.shared.add(location: locationObject, toWalk: walk)
+                var locations: [Location] = []
+                for loc in self.locationList {
+                    let location = Location(latitude: loc.coordinate.latitude, longitude: loc.coordinate.longitude, timestamp: loc.timestamp)
+                    locations.append(location)
                 }
-                WalkController.shared.walks.append(walk)
-                self.dismiss(animated: true, completion: nil)
+                
+                WalkController.shared.add(locations: locations, toWalk: walk, completion: { (success) in
+                    if success {
+                        WalkController.shared.saveWalkToFirebase(walk: walk, completion: { (success) in
+                            if success {
+                                DBFUserController.shared.add(walk: walk, completion: { (success) in
+                                    if success {
+                                        self.dismissSelf()
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })                
             }
+        }
+    }
+    
+    func dismissSelf() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

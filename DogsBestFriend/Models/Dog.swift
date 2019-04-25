@@ -75,7 +75,7 @@ extension Dog {
         let birthdate = DisplayFormatter.dateFrom(string: birthdateAsString)
         let adoptionDate = DisplayFormatter.dateFrom(string: adoptionDateAsString)
 
-        let medicalHistory = medicalHistoryArray.compactMap { MedicalRecord(jsonDictionary: $0.value) }
+        let medicalHistory = medicalHistoryArray.compactMap { MedicalRecord(dictionary: $0.value) }
 
         self.init(name: name,
                   birthdate: birthdate,

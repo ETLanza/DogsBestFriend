@@ -76,7 +76,7 @@ class ParkController {
         }
     }
     
-    func fetchAllFavoriteParksFor(dbfUser: DBFUser, completion: @escaping (Bool) -> Void) {
+    func fetchFavoriteParksFor(dbfUser: DBFUser, completion: @escaping (Bool) -> Void) {
         let dg = DispatchGroup()
         dbfUser.favoriteParkReferences.forEach { (documentRef) in
             dg.enter()
@@ -94,7 +94,7 @@ class ParkController {
                 }
                 
                 guard let newPark = Park(favoriteDictionary: favoriteParkDict) else {
-                    print("Error with favorite park convenience init")
+                    print("Error with favorite park dictionary init")
                     dg.leave()
                     return
                 }

@@ -40,7 +40,7 @@ class WalksViewController: UIViewController {
 
     func reloadPastWalks() {
         pastWalkTableView.reloadData()
-        if WalkController.shared.walks.isEmpty {
+        if DBFUserController.shared.loggedInUser.walks.isEmpty {
             noPastWalksView.isHidden = false
         } else {
             noPastWalksView.isHidden = true
@@ -52,7 +52,7 @@ class WalksViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pastWalkSegue" {
             guard let destinationVC = segue.destination as? WalkDetailViewController, let index = pastWalkTableView.indexPathForSelectedRow else { return }
-            let walk = WalkController.shared.walks[index.row]
+            let walk = DBFUserController.shared.loggedInUser.walks[index.row]
             destinationVC.walk = walk
         }
     }
@@ -62,13 +62,13 @@ class WalksViewController: UIViewController {
 
 extension WalksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WalkController.shared.walks.count
+        return DBFUserController.shared.loggedInUser.walks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "walkCell", for: indexPath)
 
-        let walk = WalkController.shared.walks[indexPath.row]
+        let walk = DBFUserController.shared.loggedInUser.walks[indexPath.row]
 
         cell.textLabel?.text = DisplayFormatter.stringFrom(date: walk.timestamp)
         cell.detailTextLabel?.text = DisplayFormatter.time(walk.duration)

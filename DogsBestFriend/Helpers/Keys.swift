@@ -81,5 +81,6 @@ struct Keys {
         static let latitude = "latitude"
         static let longitude = "longitude"
         static let timestamp = "timestamp"
+        static let uuid = "uuid"
     }
 }
