@@ -146,15 +146,23 @@
                                                     <constraint firstAttribute="width" constant="220" id="VIp-Ds-Aih"/>
                                                 </constraints>
                                             </view>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQp-s5-psH">
+                                                <rect key="frame" x="0.0" y="575.5" width="414" height="242.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="4W5-5A-B8h" firstAttribute="centerX" secondItem="Wdg-sh-3u6" secondAttribute="centerX" id="10d-d9-Zpd"/>
                                             <constraint firstItem="fTy-Xv-D0i" firstAttribute="centerX" secondItem="Wdg-sh-3u6" secondAttribute="centerX" id="42X-ya-jPv"/>
+                                            <constraint firstItem="tQp-s5-psH" firstAttribute="top" secondItem="Ng1-5f-m7v" secondAttribute="bottom" id="4q2-X9-vXm"/>
+                                            <constraint firstItem="tQp-s5-psH" firstAttribute="leading" secondItem="Wdg-sh-3u6" secondAttribute="leading" id="Ehg-tK-8j7"/>
                                             <constraint firstItem="pSb-SE-ifD" firstAttribute="leading" secondItem="Wdg-sh-3u6" secondAttribute="leading" constant="20" id="FGU-aG-XA1"/>
                                             <constraint firstItem="Ng1-5f-m7v" firstAttribute="top" secondItem="pSb-SE-ifD" secondAttribute="bottom" constant="16" id="JRM-Zx-Nu4"/>
                                             <constraint firstItem="pSb-SE-ifD" firstAttribute="top" secondItem="ya4-A6-qUi" secondAttribute="bottom" id="KVm-GP-qbT"/>
                                             <constraint firstItem="Ng1-5f-m7v" firstAttribute="centerX" secondItem="Wdg-sh-3u6" secondAttribute="centerX" id="bjm-mt-Bqf"/>
+                                            <constraint firstAttribute="trailing" secondItem="tQp-s5-psH" secondAttribute="trailing" id="byo-4w-AjM"/>
+                                            <constraint firstAttribute="bottom" secondItem="tQp-s5-psH" secondAttribute="bottom" id="dLt-Wt-Rqf"/>
                                             <constraint firstAttribute="trailing" secondItem="pSb-SE-ifD" secondAttribute="trailing" constant="20" id="eS6-As-PVJ"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="700" id="f7e-mC-ga7"/>
                                             <constraint firstItem="ya4-A6-qUi" firstAttribute="centerX" secondItem="Wdg-sh-3u6" secondAttribute="centerX" id="kCK-1A-Dbb"/>
@@ -186,6 +194,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="4W5-5A-B8h" id="vho-6X-a4q"/>
                         <outlet property="confirmPasswordTextField" destination="QpD-Dr-YNI" id="efc-Wd-S8t"/>
+                        <outlet property="coverView" destination="tQp-s5-psH" id="Vue-SS-wML"/>
                         <outlet property="createAccountButton" destination="lhV-BI-Mzn" id="hrx-PO-YFa"/>
                         <outlet property="emailTextField" destination="dRP-4R-S8H" id="IAi-ms-V39"/>
                         <outlet property="googleSignInButton" destination="fTy-Xv-D0i" id="iC0-9h-vb8"/>

@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var resetPasswordButton: MainButton!
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var coverView: UIView!
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
@@ -207,6 +208,7 @@ class SignUpViewController: UIViewController {
             self.signInButton.isEnabled = false
             self.resetPasswordButton.isEnabled = false
             self.createAccountButton.isEnabled = false
+            self.coverView.isHidden = false
             self.activityIndicator.startAnimating()
         }
     }
@@ -216,6 +218,7 @@ class SignUpViewController: UIViewController {
             self.signInButton.isEnabled = true
             self.resetPasswordButton.isEnabled = true
             self.createAccountButton.isEnabled = true
+            self.coverView.isHidden = true
             self.activityIndicator.stopAnimating()
         }
     }
