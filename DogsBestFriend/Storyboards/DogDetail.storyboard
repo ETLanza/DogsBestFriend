@@ -350,6 +350,7 @@
                         <outlet property="nameTextField" destination="sts-00-PQY" id="Gb6-we-IMb"/>
                         <outlet property="registrationTextField" destination="FGv-NI-hgT" id="ybO-fW-fng"/>
                         <outlet property="removeDogButton" destination="37m-SV-gMl" id="9zD-K4-mPD"/>
+                        <outlet property="saveButton" destination="eaI-pY-u8i" id="LQl-3U-lOq"/>
                         <outlet property="scrollView" destination="JHX-nb-7Pj" id="ORn-I0-Tub"/>
                         <outlet property="tableView" destination="Zr1-l7-t1Z" id="7vx-1j-YPA"/>
                     </connections>

@@ -266,8 +266,8 @@
 				3C8BBBB32151787900325067 /* MedicalViewController.swift */,
 				3C9B90B02146E30D00253B85 /* ParksViewController.swift */,
 				3C9B90B22146E32100253B85 /* WalksViewController.swift */,
-				3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */,
 				3C9F31D32152E01600955416 /* NewWalkViewController.swift */,
+				3C7191C92149CC54007E91E3 /* WalkDetailViewController.swift */,
 				3C686F3B20FFFCC6008C828D /* BreedImageTableViewController.swift */,
 				3C1BAC6F22729E8C007A85DB /* SettingsViewController.swift */,
 			);
