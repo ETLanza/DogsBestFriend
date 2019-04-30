@@ -20,7 +20,11 @@ class OnboardViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         LocationManager.shared.delegate = self
-        LocationManager.shared.requestWhenInUseAuthorization()
+        if CLLocationManager.authorizationStatus() != .notDetermined {
+            presentMainView()
+        } else {
+            LocationManager.shared.requestWhenInUseAuthorization()
+        }
     }
     
     // MARK: - Helper Method
