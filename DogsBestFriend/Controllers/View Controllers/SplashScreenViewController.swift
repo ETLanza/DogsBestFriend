@@ -12,8 +12,8 @@ import FirebaseUI
 
 class SplashScreenViewController: UIViewController, FUIAuthDelegate {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         DBFUserController.shared.fetchUser { (success) in
             if success {
                 self.presentOnboarding()
@@ -78,7 +78,7 @@ class SplashScreenViewController: UIViewController, FUIAuthDelegate {
     func presentOnboarding() {
         DispatchQueue.main.async {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = OnboardViewController()
+            appDelegate.window?.rootViewController = UIStoryboard(name: "Onboard", bundle: nil).instantiateInitialViewController()
         }
     }
 }

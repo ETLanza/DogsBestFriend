@@ -20,13 +20,7 @@ class OnboardViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         LocationManager.shared.delegate = self
-        switch CLLocationManager.authorizationStatus() {
-        case .notDetermined:
-            LocationManager.shared.requestWhenInUseAuthorization()
-        default:
-            print("fuck off")
-//            presentMainView()
-        }
+        LocationManager.shared.requestWhenInUseAuthorization()
     }
     
     // MARK: - Helper Method
@@ -37,8 +31,9 @@ class OnboardViewController: UIViewController {
             LocationManager.shared.requestLocation()
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let newViewController = storyboard.instantiateInitialViewController()
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = newViewController
+            newViewController?.modalPresentationStyle = .fullScreen
+            newViewController?.modalTransitionStyle = .crossDissolve
+            present(newViewController!, animated: true, completion: nil)
         }
     }
 }
@@ -47,12 +42,7 @@ class OnboardViewController: UIViewController {
 
 extension OnboardViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .restricted, .notDetermined:
-            break            
-        default:
             presentMainView()
-        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

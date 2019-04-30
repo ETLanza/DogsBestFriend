@@ -24,9 +24,15 @@
                                     <constraint firstAttribute="width" secondItem="BRE-kC-YU0" secondAttribute="height" multiplier="1:1" id="ziV-3y-aUZ"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WDx-9d-daM">
+                                <rect key="frame" x="188.5" y="556.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.31731320880000002" green="0.60024412289999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="WDx-9d-daM" firstAttribute="centerX" secondItem="BRE-kC-YU0" secondAttribute="centerX" id="LFD-yO-uBp"/>
+                            <constraint firstItem="WDx-9d-daM" firstAttribute="bottom" secondItem="BRE-kC-YU0" secondAttribute="bottom" constant="-20" id="kXh-jh-j6A"/>
                             <constraint firstItem="BRE-kC-YU0" firstAttribute="width" secondItem="Kca-xz-9ck" secondAttribute="width" multiplier="0.8" id="lhj-rS-qXG"/>
                             <constraint firstItem="BRE-kC-YU0" firstAttribute="centerX" secondItem="Kca-xz-9ck" secondAttribute="centerX" id="qjH-RE-oI2"/>
                             <constraint firstItem="BRE-kC-YU0" firstAttribute="centerY" secondItem="Kca-xz-9ck" secondAttribute="centerY" id="sCO-Qj-ftH"/>
