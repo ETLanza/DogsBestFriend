@@ -12,6 +12,7 @@ import FirebaseUI
 import GoogleSignIn
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
