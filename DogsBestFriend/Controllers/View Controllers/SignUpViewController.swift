@@ -64,7 +64,7 @@ class SignUpViewController: UIViewController {
                 DBFUserController.shared.checkIfDBFUserExistFor(user: authResult.user) { (rsUser) in
                     if rsUser != nil {
                         strongSelf.stopActivityIndicator()
-                        strongSelf.presentTabBar()
+                        strongSelf.presentOnboard()
                     } else {
                         let alertController = AlertManager.displayAlertMessage(userMessage: "Error signing in. Please try again.")
                         strongSelf.present(alertController, animated: true, completion: nil)
@@ -114,7 +114,7 @@ class SignUpViewController: UIViewController {
                 DBFUserController.shared.createNewUserFrom(firebase: authResult.user, completion: { (success) in
                     if success {
                         self.stopActivityIndicator()
-                        self.presentTabBar()
+                        self.presentOnboard()
                     }
                 })
             }
@@ -231,10 +231,10 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func presentTabBar() {
+    func presentOnboard() {
         DispatchQueue.main.async {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController()
+            appDelegate.window?.rootViewController = UIStoryboard(name: "Onboard", bundle: nil).instantiateInitialViewController()
         }
     }
 }
@@ -262,11 +262,11 @@ extension SignUpViewController: GIDSignInDelegate, GIDSignInUIDelegate {
             
             DBFUserController.shared.checkIfDBFUserExistFor(user: authResult.user) { (rsUser) in
                 if rsUser != nil {
-                    self.presentTabBar()
+                    self.presentOnboard()
                 } else {
                     DBFUserController.shared.createNewUserFrom(firebase: authResult.user) { (success) in
                         if success {
-                            self.presentTabBar()
+                            self.presentOnboard()
                         }
                     }
                 }

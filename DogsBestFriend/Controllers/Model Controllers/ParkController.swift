@@ -15,15 +15,19 @@ class ParkController {
 
     static let shared = ParkController()
     
-    let dbRef = Firestore.firestore().collection("parks")
 
     // MARK: - Properties
+    let dbRef = Firestore.firestore().collection("parks")
+    fileprivate var filterLocation: CLLocation!
     var parksSet: Set<Park> = []
     var parks: [Park] {
         var array = Array(parksSet)
         
+        
+        array = array.filter( { return $0.placemark.location!.distance(from: filterLocation) < 50000.00 })
+        
         array.sort { (parkA, parkB) -> Bool in
-            return parkA.placemark.location!.distance(from: LocationManager.shared.location!) < parkB.placemark.location!.distance(from: LocationManager.shared.location!)
+            return parkA.placemark.location!.distance(from: filterLocation) < parkB.placemark.location!.distance(from: filterLocation)
         }
         
         return array
@@ -131,5 +135,9 @@ class ParkController {
             placemark = MKPlacemark(placemark: newPlacemark)
             completion(placemark)
         }
+    }
+    
+    func changeFilterLocationTo(_ location: CLLocation) {
+        filterLocation = location
     }
 }

@@ -56,11 +56,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Dog's Best Friend uses the camera to set your dog's profile picture!</string>
+	<string>Dog&apos;s Best Friend uses the camera to set your dog&apos;s profile picture!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Dog's Best Friend uses your location to search for nearby dog parks and when you choose to track your walks with your dog!</string>
+	<string>Dog&apos;s Best Friend uses your location to search for nearby dog parks and when you choose to track your walks with your dog!</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Dog's best Friend uses the photo library to set your dog's profile picture!</string>
+	<string>Dog&apos;s best Friend uses the photo library to set your dog&apos;s profile picture!</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -85,6 +85,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportsDocumentBrowser</key>
+	<false/>
+	<key>FirebaseScreenReportingEnabled</key>
 	<false/>
 </dict>
 </plist>
