@@ -19,6 +19,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - IBOutlets
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var changePictureLabel: UILabel!
     @IBOutlet weak var dogImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -55,6 +56,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
             return
         }
         let imageData = profileImageAsData ?? #imageLiteral(resourceName: "coolDog").jpegData(compressionQuality: 0.7)
+        disableSaveButton()
         if let dog = dog {
             DogController.shared.updateDog(dog, withName: name,
                                            birthdate: birthdateDatePicker.date,
@@ -66,13 +68,17 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
                                            profileImageAsData: imageData!,
                                            medicalHistory: dog.medicalHistory) { success in
                 if success {
-                    self.navigationController?.popViewController(animated: true)
+                    self.popSelf()
+                } else {
+                    self.enableSaveButton()
                 }
             }
         } else {
             DogController.shared.addDogWith(name: name, birthdate: birthdateDatePicker.date, adoptionDate: adoptionDateDatePicker.date, microchipID: microchipTextField.text, breed: breedTextField.text, color: colorTextField.text, registration: registrationTextField.text, profileImageAsData: imageData!, medicalHistory: medicalHistory) { success in
                 if success {
-                    self.navigationController?.popViewController(animated: true)
+                    self.popSelf()
+                } else {
+                    self.enableSaveButton()
                 }
             }
         }
@@ -124,7 +130,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
     
     func setUpViews() {
         imagePickerController.delegate = self
-        removeDogButton.layer.cornerRadius = 12
+        removeDogButton.layer.cornerRadius = 5
         removeDogButton.layer.masksToBounds = true
         setUpTextFields()
         tableView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(tableViewSwiped)))
@@ -191,6 +197,27 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
             birthdateTextField.text = DisplayFormatter.stringFrom(date: birthdateDatePicker.date)
         default:
             break
+        }
+    }
+    
+    func popSelf() {
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
+    }
+    
+    func disableSaveButton() {
+        DispatchQueue.main.async {
+            self.saveButton.isEnabled = false
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+    }
+    
+    func enableSaveButton() {
+        DispatchQueue.main.async {
+            self.saveButton.isEnabled = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
     

@@ -82,7 +82,7 @@ class WalkDetailViewController: UIViewController {
         return MKCoordinateRegion(center: center, span: span)
     }
 
-    func polyLine() -> [MKPolyline] {
+    func polyLine() -> [MKGeodesicPolyline] {
 
         let locations = walk.locations
         var coordinates: [(CLLocation, CLLocation)] = []
@@ -103,10 +103,10 @@ class WalkDetailViewController: UIViewController {
             maxSpeed = max(maxSpeed, speed)
         }
 
-        var segments: [MKPolyline] = []
+        var segments: [MKGeodesicPolyline] = []
         for ((start, end), _) in zip(coordinates, speeds) {
             let coords = [start.coordinate, end.coordinate]
-            let segment = MKPolyline(coordinates: coords, count: 2)
+            let segment = MKGeodesicPolyline(coordinates: coords, count: 2)
             segments.append(segment)
         }
         return segments
