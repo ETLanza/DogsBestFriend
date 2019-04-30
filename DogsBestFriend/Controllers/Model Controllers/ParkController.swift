@@ -18,20 +18,23 @@ class ParkController {
 
     // MARK: - Properties
     let dbRef = Firestore.firestore().collection("parks")
-    fileprivate var filterLocation: CLLocation!
-    var parksSet: Set<Park> = []
-    var parks: [Park] {
-        var array = Array(parksSet)
-        
-        
-        array = array.filter( { return $0.placemark.location!.distance(from: filterLocation) < 50000.00 })
-        
-        array.sort { (parkA, parkB) -> Bool in
-            return parkA.placemark.location!.distance(from: filterLocation) < parkB.placemark.location!.distance(from: filterLocation)
+    fileprivate var filterLocation: CLLocation? = LocationManager.shared.location
+    var parksSet: Set<Park> = [] {
+        didSet {
+            var array = Array(parksSet)
+            
+            if let filterLocation = filterLocation {
+                array = array.filter( { return $0.placemark.location!.distance(from: filterLocation) < 50000.00 })
+                
+                array.sort { (parkA, parkB) -> Bool in
+                    return parkA.placemark.location!.distance(from: filterLocation) < parkB.placemark.location!.distance(from: filterLocation)
+                }
+            }
+            
+            parks = array
         }
-        
-        return array
     }
+    var parks: [Park] = []
     
     // MARK: - CRUD Functions
     
@@ -114,27 +117,6 @@ class ParkController {
     func removeAllNonFavoriteParks() {
         parksSet.removeAll()
         parksSet.formUnion(DBFUserController.shared.loggedInUser.favoriteParks)
-    }
-    
-    
-    
-    
-    //TODO: SEE IF THIS IS NEEDED, MIGHT BE OBSOLETE NOW
-    func getPlacemarkFor(park: Park, completion: @escaping (MKPlacemark?)-> Void){
-        let geocoder = CLGeocoder()
-        var placemark = MKPlacemark()
-        geocoder.reverseGeocodeLocation(CLLocation(latitude: park.latitude, longitude: park.longitude)) { (placemarks, error) in
-            if let error = error {
-                print("Error getting placemark for park: \(park.name) : \(error) : \(error.localizedDescription)")
-                completion(nil)
-                return
-            }
-
-            guard let newPlacemark = placemarks?.first else { completion(nil); return }
-
-            placemark = MKPlacemark(placemark: newPlacemark)
-            completion(placemark)
-        }
     }
     
     func changeFilterLocationTo(_ location: CLLocation) {

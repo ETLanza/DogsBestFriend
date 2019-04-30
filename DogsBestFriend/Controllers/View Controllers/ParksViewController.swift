@@ -129,6 +129,7 @@ class ParksViewController: UIViewController {
     
     func searchForDogParks(searchLocation: CLLocationCoordinate2D) {
         if mapKitEnabled {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             ParkController.shared.changeFilterLocationTo(CLLocation(latitude: searchLocation.latitude, longitude: searchLocation.longitude))
             let searchRequest = MKLocalSearch.Request()
             searchRequest.naturalLanguageQuery = "dog park"
@@ -159,6 +160,7 @@ class ParksViewController: UIViewController {
                 }
                 self.parksTableView.reloadData()
                 self.mapView.setRegion(region, animated: true)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
