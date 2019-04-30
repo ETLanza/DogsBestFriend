@@ -24,7 +24,8 @@ class OnboardViewController: UIViewController {
         case .notDetermined:
             LocationManager.shared.requestWhenInUseAuthorization()
         default:
-            presentMainView()
+            print("fuck off")
+//            presentMainView()
         }
     }
     
@@ -32,8 +33,8 @@ class OnboardViewController: UIViewController {
     
     func presentMainView() {
         if presentTriggered == false {
-            LocationManager.shared.requestLocation()
             presentTriggered = true
+            LocationManager.shared.requestLocation()
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let newViewController = storyboard.instantiateInitialViewController()
             let appDelegate = UIApplication.shared.delegate as! AppDelegate

@@ -31,8 +31,6 @@ class ParkController {
     
     // MARK: - CRUD Functions
     
-    //TODO CONVERT TO FIREBASE
-
     func addParkWith(placemark: MKPlacemark) {
         let address = AddressFormatter.shared.parseAddress(selectedItem: placemark)
         let newPark = Park(name: placemark.name ?? "Unknown Park", address: address, latitude: placemark.coordinate.latitude, longitude: placemark.coordinate.longitude)
