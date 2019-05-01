@@ -9,12 +9,32 @@
 import MapKit
 import UIKit
 
+enum State {
+    case opened
+    case closed
+}
+
+extension State {
+    var opposite: State {
+        switch self {
+        case .opened: return .closed
+        case .closed: return .opened
+        }
+    }
+}
+
 class ParksViewController: UIViewController {
     // MARK: - Properties
     
-    var selectedPin: MKPlacemark?
-    var mapKitEnabled: Bool = false
-    var didInitialSearch: Bool = false
+    private var selectedPin: MKPlacemark?
+    private var mapKitEnabled: Bool = false
+    private var didInitialSearch: Bool = false
+    private var currentState: State = .closed
+    private var runningAnimators = [UIViewPropertyAnimator]()
+    private var animationProgress = [CGFloat]()
+    private var impact = UIImpactFeedbackGenerator(style: .light)
+    private var topDrawerTarget = CGFloat()
+    private var bottomDrawerTarget = CGFloat()
     
     // MARK: - IBOutlets
     
@@ -25,11 +45,11 @@ class ParksViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var drawerView: UIView!
     @IBOutlet weak var parksTableView: UITableView!
-    @IBOutlet weak var drawerClosedConstraint: NSLayoutConstraint!
     @IBOutlet weak var nearbyViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var favoritesViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var noFavoritesView: UIView!
     @IBOutlet weak var favoritesTableView: UITableView!
+    @IBOutlet var drawerPanGestureRecognizer: UIPanGestureRecognizer!
     
     // MARK: - Life Cycle Methods
     
@@ -50,21 +70,13 @@ class ParksViewController: UIViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        bottomDrawerTarget = mapView.frame.maxY
+        topDrawerTarget = zipCodeSearchBar.frame.maxY
+    }
+    
     // MARK: - IBActions
-    
-    @IBAction func drawerSwipedUp(_ sender: UISwipeGestureRecognizer) {
-        drawerClosedConstraint.priority = UILayoutPriority(rawValue: 997)
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @IBAction func drawerSwipedDown(_ sender: UISwipeGestureRecognizer) {
-        drawerClosedConstraint.priority = UILayoutPriority(rawValue: 999)
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
     
     @IBAction func favoritesSegementedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -79,9 +91,29 @@ class ParksViewController: UIViewController {
             parksTableView.reloadData()
         }
         UIView.animate(withDuration: 0.3) {
+            self.impact.prepare()
+            self.impact.impactOccurred()
             self.view.layoutIfNeeded()
         }
     }
+    
+    @IBAction func panGestureActivated(_ sender: UIPanGestureRecognizer) {
+        switch drawerPanGestureRecognizer.state {
+        case .began:
+            self.parksTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            panDrawer(withPanPoint: CGPoint(x: drawerView.center.x, y: drawerView.center.y + drawerPanGestureRecognizer.translation(in: drawerView).y))
+            drawerPanGestureRecognizer.setTranslation(CGPoint.zero, in: drawerView)
+        case .changed:
+            panDrawer(withPanPoint: CGPoint(x: drawerView.center.x, y: drawerView.center.y + drawerPanGestureRecognizer.translation(in: drawerView).y))
+            drawerPanGestureRecognizer.setTranslation(CGPoint.zero, in: drawerView)
+        case .ended:
+            drawerPanGestureRecognizer.setTranslation(CGPoint.zero, in: drawerView)
+            panDidEnd()
+        default:
+            return
+        }
+    }
+    
     
     // MARK: - Helper Methods
     
@@ -113,6 +145,18 @@ class ParksViewController: UIViewController {
         drawerView.layer.masksToBounds = true
         favoritesSegmentedControl.layer.cornerRadius = 3
         favoritesSegmentedControl.layer.masksToBounds = true
+        setParkTableViewInset()
+    }
+    
+    func distance(from lhs: CGPoint, to rhs: CGPoint) -> CGFloat {
+        let xDistance = lhs.x - rhs.x
+        let yDistance = lhs.y - rhs.y
+        return (xDistance * xDistance + yDistance * yDistance).squareRoot()
+    }
+    
+    func setParkTableViewInset() {
+        let tableViewPoint = parksTableView.convert(CGPoint(x: parksTableView.frame.minX, y: parksTableView.frame.maxY), to: self.view)
+        self.parksTableView.contentInset.bottom = distance(from: tableViewPoint, to: tabBarController!.tabBar.frame.origin)
     }
     
     // MARK: - Map Kit Helper Methods
@@ -251,15 +295,14 @@ extension ParksViewController: UITableViewDelegate, UITableViewDataSource {
             selectedItem = ParkController.shared.parks[indexPath.row].placemark
         }
         dropPinZoomIn(placemark: selectedItem!)
-        drawerClosedConstraint.priority = UILayoutPriority(rawValue: 999)
         favoritesViewTrailingConstraint.priority = UILayoutPriority(rawValue: 997)
         nearbyViewLeadingConstraint.priority = UILayoutPriority(rawValue: 999)
+        selectedSegementLeadingConstraint.priority = UILayoutPriority(rawValue: 900)
         favoritesSegmentedControl.selectedSegmentIndex = 1
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        favoritesSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+        closeDrawer()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -435,3 +478,53 @@ extension ParksViewController: ParkTableViewCellDelegate {
         }
     }
 }
+
+// MARK: - Drawer Tap and Pan handleing
+extension ParksViewController {
+    func openDrawer() {
+        // Sets target locations of views & then animates.
+        let target = topDrawerTarget
+        self.userInteractionAnimate(view: self.drawerView, edge: self.drawerView.frame.minY, to: target, velocity: drawerPanGestureRecognizer.velocity(in: drawerView).y)
+    }
+    
+    func closeDrawer() {
+        let target = bottomDrawerTarget
+        self.userInteractionAnimate(view: drawerView, edge: drawerView.frame.minY, to: target, velocity: drawerPanGestureRecognizer.velocity(in: drawerView).y)
+    }
+    
+    func userInteractionAnimate(view: UIView, edge: CGFloat, to target: CGFloat, velocity: CGFloat) {
+        let distanceToTranslate = target - edge
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.97, initialSpringVelocity: abs(velocity) * 0.01, options: .curveEaseOut , animations: {
+            view.frame =  view.frame.offsetBy(dx: 0, dy: distanceToTranslate)
+            self.setParkTableViewInset()
+        }, completion: { (success) in
+            if success {
+                self.impact.prepare()
+                self.impact.impactOccurred()
+            }
+        })
+    }
+    
+    func panDrawer(withPanPoint panPoint: CGPoint) {
+        if drawerView.frame.maxY < mapView.frame.maxY {
+            drawerView.center.y += drawerPanGestureRecognizer.translation(in: drawerView).y / 4
+        } else {
+            drawerView.center.y += drawerPanGestureRecognizer.translation(in: drawerView).y
+        }
+    }
+    
+    func panDidEnd() {
+        let aboveHalfWay = drawerView.frame.minY < ((mapView.frame.maxY - zipCodeSearchBar.frame.maxY) * 0.5)
+        let velocity = drawerPanGestureRecognizer.velocity(in: drawerView).y
+        if velocity > 500 {
+            self.closeDrawer()
+        } else if velocity < -500 {
+            self.openDrawer()
+        } else if aboveHalfWay {
+            self.openDrawer()
+        } else if !aboveHalfWay {
+            self.closeDrawer()
+        }
+    }
+}
+

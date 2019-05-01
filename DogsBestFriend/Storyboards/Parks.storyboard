@@ -32,7 +32,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IM-Q2-RDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-826" y="507"/>
+            <point key="canvasLocation" x="-688" y="505"/>
         </scene>
         <!--Parks-->
         <scene sceneID="PHT-oU-tAg">
@@ -115,31 +115,31 @@
                                         </connections>
                                     </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y85-B6-iE0" userLabel="Drawer">
-                                        <rect key="frame" x="0.0" y="394" width="414" height="147"/>
+                                        <rect key="frame" x="0.0" y="394" width="414" height="491"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eS2-6h-BnQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="––––––" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bp9-5X-sWg">
-                                                        <rect key="frame" x="180" y="-2.3333333333333712" width="54.333333333333343" height="23"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="–––––––––" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bp9-5X-sWg">
+                                                        <rect key="frame" x="166.33333333333334" y="3.6666666666666288" width="81.333333333333343" height="23"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="19"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="bp9-5X-sWg" firstAttribute="centerX" secondItem="eS2-6h-BnQ" secondAttribute="centerX" id="291-l9-saL"/>
-                                                    <constraint firstAttribute="height" constant="18" id="5pr-uh-I8J"/>
+                                                    <constraint firstAttribute="height" constant="30" id="5pr-uh-I8J"/>
                                                     <constraint firstItem="bp9-5X-sWg" firstAttribute="centerY" secondItem="eS2-6h-BnQ" secondAttribute="centerY" id="mrF-ri-Q5e"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="ZyD-Ob-qvw" appends="YES" id="oKg-3g-d6a"/>
-                                                    <outletCollection property="gestureRecognizers" destination="gus-W7-mAY" appends="YES" id="rib-of-pFb"/>
+                                                    <outletCollection property="gestureRecognizers" destination="kN1-mz-ylC" appends="YES" id="il4-T7-cjq"/>
                                                 </connections>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="enK-Uj-5Ff">
-                                                <rect key="frame" x="0.0" y="18" width="414" height="129"/>
+                                                <rect key="frame" x="0.0" y="30" width="414" height="461"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="parkCell" rowHeight="100" id="ftQ-s7-jNz" customClass="ParkTableViewCell" customModule="DogsBestFriend" customModuleProvider="target">
@@ -258,14 +258,12 @@
                                     <constraint firstItem="VoK-Ut-JET" firstAttribute="top" secondItem="NDb-hZ-CnR" secondAttribute="top" id="7Xc-8b-yzf"/>
                                     <constraint firstItem="mmU-ib-uHv" firstAttribute="top" secondItem="VoK-Ut-JET" secondAttribute="bottom" id="7Xf-PE-Pm7"/>
                                     <constraint firstItem="mmU-ib-uHv" firstAttribute="width" secondItem="NDb-hZ-CnR" secondAttribute="width" multiplier="0.95" id="Uaw-57-drz"/>
-                                    <constraint firstItem="y85-B6-iE0" firstAttribute="top" secondItem="VoK-Ut-JET" secondAttribute="bottom" priority="998" id="XFA-FT-JBF"/>
                                     <constraint firstAttribute="trailing" secondItem="VoK-Ut-JET" secondAttribute="trailing" id="eIp-32-oip"/>
                                     <constraint firstItem="VoK-Ut-JET" firstAttribute="leading" secondItem="NDb-hZ-CnR" secondAttribute="leading" id="fcI-C4-PqG"/>
-                                    <constraint firstAttribute="bottom" secondItem="y85-B6-iE0" secondAttribute="bottom" id="hxz-tX-S9O"/>
                                     <constraint firstItem="y85-B6-iE0" firstAttribute="leading" secondItem="NDb-hZ-CnR" secondAttribute="leading" id="i7X-Wx-rrH"/>
                                     <constraint firstItem="mmU-ib-uHv" firstAttribute="centerX" secondItem="NDb-hZ-CnR" secondAttribute="centerX" id="lga-ut-hd6"/>
                                     <constraint firstAttribute="trailing" secondItem="y85-B6-iE0" secondAttribute="trailing" id="o3G-IH-Uqc"/>
-                                    <constraint firstItem="y85-B6-iE0" firstAttribute="top" secondItem="mmU-ib-uHv" secondAttribute="bottom" priority="999" id="owr-m6-c84"/>
+                                    <constraint firstItem="y85-B6-iE0" firstAttribute="top" secondItem="mmU-ib-uHv" secondAttribute="bottom" id="owr-m6-c84"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fda-ja-fwB" userLabel="Favorites View">
@@ -427,6 +425,7 @@
                             <constraint firstItem="NDb-hZ-CnR" firstAttribute="leading" secondItem="JFG-Bj-Mkr" secondAttribute="leading" priority="999" id="ZgX-Iy-jfh"/>
                             <constraint firstItem="Fda-ja-fwB" firstAttribute="trailing" secondItem="JFG-Bj-Mkr" secondAttribute="trailing" priority="997" id="dcj-ts-hYa"/>
                             <constraint firstItem="NDb-hZ-CnR" firstAttribute="width" secondItem="JFG-Bj-Mkr" secondAttribute="width" id="iAa-nD-WnY"/>
+                            <constraint firstItem="y85-B6-iE0" firstAttribute="height" secondItem="Fda-ja-fwB" secondAttribute="height" constant="-50" id="kj9-Ol-hYa"/>
                             <constraint firstItem="ZwA-0h-cxc" firstAttribute="leading" secondItem="q1u-fB-SY0" secondAttribute="leading" priority="800" id="p4W-xS-FLY"/>
                             <constraint firstItem="q1u-fB-SY0" firstAttribute="top" secondItem="JFG-Bj-Mkr" secondAttribute="top" id="tIq-qY-wZj"/>
                             <constraint firstItem="q1u-fB-SY0" firstAttribute="centerX" secondItem="Aac-uv-AnJ" secondAttribute="centerX" id="uWW-nq-aAn"/>
@@ -438,7 +437,7 @@
                     <navigationItem key="navigationItem" title="Dog parks" largeTitleDisplayMode="always" id="7Oe-8j-l31"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="drawerClosedConstraint" destination="owr-m6-c84" id="zVU-kG-N6H"/>
+                        <outlet property="drawerPanGestureRecognizer" destination="kN1-mz-ylC" id="6aX-rr-dZm"/>
                         <outlet property="drawerView" destination="y85-B6-iE0" id="SuP-zx-SlC"/>
                         <outlet property="favoritesSegmentedControl" destination="q1u-fB-SY0" id="p8r-pp-4Xo"/>
                         <outlet property="favoritesTableView" destination="3wI-ab-StZ" id="5hA-S0-BZI"/>
@@ -453,18 +452,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nv1-Rt-fvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="gus-W7-mAY">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="kN1-mz-ylC">
                     <connections>
-                        <action selector="drawerSwipedUp:" destination="YPl-eL-Q4C" id="MyG-U4-r9D"/>
+                        <action selector="panGestureActivated:" destination="YPl-eL-Q4C" id="Pkr-PP-zhA"/>
                     </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="ZyD-Ob-qvw">
-                    <connections>
-                        <action selector="drawerSwipedDown:" destination="YPl-eL-Q4C" id="IqF-br-93r"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="400" y="499"/>
+            <point key="canvasLocation" x="391" y="506"/>
         </scene>
     </scenes>
     <resources>
