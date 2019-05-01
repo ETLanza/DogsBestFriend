@@ -22,6 +22,7 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        
         BreedController.getBreeds { success in
             if success {
                 DispatchQueue.main.async {
@@ -62,6 +63,24 @@ class BreedImageTableViewController: UITableViewController, UIPickerViewDelegate
     func setUpViews() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        var userInfo = notification.userInfo!
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset: UIEdgeInsets = self.tableView.contentInset
+        contentInset.bottom = keyboardFrame.size.height - 90
+        tableView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInset = UIEdgeInsets.zero
+        tableView.contentInset = contentInset
     }
 
     // MARK: - Table View Delegate Methods

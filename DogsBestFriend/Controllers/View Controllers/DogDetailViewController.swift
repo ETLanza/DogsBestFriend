@@ -180,7 +180,7 @@ class DogDetailViewController: UIViewController, UIScrollViewDelegate {
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
         var contentInset: UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 50
+        contentInset.bottom = keyboardFrame.size.height + 75
         scrollView.contentInset = contentInset
     }
     
