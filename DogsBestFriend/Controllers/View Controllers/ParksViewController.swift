@@ -111,6 +111,8 @@ class ParksViewController: UIViewController {
         mapView.layer.masksToBounds = true
         drawerView.layer.cornerRadius = 12
         drawerView.layer.masksToBounds = true
+        favoritesSegmentedControl.layer.cornerRadius = 3
+        favoritesSegmentedControl.layer.masksToBounds = true
     }
     
     // MARK: - Map Kit Helper Methods
