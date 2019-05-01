@@ -26,10 +26,6 @@ class WalkDetailViewController: UIViewController {
         super.viewDidLoad()
         setUpViews()
     }
-
-    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-        popSelf()
-    }
     
     @IBAction func removeWalkButtonTapped(_ sender: MainButton) {
         WalkController.shared.delete(walk: walk) { (success) in
@@ -38,7 +34,6 @@ class WalkDetailViewController: UIViewController {
             }
         }
     }
-    
 
     // MARK: - Helper Methods
     func setUpViews() {

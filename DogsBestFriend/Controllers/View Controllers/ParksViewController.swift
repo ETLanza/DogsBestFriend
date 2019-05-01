@@ -19,6 +19,8 @@ class ParksViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var favoritesSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var selectedSegmentView: UIView!
+    @IBOutlet weak var selectedSegementLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var zipCodeSearchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var drawerView: UIView!
@@ -68,10 +70,12 @@ class ParksViewController: UIViewController {
         if sender.selectedSegmentIndex == 0 {
             favoritesViewTrailingConstraint.priority = UILayoutPriority(rawValue: 999)
             nearbyViewLeadingConstraint.priority = UILayoutPriority(rawValue: 997)
+            selectedSegementLeadingConstraint.priority = UILayoutPriority(rawValue: 700)
             reloadFavoriteView()
         } else if sender.selectedSegmentIndex == 1 {
             favoritesViewTrailingConstraint.priority = UILayoutPriority(rawValue: 997)
             nearbyViewLeadingConstraint.priority = UILayoutPriority(rawValue: 999)
+            selectedSegementLeadingConstraint.priority = UILayoutPriority(rawValue: 900)
             parksTableView.reloadData()
         }
         UIView.animate(withDuration: 0.3) {
@@ -94,7 +98,15 @@ class ParksViewController: UIViewController {
         addSearchesAndCancelButtonsTo(searchBar: zipCodeSearchBar)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        favoritesSegmentedControl.removeBorders()
+        favoritesSegmentedControl.layer.cornerRadius = 5
+        favoritesSegmentedControl.layer.masksToBounds = true
+        favoritesSegmentedControl.backgroundColor = .clear
+        favoritesSegmentedControl.tintColor = .clear
+        favoritesSegmentedControl.setTitleTextAttributes([
+            NSAttributedString.Key.foregroundColor: UIColor.black
+            ], for: .normal)
+        selectedSegmentView.layer.cornerRadius = 5
+        selectedSegmentView.layer.masksToBounds = true
         mapView.layer.cornerRadius = 12
         mapView.layer.masksToBounds = true
         drawerView.layer.cornerRadius = 12

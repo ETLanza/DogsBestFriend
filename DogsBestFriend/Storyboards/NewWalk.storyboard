@@ -30,7 +30,7 @@
                                 </connections>
                             </mapView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xty-fD-2db" customClass="MainButton" customModule="DogsBestFriend" customModuleProvider="target">
-                                <rect key="frame" x="134" y="588" width="107" height="37"/>
+                                <rect key="frame" x="9.5" y="588" width="356" height="37"/>
                                 <color key="backgroundColor" name="mainColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
@@ -94,7 +94,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxc-1k-ryA" customClass="MainButton" customModule="DogsBestFriend" customModuleProvider="target">
-                                <rect key="frame" x="134" y="588" width="107" height="37"/>
+                                <rect key="frame" x="9.5" y="588" width="356" height="37"/>
                                 <color key="backgroundColor" name="mainColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
@@ -123,10 +123,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Kxc-1k-ryA" firstAttribute="top" secondItem="Xty-fD-2db" secondAttribute="top" id="2JI-wl-4la"/>
+                            <constraint firstItem="Kxc-1k-ryA" firstAttribute="leading" secondItem="thJ-vd-4cC" secondAttribute="leading" id="403-pe-cup"/>
                             <constraint firstItem="cGd-uO-cpQ" firstAttribute="trailing" secondItem="OLQ-Se-IB9" secondAttribute="trailing" constant="24" id="Cye-sH-9ml"/>
                             <constraint firstItem="cGd-uO-cpQ" firstAttribute="bottom" secondItem="Kxc-1k-ryA" secondAttribute="bottom" constant="42" id="GNx-QL-XHh"/>
                             <constraint firstItem="OLQ-Se-IB9" firstAttribute="leading" secondItem="cGd-uO-cpQ" secondAttribute="leading" constant="24" id="M9W-i9-qE8"/>
                             <constraint firstItem="OLQ-Se-IB9" firstAttribute="top" secondItem="thJ-vd-4cC" secondAttribute="bottom" constant="8" id="RBK-a8-8Uy"/>
+                            <constraint firstItem="Kxc-1k-ryA" firstAttribute="trailing" secondItem="thJ-vd-4cC" secondAttribute="trailing" id="SdI-RR-oUH"/>
                             <constraint firstItem="thJ-vd-4cC" firstAttribute="top" secondItem="HIy-lc-jNN" secondAttribute="bottom" constant="8" id="WTy-0a-Dz0"/>
                             <constraint firstItem="HIy-lc-jNN" firstAttribute="top" secondItem="cGd-uO-cpQ" secondAttribute="top" id="Xb1-WE-zEM"/>
                             <constraint firstItem="Kxc-1k-ryA" firstAttribute="bottom" secondItem="Xty-fD-2db" secondAttribute="bottom" id="aHD-NX-FJL"/>

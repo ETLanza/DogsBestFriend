@@ -121,7 +121,11 @@ class NewWalkViewController: UIViewController {
     }
 
     func displayStopWalkAlert() {
-        let stopWalkAlertController = UIAlertController(title: "Finished?", message: "Do you wish to end your walk?", preferredStyle: .actionSheet)
+        var alertTitle: String = "Nice Walk"
+        if seconds > 300 {
+            alertTitle = "Great Walk!"
+        }
+        let stopWalkAlertController = UIAlertController(title: alertTitle, message: "Do you want to save this walk?", preferredStyle: .actionSheet)
         let saveAction = UIAlertAction(title: "Save Walk", style: .default) { _ in
             self.stopWalk()
             self.saveWalk()
