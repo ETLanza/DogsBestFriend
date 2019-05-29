@@ -123,11 +123,12 @@ class WalkDetailViewController: UIViewController {
 
 extension WalkDetailViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        guard let polyline = overlay as? MKPolyline else {
+        guard let polyline = overlay as? MKGeodesicPolyline else {
             return MKOverlayRenderer(overlay: overlay)
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.lineWidth = 3
+        renderer.strokeColor = UIColor.blue
         return renderer
     }
 }
